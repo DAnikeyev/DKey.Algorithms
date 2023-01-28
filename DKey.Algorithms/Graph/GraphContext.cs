@@ -6,15 +6,15 @@ public abstract class GraphContext
     public int N;
     public HashSet<int> Used;
     public int CurrentVertex;
-    public int Parent;
+    public LinkedList<int> ParentList;
 
-    protected GraphContext(List<int>[] graph, int n, HashSet<int> used, int currentVertex, int parent)
+    protected GraphContext(List<int>[] graph, int n, HashSet<int> used, int currentVertex)
     {
         Graph = graph;
         N = n;
         Used = used;
         CurrentVertex = currentVertex;
-        Parent = parent;
+        ParentList = new LinkedList<int>();
     }
 
     public abstract void Process();

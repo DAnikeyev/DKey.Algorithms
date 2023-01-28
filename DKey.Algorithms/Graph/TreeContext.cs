@@ -2,7 +2,7 @@
 
 public class TreeContext : GraphContext
 {
-    public TreeContext(List<int>[] graph, int n, HashSet<int> used, int currentVertex, int parent) : base(graph, n, used, currentVertex, parent)
+    public TreeContext(List<int>[] graph, int n, HashSet<int> used, int currentVertex) : base(graph, n, used, currentVertex)
     {
     }
 

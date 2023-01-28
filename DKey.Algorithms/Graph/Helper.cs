@@ -43,13 +43,13 @@ public static class Helper
             return;
         action.Invoke(context);
         context.Used.Add(context.CurrentVertex);
+        context.ParentList.AddLast(context.CurrentVertex);
         foreach (var adjacent in context.Graph[context.CurrentVertex])
         {
-            context.Parent = context.CurrentVertex;
             context.CurrentVertex = adjacent;
             DFS(context, action);
-            context.CurrentVertex = context.Parent;
         }
+        context.ParentList.RemoveLast();
     }
 
 }

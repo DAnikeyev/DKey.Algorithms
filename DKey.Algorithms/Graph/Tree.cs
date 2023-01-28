@@ -7,11 +7,16 @@ public class Tree
     public TreeVertex[] Vertices;
     public GraphContext Context;
 
-    private void ProcessVertexInDFS(GraphContext context) 
+    private void ProcessVertexInDFS(GraphContext context)
     {
-        if (context.Used.Contains(context.Parent))
-            Vertices[context.Parent].children.Add(context.CurrentVertex);
-        Vertices[context.CurrentVertex] = new TreeVertex(context.Parent, context.CurrentVertex, new HashSet<int>());
+        var parent = -1;
+        if (context.ParentList.Any())
+        {
+            parent = context.ParentList.Last();
+            Vertices[parent].children.Add(context.CurrentVertex);
+        }
+            
+        Vertices[context.CurrentVertex] = new TreeVertex(parent, context.CurrentVertex, new HashSet<int>());
         context.Process();
     }
 
@@ -25,7 +30,7 @@ public class Tree
 
     public static Tree Build(List<int>[] Graph, int n, int root)
     {
-        var context = new TreeContext(Graph, n, new HashSet<int>(), root, -1);
+        var context = new TreeContext(Graph, n, new HashSet<int>(), root);
         var tree = new Tree(n, root, context);
         Helper.DFS(context, tree.ProcessVertexInDFS);
         return tree;
