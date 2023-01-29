@@ -23,6 +23,6 @@ public class TreeTests
         };
         var G = Helper.BuildNeighboursList(edges, V, false);
         var tree = Tree.Build(G, 5, 1);
-        CollectionAssert.AreEqual(new List<int>(){2,1,0,1,0}, tree.Vertices.Select(x => x.children.Count()).ToList());
+        CollectionAssert.AreEqual(new List<int>(){2,1,0,1,0}, tree.Vertices.Select(x => x.Children.Count()).ToList());
     }
 }

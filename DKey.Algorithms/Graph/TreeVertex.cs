@@ -2,14 +2,14 @@
 
 public class TreeVertex
 {
-    public int parentIndex;
-    public int index;
-    public HashSet<int> children;
+    public int ParentIndex;
+    public int Index;
+    public HashSet<int> Children;
 
     public TreeVertex(int parentIndex, int index, HashSet<int> children)
     {
-        this.parentIndex = parentIndex;
-        this.index = index;
-        this.children = children;
+        this.ParentIndex = parentIndex;
+        this.Index = index;
+        this.Children = children;
     }
 }

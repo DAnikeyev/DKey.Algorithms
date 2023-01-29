@@ -13,14 +13,14 @@ public class Tree
         if (context.ParentList.Any())
         {
             parent = context.ParentList.Last();
-            Vertices[parent].children.Add(context.CurrentVertex);
+            Vertices[parent].Children.Add(context.CurrentVertex);
         }
             
         Vertices[context.CurrentVertex] = new TreeVertex(parent, context.CurrentVertex, new HashSet<int>());
         context.Process();
     }
 
-    public Tree(int verticesCount, int root, GraphContext context)
+    private Tree(int verticesCount, int root, GraphContext context)
     {
         VerticesCount = verticesCount;
         Vertices = new TreeVertex[verticesCount];
