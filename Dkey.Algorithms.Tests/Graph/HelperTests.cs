@@ -1,11 +1,11 @@
-using DKey.Algorithms.Graph;
+using DKey.Algorithms.DataStructures.Graph;
 
 namespace Dkey.Algorithms.Tests.Graph;
 
 public class HelperTests
 {
     [Test]
-    public void BuildNeighboursListTest()
+    public void T01_BuildNeighboursListTest()
     {
         var V = 5;
         var edges = new List<(int, int)>()

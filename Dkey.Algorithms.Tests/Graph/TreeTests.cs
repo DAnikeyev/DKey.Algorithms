@@ -1,16 +1,11 @@
-﻿using DKey.Algorithms.Graph;
+﻿using DKey.Algorithms.DataStructures.Graph;
 
 namespace Dkey.Algorithms.Tests.Graph;
 
 public class TreeTests
 {
-    [SetUp]
-    public void Setup()
-    {
-    }
-
     [Test]
-    public void Test1()
+    public void T01_ChildNumbersTest()
     {
         var V = 5;
         var edges = new List<(int, int)>()
