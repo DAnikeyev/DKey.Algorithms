@@ -50,6 +50,18 @@ public static class LinqExtension
             dictionary[key] = val + 1;
         }
     }
+
+    public static void AddToCountDictionary<TSource, TKey>
+        (this Dictionary<TKey, int> dictionary, TSource element, Func<TSource, TKey> keySelector) where TKey : notnull
+    {
+        var key = keySelector(element);
+        dictionary.TryGetValue(key, out var val);
+        dictionary[key] = val + 1;
+    }
+    
+    /// <summary>
+    /// Добавляет объект в список, поддерживая сортировку.
+    /// </summary>
     public static void AddSorted<T>(this List<T> list, T item) where T : IComparable<T>
     {
         if (list.Count == 0)

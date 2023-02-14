@@ -37,6 +37,9 @@ public static class Helper
         return res;
     }
 
+    /// <summary>
+    /// Depth-first search with some action on current context.
+    /// </summary>
     public static void DFS(GraphContext context, Action<GraphContext>? action = default)
     {
         if (context.Used.Contains(context.CurrentVertex))

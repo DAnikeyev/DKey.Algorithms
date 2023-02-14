@@ -22,4 +22,19 @@ public class ModularArithmeticsTests
     {
         Assert.AreEqual(3,Arithmetics.Inverse(4));
     }
+    [Test] 
+    public void T03_ModularAdd()
+    {
+        Assert.AreEqual(2,Arithmetics.Add(4,9));
+    }
+    [Test] 
+    public void T04_ModularMultiply()
+    {
+        Assert.AreEqual(5, Arithmetics.Multiply(4,4));
+    }
+    [Test] 
+    public void T05_ModularDiv()
+    {
+        Assert.AreEqual(6,Arithmetics.Divide(2,4));
+    }
 }
