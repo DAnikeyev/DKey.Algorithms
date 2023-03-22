@@ -1,5 +1,8 @@
 ﻿namespace DKey.Algorithms.DataStructures.Graph;
 
+/// <summary>
+/// Compatible with DFS.
+/// </summary>
 public class GraphContext : GraphContextBase
 {
     public Stack<int> Parents;

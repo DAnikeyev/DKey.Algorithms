@@ -5,7 +5,7 @@ public static class DepthFirstSearch
     /// <summary>
     /// Iterative depth-first search with some action on the current context.
     /// </summary>
-    public static void Iterative(GraphContext context, Action<GraphContext>? action = default)
+    public static void Iterative<TContext>(TContext context, Action<TContext>? action = default) where TContext : GraphContext
     {
         var stack = new Stack<(int, int)>();
         stack.Push((context.CurrentVertex, 0));
@@ -46,7 +46,7 @@ public static class DepthFirstSearch
     /// Depth-first search with some action on current context
     /// Use for n, less than 10000, otherwise there is a chance for stackoverflow.
     /// </summary>
-    public static void Recursive(GraphContext context, Action<GraphContext>? action = default)
+    public static void Recursive<TContext>(GraphContext context, Action<GraphContext>? action = default) where TContext : GraphContext
     {
         if (context.Used.Contains(context.CurrentVertex))
             return;
@@ -56,7 +56,7 @@ public static class DepthFirstSearch
         foreach (var adjacent in context.Graph[context.CurrentVertex])
         {
             context.CurrentVertex = adjacent;
-            Recursive(context, action);
+            Recursive<TContext>(context, action);
         }
         context.Parents.Pop();
     }

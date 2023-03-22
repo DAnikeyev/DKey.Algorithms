@@ -1,4 +1,6 @@
-﻿namespace DKey.Algorithms.NumberTheory;
+﻿using System.Numerics;
+
+namespace DKey.Algorithms.NumberTheory;
 
  
 public class ModularArithmetics
@@ -15,7 +17,7 @@ public class ModularArithmetics
     /// <summary>
     /// Fast exponentiation.
     /// </summary>
-    public int Power(int value, int power, bool useCache = true)
+    public int Power(int value, int power)
     {
         if (power == 0)
             return 1;
@@ -37,6 +39,29 @@ public class ModularArithmetics
         return (int)remainder;
     }
  
+    /// <summary>
+    /// GPTSugessted, TODO: check perfomance and values
+    /// </summary>
+    public uint Power(uint value, uint power)
+    {
+        if (power == 0)
+            return 1;
+
+        var remainder = value % Module;
+        var mask = 1u << (int)(BitOperations.Log2(power) - 1);
+
+        while (mask > 0)
+        {
+            remainder = (remainder * remainder) % Module;
+            if ((power & mask) != 0)
+                remainder = remainder * value % Module;
+
+            mask >>= 1;
+        }
+
+        return (uint)remainder;
+    }
+    
     public int Inverse(int value) => Power(value, Module - 2);
  
     public int Add(int a, int b) => (int)((a + (long)b) % Module);
