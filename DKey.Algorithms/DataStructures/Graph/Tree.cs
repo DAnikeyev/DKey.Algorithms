@@ -10,13 +10,13 @@ public class Tree
     private void ProcessVertexInDFS(GraphContext context)
     {
         var parent = -1;
-        if (context.ParentList.Any())
+        if (context.Parents.Any())
         {
-            parent = context.ParentList.Last();
+            parent = context.Parents.Peek();
             Vertices[parent].Children.Add(context.CurrentVertex);
         }
             
-        Vertices[context.CurrentVertex] = new TreeVertex(parent, context.CurrentVertex, new HashSet<int>());
+        Vertices[context.CurrentVertex] = new TreeVertex(parent, context.CurrentVertex, new List<int>());
         context.Process();
     }
 
@@ -32,7 +32,7 @@ public class Tree
     {
         var context = new TreeContext(Graph, n, new HashSet<int>(), root);
         var tree = new Tree(n, root, context);
-        Helper.DFS(context, tree.ProcessVertexInDFS);
+        DepthFirstSearch.Iterative(context, tree.ProcessVertexInDFS);
         return tree;
     }
 }

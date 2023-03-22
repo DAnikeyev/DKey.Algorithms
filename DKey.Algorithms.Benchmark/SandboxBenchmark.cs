@@ -15,6 +15,6 @@ public class SandboxBenchmark
     [Benchmark]
     public void ToBinary()
     {
-        Algorithms.NumberTheory.BinaryArithmetics.Convert(N);
+        Algorithms.NumberTheory.BinaryArithmetics.ConvertToBoolArray(N);
     }
 }

@@ -1,9 +1,9 @@
 ﻿namespace DKey.Algorithms.DataStructures.Graph;
 
 /// <summary>
-/// Basic graph actions.
+/// Basic graph converter.
 /// </summary>
-public static class Helper
+public static class DataConverter
 {
     
     /// <summary>
@@ -38,21 +38,33 @@ public static class Helper
     }
 
     /// <summary>
-    /// Depth-first search with some action on current context.
-    /// </summary>
-    public static void DFS(GraphContext context, Action<GraphContext>? action = default)
+    /// Build forwards and backwards graph.
+    /// <summary>
+    public static (List<int>[]G, List<int>[] GRev) BuildOrderedNeighboursList(List<(int, int)> edges, int n, bool isSameRepresentation = true)
     {
-        if (context.Used.Contains(context.CurrentVertex))
-            return;
-        action?.Invoke(context);
-        context.Used.Add(context.CurrentVertex);
-        context.ParentList.AddLast(context.CurrentVertex);
-        foreach (var adjacent in context.Graph[context.CurrentVertex])
+        var res = new List<int>[n];
+        var resRev = new List<int>[n];
+        for (var i = 0; i < n; i++)
         {
-            context.CurrentVertex = adjacent;
-            DFS(context, action);
+            res[i] = new List<int>();
+            resRev[i] = new List<int>();
         }
-        context.ParentList.RemoveLast();
-    }
 
+        var shift = isSameRepresentation ? 0 : 1;
+        foreach (var edge in edges)
+        {
+            res[edge.Item1 - shift].Add(edge.Item2 - shift);
+            resRev[edge.Item2 - shift].Add(edge.Item1 - shift);
+        }
+
+        return (res,resRev);
+    }
+    
+    /// <summary>
+    /// Graph from representation of tree with root_index = 1, by list of parents for vertxes [2..n].
+    /// </summary>
+    public static List<int>[] BuildFromTreeIndexation(List<int> parents)
+    {
+        return BuildNeighboursList(parents.Select((x, i) => (x, i + 2)).ToList(), parents.Count + 1, false, false);
+    }
 }

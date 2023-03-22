@@ -16,7 +16,7 @@ public class HelperTests
             (4,1),
             (1,5),
         };
-        var G = Helper.BuildNeighboursList(edges, V, false);
+        var G = DataConverter.BuildNeighboursList(edges, V, false);
         Assert.IsTrue(G[0].Count == 3);
         Assert.IsTrue(G[0].Contains(4));;
         Assert.IsTrue(!G[0].Contains(2));

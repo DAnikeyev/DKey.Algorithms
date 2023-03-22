@@ -1,21 +1,15 @@
 ﻿namespace DKey.Algorithms.DataStructures.Graph;
 
-public abstract class GraphContext
+public class GraphContext : GraphContextBase
 {
-    public List<int>[] Graph;
-    public int N;
-    public HashSet<int> Used;
-    public int CurrentVertex;
-    public LinkedList<int> ParentList;
-
-    protected GraphContext(List<int>[] graph, int n, HashSet<int> used, int currentVertex)
+    public Stack<int> Parents;
+    
+    public GraphContext(List<int>[] graph, int n, HashSet<int> used, int currentVertex) : base(graph, n, used, currentVertex)
     {
-        Graph = graph;
-        N = n;
-        Used = used;
-        CurrentVertex = currentVertex;
-        ParentList = new LinkedList<int>();
+        Parents = new Stack<int>();
     }
 
-    public abstract void Process();
+    public override void Process()
+    {
+    }
 }

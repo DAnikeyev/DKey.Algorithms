@@ -1,11 +1,3 @@
-C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\obj\Debug\net7.0\DKey.Algorithms.Benchmark.csproj.AssemblyReference.cache
-C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\obj\Debug\net7.0\DKey.Algorithms.Benchmark.GeneratedMSBuildEditorConfig.editorconfig
-C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\obj\Debug\net7.0\DKey.Algorithms.Benchmark.AssemblyInfoInputs.cache
-C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\obj\Debug\net7.0\DKey.Algorithms.Benchmark.AssemblyInfo.cs
-C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\obj\Debug\net7.0\DKey.Algorithms.Benchmark.csproj.CoreCompileInputs.cache
-C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\TraceReloggerLib.dll
-C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\Dia2Lib.dll
-C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\OSExtensions.dll
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\x86\KernelTraceControl.dll
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\x86\KernelTraceControl.Win61.dll
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\x86\msdia140.dll
@@ -21,6 +13,9 @@ C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\arm64
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\arm64\msvcp140.dll
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\arm64\vcruntime140.dll
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\arm64\vcruntime140_1.dll
+C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\TraceReloggerLib.dll
+C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\Dia2Lib.dll
+C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\OSExtensions.dll
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\DKey.Algorithms.Benchmark.exe
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\DKey.Algorithms.Benchmark.deps.json
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\DKey.Algorithms.Benchmark.runtimeconfig.json
@@ -88,6 +83,11 @@ C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\runti
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Management.dll
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\DKey.Algorithms.dll
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\bin\Debug\net7.0\DKey.Algorithms.pdb
+C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\obj\Debug\net7.0\DKey.Algorithms.Benchmark.csproj.AssemblyReference.cache
+C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\obj\Debug\net7.0\DKey.Algorithms.Benchmark.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\obj\Debug\net7.0\DKey.Algorithms.Benchmark.AssemblyInfoInputs.cache
+C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\obj\Debug\net7.0\DKey.Algorithms.Benchmark.AssemblyInfo.cs
+C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\obj\Debug\net7.0\DKey.Algorithms.Benchmark.csproj.CoreCompileInputs.cache
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\obj\Debug\net7.0\DKey.Algorithms.Benchmark.csproj.CopyComplete
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\obj\Debug\net7.0\DKey.Algorithms.Benchmark.dll
 C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Benchmark\obj\Debug\net7.0\refint\DKey.Algorithms.Benchmark.dll

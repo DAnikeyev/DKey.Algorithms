@@ -59,9 +59,7 @@ public static class LinqExtension
         dictionary[key] = val + 1;
     }
     
-    /// <summary>
-    /// Добавляет объект в список, поддерживая сортировку.
-    /// </summary>
+    
     public static void AddSorted<T>(this List<T> list, T item) where T : IComparable<T>
     {
         if (list.Count == 0)

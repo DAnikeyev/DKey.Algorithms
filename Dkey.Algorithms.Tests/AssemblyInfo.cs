@@ -1,0 +1,1 @@
+﻿[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("NUnit", "NUnit2005:Consider using the constraint model", Justification = "Not necessary for this project")]
