@@ -4,21 +4,23 @@ namespace DKey.Algorithms.DataStructures.Graph.SuffixTree;
 
 internal class SuffixNode<T>  where T : IComparable
 {
-    public int? ParentIndex;
-    public int Index;
+    public int ParentIndex;
+    public int VertexIndex;
     public int Depth;
-    public int ParentEdgeOffset;
+    public int Offset;
     public int ParentEdgeLength;
     public Dictionary<T, int> children = new Dictionary<T, int>();
-    public int? SuffixLink;
-    public int SubstringOffset => ParentEdgeOffset + ParentEdgeLength - Depth;
+    public int SuffixLink;
+    public int nextDataIndex => Offset + Depth;
+    public int parentNextDataIndex => Offset + Depth - ParentEdgeLength;
 
-    public SuffixNode(int parentEdgeOffset, int parentEdgeLength, int? parentIndex, int index, int? suffixLink)
+    public SuffixNode(int offset, int depth, int parentEdgeLength, int parentIndex, int vertexIndex, int suffixLink = -1)
     {
-        ParentIndex = parentIndex;
-        Index = index;
-        SuffixLink = suffixLink;
-        ParentEdgeOffset = parentEdgeOffset;
+        Offset = offset;
+        Depth = depth;
         ParentEdgeLength = parentEdgeLength;
+        ParentIndex = parentIndex;
+        VertexIndex = vertexIndex;
+        SuffixLink = suffixLink;
     }
 }

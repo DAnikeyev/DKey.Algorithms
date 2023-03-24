@@ -48,6 +48,11 @@ public sealed class ListGenerator
         }
         return permutation;
     }
+    
+    public string RandomString(int n, int letters)
+    {
+        return new string(RandomList(n, 0, letters).Select(x => (char)(x + 'a')).ToArray());
+    }
     /// <summary>
     /// Returns random sequence of k ones and n-k zeros
     /// </summary>
