@@ -1,6 +1,6 @@
 ﻿using DKey.Algorithms.NumberTheory;
 
-namespace Dkey.Algorithms.Tests;
+namespace DKey.Algorithms.Tests;
 
 public class ArithmeticTests
 {

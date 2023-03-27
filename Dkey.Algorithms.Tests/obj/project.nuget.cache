@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Q1JwZY+ZxcThaLzYxQDYOJbn/6xbBKHaUbqsfR/sKeyCs9cIsLyNN0UlqRytSAebTSQBfMkNbGtn39UThCzcUA==",
+  "dgSpecHash": "8MAdsDGImrJh2MMDMsCVUkOpDbLpU+0sW5QcC02rU1hYXz4vlBj/5moMCDLMjd3Z6gwgOPbzfZyllnRulEDgaQ==",
   "success": true,
-  "projectFilePath": "C:\\Repos\\github\\DKey.Algorithms\\Dkey.Algorithms.Tests\\Dkey.Algorithms.Tests.csproj",
+  "projectFilePath": "C:\\Repos\\github\\DKey.Algorithms\\DKey.Algorithms.Tests\\DKey.Algorithms.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dmitr\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\dmitr\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",

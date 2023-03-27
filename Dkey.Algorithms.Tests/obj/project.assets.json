@@ -3978,11 +3978,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Repos\\github\\DKey.Algorithms\\Dkey.Algorithms.Tests\\Dkey.Algorithms.Tests.csproj",
-      "projectName": "Dkey.Algorithms.Tests",
-      "projectPath": "C:\\Repos\\github\\DKey.Algorithms\\Dkey.Algorithms.Tests\\Dkey.Algorithms.Tests.csproj",
+      "projectUniqueName": "C:\\Repos\\github\\DKey.Algorithms\\DKey.Algorithms.Tests\\DKey.Algorithms.Tests.csproj",
+      "projectName": "DKey.Algorithms.Tests",
+      "projectPath": "C:\\Repos\\github\\DKey.Algorithms\\DKey.Algorithms.Tests\\DKey.Algorithms.Tests.csproj",
       "packagesPath": "C:\\Users\\dmitr\\.nuget\\packages\\",
-      "outputPath": "C:\\Repos\\github\\DKey.Algorithms\\Dkey.Algorithms.Tests\\obj\\",
+      "outputPath": "C:\\Repos\\github\\DKey.Algorithms\\DKey.Algorithms.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

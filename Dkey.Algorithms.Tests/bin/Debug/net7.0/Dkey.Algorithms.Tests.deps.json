@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {
-      "Dkey.Algorithms.Tests/1.0.0": {
+      "DKey.Algorithms.Tests/1.0.0": {
         "dependencies": {
           "DKey.Algorithms": "1.0.0",
           "Microsoft.NET.Test.Sdk": "17.3.2",
@@ -16,7 +16,7 @@
           "coverlet.collector": "3.1.2"
         },
         "runtime": {
-          "Dkey.Algorithms.Tests.dll": {}
+          "DKey.Algorithms.Tests.dll": {}
         }
       },
       "coverlet.collector/3.1.2": {},
@@ -661,7 +661,7 @@
     }
   },
   "libraries": {
-    "Dkey.Algorithms.Tests/1.0.0": {
+    "DKey.Algorithms.Tests/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

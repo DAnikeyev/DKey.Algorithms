@@ -1,11 +1,11 @@
 ﻿using DKey.Algorithms.DataStructures.Graph.SuffixTree;
+using DKey.Algorithms.RandomData;
 
-namespace Dkey.Algorithms.Tests.Graph;
+namespace DKey.Algorithms.Tests.Graph;
 
     public class SuffixTreeTests
     {
         
-        [Test]
         public void Contains_IntTree_PositiveTests0()
         {
             var data = new List<int> { 0,1 };
@@ -61,5 +61,45 @@ namespace Dkey.Algorithms.Tests.Graph;
             Assert.IsFalse(tree.Contains(new List<int> { 2, 3, 3 }));
             Assert.IsFalse(tree.Contains(new List<int> { 3, 1, 1 }));
             Assert.IsFalse(tree.Contains(new List<int> { 4, 2 }));
+        }
+        
+        
+        [Test]
+        public void Contains_IntTreeRepeat_PositiveTests()
+        {
+            var data = new List<int> { 1,2,2,3 };
+            var tree = SuffixTree<int>.Build(data, int.MinValue);
+
+            Assert.IsFalse(tree.Contains(new List<int> { 1, 2, 4 }));
+        }
+        
+        
+        [Test]
+        public void Contains_CharTree_PositiveComplexTest()
+        {
+            var data = new List<char> { 'b', 'c', 'c', 'c', 'b', 'a', 'a', 'b', 'c', 'd' };
+            var tree = SuffixTree<char>.Build(data, '\0');
+
+            Assert.IsTrue(tree.Contains(new List<char> { 'c', 'b', 'a', 'a' }));
+        }
+        
+        [Test]
+        public void BigTree([Values(1, 5, 10, 25, 100, 1000, 10000, 100000, 1000000)]int value)
+        {
+            var data = ListGenerator.Instance().RandomString(value, 3);
+            var tree = SuffixTree<char>.Build(data.ToCharArray(), char.MinValue);
+            var ok = tree.Contains("ba".ToCharArray());
+            Assert.IsTrue(ok || value < 9999);
+
+        }
+
+        [Test]
+        [Explicit]
+        public void BigBigTree([Values(1000000, 10000000, 100000000)] int value)
+        {
+            var data = ListGenerator.Instance().RandomString(value, 5);
+            var tree = SuffixTree<char>.Build(data.ToCharArray(), char.MinValue);
+            var ok = tree.Contains("bacd".ToCharArray());
+            Assert.IsTrue(ok);
         }
     }

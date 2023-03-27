@@ -1,6 +1,6 @@
 ﻿using DKey.Algorithms;
 
-namespace Dkey.Algorithms.Tests;
+namespace DKey.Algorithms.Tests;
 
 public class BinarySearchTests
 {

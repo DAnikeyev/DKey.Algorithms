@@ -1,10 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKey.Algorithms", "DKey.Algorithms\DKey.Algorithms.csproj", "{5355ADC5-816F-430A-BDB1-BB51E9394FF7}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DKey.Algorithms", "DKey.Algorithms\DKey.Algorithms.csproj", "{5355ADC5-816F-430A-BDB1-BB51E9394FF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dkey.Algorithms.Tests", "Dkey.Algorithms.Tests\Dkey.Algorithms.Tests.csproj", "{705969DA-A152-47DC-9BB6-D5060B8D81F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DKey.Algorithms.Tests", "DKey.Algorithms.Tests\DKey.Algorithms.Tests.csproj", "{705969DA-A152-47DC-9BB6-D5060B8D81F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKey.Algorithms.Benchmark", "DKey.Algorithms.Benchmark\DKey.Algorithms.Benchmark.csproj", "{87196F33-313D-44D1-A48C-40CBDEC13F5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DKey.Algorithms.Benchmark", "DKey.Algorithms.Benchmark\DKey.Algorithms.Benchmark.csproj", "{87196F33-313D-44D1-A48C-40CBDEC13F5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKey.Sandbox", "DKey.Sandbox\DKey.Sandbox.csproj", "{13E20292-8CAD-415E-8E49-86B594299E74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKey.CodeForcesExamples", "DKey.CodeForcesExamples\DKey.CodeForcesExamples.csproj", "{CF3D6CF5-1E8E-46C7-BD9F-E9BBEA9DF2ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +31,16 @@ Global
 		{87196F33-313D-44D1-A48C-40CBDEC13F5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87196F33-313D-44D1-A48C-40CBDEC13F5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87196F33-313D-44D1-A48C-40CBDEC13F5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13E20292-8CAD-415E-8E49-86B594299E74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E20292-8CAD-415E-8E49-86B594299E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E20292-8CAD-415E-8E49-86B594299E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E20292-8CAD-415E-8E49-86B594299E74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF3D6CF5-1E8E-46C7-BD9F-E9BBEA9DF2ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF3D6CF5-1E8E-46C7-BD9F-E9BBEA9DF2ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF3D6CF5-1E8E-46C7-BD9F-E9BBEA9DF2ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF3D6CF5-1E8E-46C7-BD9F-E9BBEA9DF2ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

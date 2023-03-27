@@ -1,6 +1,6 @@
 ﻿using DKey.Algorithms.DataStructures.Graph;
 
-namespace Dkey.Algorithms.Tests.Graph;
+namespace DKey.Algorithms.Tests.Graph;
 
 public class TreeTests
 {

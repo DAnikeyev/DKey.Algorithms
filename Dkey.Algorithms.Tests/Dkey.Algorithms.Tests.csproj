@@ -6,6 +6,10 @@
         <Nullable>enable</Nullable>
 
         <IsPackable>false</IsPackable>
+
+        <AssemblyName>DKey.Algorithms.Tests</AssemblyName>
+
+        <RootNamespace>DKey.Algorithms.Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
