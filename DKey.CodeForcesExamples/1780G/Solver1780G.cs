@@ -5,7 +5,7 @@
 /// </summary>
 public static class Solver1780G
 {
-    public static void Solve
+    public static void Solve()
     {
     }
 }

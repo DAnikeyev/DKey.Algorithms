@@ -46,5 +46,12 @@ namespace DKey.Algorithms.Tests
             var expectedResult = new List<int> { 1, 2, 4, 5, 10, 20 };
             CollectionAssert.AreEqual(expectedResult, PrimeArithmetics.GetAllDividers(20));
         }
+        
+        [Test]
+        [Explicit]
+        public void GetPrimeFactorsForIntervalBigTest()
+        {
+            var result = PrimeArithmetics.GetPrimeFactorsForInterval(1000002);
+        }
     }
 }

@@ -7,7 +7,7 @@ public class Tree
     public TreeVertex[] Vertices;
     public GraphContext Context;
 
-    private void ProcessVertexInDFS(GraphContext context)
+    protected internal void CreateVertexInDFS(GraphContext context)
     {
         var parent = -1;
         if (context.Parents.Any())
@@ -17,10 +17,9 @@ public class Tree
         }
             
         Vertices[context.CurrentVertex] = new TreeVertex(parent, context.CurrentVertex, new List<int>());
-        context.Process();
     }
 
-    private Tree(int verticesCount, int root, GraphContext context)
+    protected internal Tree(int verticesCount, int root, GraphContext context)
     {
         VerticesCount = verticesCount;
         Vertices = new TreeVertex[verticesCount];
@@ -30,9 +29,9 @@ public class Tree
 
     public static Tree Build(List<int>[] Graph, int n, int root)
     {
-        var context = new TreeContext(Graph, n, new HashSet<int>(), root);
+        var context = new GraphContext(Graph, n, new HashSet<int>(), root);
         var tree = new Tree(n, root, context);
-        DepthFirstSearch.Iterative(context, tree.ProcessVertexInDFS);
+        DepthFirstSearch.Iterative(context, tree.CreateVertexInDFS);
         return tree;
     }
 }

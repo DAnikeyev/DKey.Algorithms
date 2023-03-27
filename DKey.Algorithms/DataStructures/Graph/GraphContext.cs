@@ -12,7 +12,7 @@ public class GraphContext : GraphContextBase
         Parents = new Stack<int>();
     }
 
-    public override void Process()
+    public void Process()
     {
     }
 }

@@ -83,6 +83,30 @@ public class PrimeArithmetics
         return result;
     }
     
+    
+    public static List<int> GetAllDividers(List<(int prime, int factors)> primeFactors)
+    {
+        var dividers = new List<int> { 1 };
+
+        foreach (var (prime, factor) in primeFactors)
+        {
+            var size = dividers.Count;
+            var currentMultiplier = 1;
+
+            for (var i = 0; i < factor; i++)
+            {
+                currentMultiplier *= prime;
+                for (var j = 0; j < size; j++)
+                {
+                    dividers.Add(dividers[j] * currentMultiplier);
+                }
+            }
+        }
+
+        dividers.Sort();
+        return dividers;
+    }
+    
     public static List<int> GetAllDividers(int n)
     {
         var primeFactors = GetPrimeFactors(n);

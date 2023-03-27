@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "DKey.Algorithms/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/DKey.Algorithms.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DKey.Algorithms.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "DKey.Algorithms/1.0.0": {
+      "type": "project",
+      "path": "../DKey.Algorithms/DKey.Algorithms.csproj",
+      "msbuildProject": "../DKey.Algorithms/DKey.Algorithms.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "DKey.Algorithms >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\dmitr\\.nuget\\packages\\": {},
@@ -40,7 +59,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Repos\\github\\DKey.Algorithms\\DKey.Algorithms\\DKey.Algorithms.csproj": {
+              "projectPath": "C:\\Repos\\github\\DKey.Algorithms\\DKey.Algorithms\\DKey.Algorithms.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

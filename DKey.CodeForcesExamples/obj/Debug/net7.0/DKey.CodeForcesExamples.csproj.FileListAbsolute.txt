@@ -13,3 +13,6 @@ C:\Repos\github\DKey.Algorithms\DKey.CodeForcesExamples\obj\Debug\net7.0\refint\
 C:\Repos\github\DKey.Algorithms\DKey.CodeForcesExamples\obj\Debug\net7.0\DKey.CodeForcesExamples.pdb
 C:\Repos\github\DKey.Algorithms\DKey.CodeForcesExamples\obj\Debug\net7.0\DKey.CodeForcesExamples.genruntimeconfig.cache
 C:\Repos\github\DKey.Algorithms\DKey.CodeForcesExamples\obj\Debug\net7.0\ref\DKey.CodeForcesExamples.dll
+C:\Repos\github\DKey.Algorithms\DKey.CodeForcesExamples\bin\Debug\net7.0\DKey.Algorithms.dll
+C:\Repos\github\DKey.Algorithms\DKey.CodeForcesExamples\bin\Debug\net7.0\DKey.Algorithms.pdb
+C:\Repos\github\DKey.Algorithms\DKey.CodeForcesExamples\obj\Debug\net7.0\DKey.CodeForcesExamples.csproj.CopyComplete

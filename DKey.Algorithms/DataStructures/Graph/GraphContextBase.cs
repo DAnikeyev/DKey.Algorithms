@@ -14,6 +14,4 @@ public abstract class GraphContextBase
         Used = used;
         CurrentVertex = currentVertex;
     }
-
-    public abstract void Process();
 }
