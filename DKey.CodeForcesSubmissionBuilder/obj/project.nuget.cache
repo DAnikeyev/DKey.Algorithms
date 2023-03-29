@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "dgSpecHash": "/epK6W/2q8zrlGnYbmtEHt7IYTpLJ+kvUacXYzwJqlqWwS9hy1MBxehH0lJjlxNWWgyw9KdXBoI/bhbT6eZFTg==",
+  "success": true,
+  "projectFilePath": "C:\\Repos\\github\\DKey.Algorithms\\DKey.CodeForcesSubmissionBuilder\\DKey.CodeForcesSubmissionBuilder.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dmitr\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\microsoft.codeanalysis\\4.6.0-1.final\\microsoft.codeanalysis.4.6.0-1.final.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.4\\microsoft.codeanalysis.analyzers.3.3.4.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\microsoft.codeanalysis.common\\4.6.0-1.final\\microsoft.codeanalysis.common.4.6.0-1.final.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.6.0-1.final\\microsoft.codeanalysis.csharp.4.6.0-1.final.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\microsoft.codeanalysis.csharp.workspaces\\4.6.0-1.final\\microsoft.codeanalysis.csharp.workspaces.4.6.0-1.final.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\microsoft.codeanalysis.visualbasic\\4.6.0-1.final\\microsoft.codeanalysis.visualbasic.4.6.0-1.final.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\microsoft.codeanalysis.visualbasic.workspaces\\4.6.0-1.final\\microsoft.codeanalysis.visualbasic.workspaces.4.6.0-1.final.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\4.6.0-1.final\\microsoft.codeanalysis.workspaces.common.4.6.0-1.final.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\system.composition\\6.0.0\\system.composition.6.0.0.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\system.composition.attributedmodel\\6.0.0\\system.composition.attributedmodel.6.0.0.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\system.composition.convention\\6.0.0\\system.composition.convention.6.0.0.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\system.composition.hosting\\6.0.0\\system.composition.hosting.6.0.0.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\system.composition.runtime\\6.0.0\\system.composition.runtime.6.0.0.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\system.composition.typedparts\\6.0.0\\system.composition.typedparts.6.0.0.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\system.reflection.metadata\\6.0.1\\system.reflection.metadata.6.0.1.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.ap-team.ru/nuget/'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}

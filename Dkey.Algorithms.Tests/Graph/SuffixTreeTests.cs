@@ -84,7 +84,7 @@ namespace DKey.Algorithms.Tests.Graph;
         }
         
         [Test]
-        public void BigTree([Values(1, 5, 10, 25, 100, 1000, 10000, 100000, 1000000)]int value)
+        public void BigTree([Values(1, 5, 10, 25, 100, 1000, 10000, 100000, 500000)]int value)
         {
             var data = ListGenerator.Instance().RandomString(value, 3);
             var tree = SuffixTree<char>.Build(data.ToCharArray(), char.MinValue);
@@ -95,7 +95,8 @@ namespace DKey.Algorithms.Tests.Graph;
 
         [Test]
         [Explicit]
-        public void BigBigTree([Values(1000000, 10000000, 100000000)] int value)
+        //64GBRAM for 250_000_000, 32GBRAM for 100_000_000
+        public void BigBigTree([Values(1_000_000, 10_000_000, 50_000_000, 100_000_000, 250_000_000)] int value)
         {
             var data = ListGenerator.Instance().RandomString(value, 5);
             var tree = SuffixTree<char>.Build(data.ToCharArray(), char.MinValue);

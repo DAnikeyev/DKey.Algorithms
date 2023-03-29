@@ -1,0 +1,8 @@
+  <Target Name="PackageForSubmission" AfterTargets="Build">
+    <ItemGroup>
+      <FilesToInclude Include="..\DKey.Algorithms\**\*.cs" />
+      <FilesToInclude Include="..\DKey.CodeForces\**\*.cs" />
+    </ItemGroup>
+    <Copy SourceFiles="@(FilesToInclude)" DestinationFolder="$(OutDir)\Submission" />
+    <Exec Command="powershell -Command ""Get-ChildItem $(OutDir)\Submission -Recurse | ForEach-Object {{ $_.FullName = $_.FullName.Replace('Algorithm', 'Solution'); $_ }}""" />
+  </Target>

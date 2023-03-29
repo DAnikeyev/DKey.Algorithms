@@ -1,4 +1,4 @@
-﻿namespace DKey.Algorithms;
+﻿namespace DKey.Algorithms.IEnumerableExtensions;
 
 public static class LinqExtension
 {

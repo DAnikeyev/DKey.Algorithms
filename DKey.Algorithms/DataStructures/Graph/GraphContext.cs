@@ -6,13 +6,14 @@
 public class GraphContext : GraphContextBase
 {
     public Stack<int> Parents;
-    
-    public GraphContext(List<int>[] graph, int n, HashSet<int> used, int currentVertex) : base(graph, n, used, currentVertex)
+    public HashSet<int> Used;
+    public int CurrentVertex;
+    public int Depth => Parents.Count();
+
+    public GraphContext(List<int>[] graph, HashSet<int> used, int currentVertex) : base(graph)
     {
         Parents = new Stack<int>();
-    }
-
-    public void Process()
-    {
+        CurrentVertex = currentVertex;
+        Used = used;
     }
 }

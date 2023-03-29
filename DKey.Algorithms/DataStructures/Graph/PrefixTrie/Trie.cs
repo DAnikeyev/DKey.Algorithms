@@ -1,5 +1,4 @@
-﻿
-namespace DKey.Algorithms.DataStructures.Graph.PrefixTrie;
+﻿namespace DKey.Algorithms.DataStructures.Graph.PrefixTrie;
 
 public class Trie
 {
@@ -13,9 +12,7 @@ public class Trie
     public void Build(List<string> words)
     {
         foreach (var word in words)
-        {
             Insert(word);
-        }
     }
 
     private void Insert(string word)
@@ -25,9 +22,7 @@ public class Trie
         foreach (char c in word)
         {
             if (!current.Children.ContainsKey(c))
-            {
                 current.Children[c] = new TrieNode();
-            }
 
             current = current.Children[c];
         }
@@ -42,10 +37,7 @@ public class Trie
         foreach (char c in prefix)
         {
             if (!current.Children.ContainsKey(c))
-            {
                 return false;
-            }
-
             current = current.Children[c];
         }
 
@@ -61,17 +53,12 @@ public class Trie
         foreach (var c in input)
         {
             if (!current.Children.TryGetValue(c, out var child))
-            {
                 break;
-            }
-
             currentMatch += c;
             current = child;
 
             if (current.IsEndOfWord)
-            {
                 longestMatch = currentMatch;
-            }
         }
 
         return longestMatch;

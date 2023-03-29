@@ -3,15 +3,9 @@
 public abstract class GraphContextBase
 {
     public List<int>[] Graph;
-    public int N;
-    public HashSet<int> Used;
-    public int CurrentVertex;
 
-    protected GraphContextBase(List<int>[] graph, int n, HashSet<int> used, int currentVertex)
+    protected GraphContextBase(List<int>[] graph)
     {
         Graph = graph;
-        N = n;
-        Used = used;
-        CurrentVertex = currentVertex;
     }
 }

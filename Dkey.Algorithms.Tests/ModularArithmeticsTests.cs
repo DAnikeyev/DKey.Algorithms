@@ -2,6 +2,7 @@
 
 namespace DKey.Algorithms.Tests;
 
+[TestFixture]
 public class ModularArithmeticsTests
 {
     public ModularArithmetics Arithmetics;

@@ -1,5 +1,4 @@
 ﻿using System.Numerics;
-
 namespace DKey.Algorithms.NumberTheory;
 
  
@@ -42,7 +41,7 @@ public class ModularArithmetics
     /// <summary>
     /// GPTSugessted, TODO: check perfomance and values
     /// </summary>
-    public uint Power(uint value, uint power)
+    public uint Power2(uint value, uint power)
     {
         if (power == 0)
             return 1;
@@ -80,6 +79,9 @@ public class ModularArithmetics
         return ans;
     }
  
+    /// <summary>
+    /// n choose k
+    /// </summary>
     public int Choose(int n, int k)
     {
         return Divide(Divide(Factorial(n), Factorial(k)), Factorial(n - k));

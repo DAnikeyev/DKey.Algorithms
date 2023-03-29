@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Order;
-
+using DKey.Algorithms.NumberTheory;
 namespace DKey.Algorithms.Benchmark;
 
 [MemoryDiagnoser]
@@ -15,6 +15,6 @@ public class SandboxBenchmark
     [Benchmark]
     public void ToBinary()
     {
-        Algorithms.NumberTheory.BinaryArithmetics.ConvertToBoolArray(N);
+        BinaryArithmetics.ConvertToBoolArray(N);
     }
 }

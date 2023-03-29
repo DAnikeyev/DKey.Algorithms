@@ -29,7 +29,7 @@ public class Tree
 
     public static Tree Build(List<int>[] Graph, int n, int root)
     {
-        var context = new GraphContext(Graph, n, new HashSet<int>(), root);
+        var context = new GraphContext(Graph, new HashSet<int>(), root);
         var tree = new Tree(n, root, context);
         DepthFirstSearch.Iterative(context, tree.CreateVertexInDFS);
         return tree;

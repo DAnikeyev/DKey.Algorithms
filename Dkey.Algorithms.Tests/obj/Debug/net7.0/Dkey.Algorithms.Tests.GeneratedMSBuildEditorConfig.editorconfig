@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DKey.Algorithms.Tests
-build_property.ProjectDir = C:\Repos\github\DKey.Algorithms\Dkey.Algorithms.Tests\
+build_property.ProjectDir = C:\Repos\github\DKey.Algorithms\DKey.Algorithms.Tests\
