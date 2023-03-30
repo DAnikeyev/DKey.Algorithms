@@ -77,13 +77,23 @@ public class Program
 
     private static List<int> ParseClass(string key, string[] lines)
     {
+        var childIndexes = new HashSet<int>();
         _classToUsings[key] = new HashSet<string>();
         var index = 0;
         while (true)
         {
             var line = lines[index].Trim();
-            if (line.Contains("using") && !line.Contains("DKey"))
-                _classToUsings[key].Add(line);
+            if (line.Contains("using"))
+            {
+                if(!line.Contains("DKey"))
+                    _classToUsings[key].Add(line);
+                foreach (var dependency in Config.PrimitiveExtensions.Where(x => line.Contains(x)))
+                {
+                    if(_classToIndex.TryGetValue(dependency, out var dependencyIndex))
+                        childIndexes.Add(dependencyIndex);
+                }
+            }
+
             if (line.Contains("namespace") || line.Contains("class") || line.Contains("enum") || line.Contains("struct") || line.Contains("interface"))
                 break;
             index++;
@@ -97,15 +107,14 @@ public class Program
         
         //Search dependencies inside a class excluding comments.
         var tokens = Tokenizer.Split(string.Join("\n", lines.Skip(index).Select(x => x.Trim()).Where(x => !x.StartsWith(@"//"))), TokenizerMode.TakeOnlyLettersOrDigit);
-        var indexes = new HashSet<int>();
         foreach (var t in tokens)
         {
             if (t == key)
                 continue;
             if(_classToIndex.TryGetValue(t, out var dependencyIndex))
-                indexes.Add(dependencyIndex);
+                childIndexes.Add(dependencyIndex);
         }
 
-        return indexes.ToList();
+        return childIndexes.ToList();
     }
 }

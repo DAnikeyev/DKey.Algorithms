@@ -10,4 +10,5 @@ internal class Config
     public static string Root = "Program";
     public static string SubmissionPath = @"C:\Repos\CodeForcesSubmission\CodeForcesSubmission\Program.cs";
     public static string[] ExcludedClasses = new []{"AssemblyInfo"};
+    public static string[] PrimitiveExtensions = new []{"IOHelper", "LinqExtension"};
 }
