@@ -1,0 +1,7 @@
+*.suo
+*.user
+.idea
+_ReSharper.*
+bin
+obj
+packages
