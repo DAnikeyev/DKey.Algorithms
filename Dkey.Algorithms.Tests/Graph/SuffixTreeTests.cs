@@ -5,7 +5,7 @@ namespace DKey.Algorithms.Tests.Graph;
 
     public class SuffixTreeTests
     {
-        
+        [Test]
         public void Contains_IntTree_PositiveTests0()
         {
             var data = new List<int> { 0,1 };
@@ -75,18 +75,28 @@ namespace DKey.Algorithms.Tests.Graph;
         
         
         [Test]
-        public void Contains_CharTree_PositiveComplexTest()
+        public void Contains_CharTree_ComplexTest()
         {
             var data = new List<char> { 'b', 'c', 'c', 'c', 'b', 'a', 'a', 'b', 'c', 'd' };
             var tree = SuffixTree<char>.Build(data, '\0');
 
             Assert.IsTrue(tree.Contains(new List<char> { 'c', 'b', 'a', 'a' }));
+            Assert.IsTrue(tree.Contains(new List<char> { 'a', 'a' }));
+            Assert.IsTrue(tree.Contains(new List<char> { 'c', 'c', 'c' }));
+            Assert.IsTrue(tree.Contains(new List<char> { 'c', 'c', 'c', 'b' }));
+            Assert.IsTrue(tree.Contains(new List<char> { 'b', 'c', 'c', 'c', 'b', 'a', 'a', 'b', 'c', 'd' }));
+            Assert.IsTrue(tree.Contains(new List<char> { 'c', 'c', 'c', 'b', 'a', 'a', 'b', 'c' }));
+            
+            Assert.IsFalse(tree.Contains(new List<char> { 'c', 'c', 'c', 'c' }));
+            Assert.IsFalse(tree.Contains(new List<char> { 'd', 'd'}));
+            Assert.IsFalse(tree.Contains(new List<char> { 'b', 'c', 'd', 'c'}));
+            Assert.IsFalse(tree.Contains(new List<char> { 'c', 'c', 'c', 'b', 'a', 'a', 'b', 'c', 'c' }));
         }
         
         [Test]
-        public void BigTree([Values(1, 5, 10, 25, 100, 1000, 10000, 100000, 500000)]int value)
+        public void VariousSizeTree([Values(1, 5, 10, 25, 100, 1000, 10000, 100000, 500000)]int value)
         {
-            var data = ListGenerator.Instance().RandomString(value, 3);
+            var data = ListGenerator.Instance().RandomString(value, 5);
             var tree = SuffixTree<char>.Build(data.ToCharArray(), char.MinValue);
             var ok = tree.Contains("ba".ToCharArray());
             Assert.IsTrue(ok || value < 9999);
@@ -98,7 +108,7 @@ namespace DKey.Algorithms.Tests.Graph;
         //64GBRAM for 250_000_000, 32GBRAM for 100_000_000
         public void BigBigTree([Values(1_000_000, 10_000_000, 50_000_000, 100_000_000, 250_000_000)] int value)
         {
-            var data = ListGenerator.Instance().RandomString(value, 5);
+            var data = ListGenerator.Instance(42).RandomString(value, 20);
             var tree = SuffixTree<char>.Build(data.ToCharArray(), char.MinValue);
             var ok = tree.Contains("bacd".ToCharArray());
             Assert.IsTrue(ok);

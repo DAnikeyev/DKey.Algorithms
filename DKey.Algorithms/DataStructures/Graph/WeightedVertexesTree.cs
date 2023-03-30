@@ -1,6 +1,6 @@
 ﻿namespace DKey.Algorithms.DataStructures.Graph;
 
-public class WeightedVertexesTree : Tree
+public class WeightedVertexesTree : TreeGraph
 {
     public int[] Weights;
     
@@ -9,7 +9,7 @@ public class WeightedVertexesTree : Tree
         Weights = weights;
     }
     
-    public static Tree Build(List<int>[] Graph, int n, int root, int[] weights)
+    public static TreeGraph Build(List<int>[] Graph, int n, int root, int[] weights)
     {
         var context = new WeightedContext(Graph, new HashSet<int>(), root, weights);
         var tree = new WeightedVertexesTree(n, root, context, weights);

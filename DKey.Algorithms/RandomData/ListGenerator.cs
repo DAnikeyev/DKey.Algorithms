@@ -51,7 +51,7 @@ public sealed class ListGenerator
     
     public string RandomString(int n, int letters)
     {
-        return new string(RandomList(n, 0, letters).Select(x => (char)(x + 'a')).ToArray());
+        return new string(RandomList(n, 0, letters - 1).Select(x => (char)(x + 'a')).ToArray());
     }
     /// <summary>
     /// Returns random sequence of k ones and n-k zeros

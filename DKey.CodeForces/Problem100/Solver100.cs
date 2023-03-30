@@ -4,7 +4,7 @@ namespace DKey.CodeForces.Problem100;
 
 public class Solver100 : Solver
 {
-    public Solver100(Type[] types) : base(types)
+    public Solver100() : base( new []{typeof(List<int>)})
     {
     }
 

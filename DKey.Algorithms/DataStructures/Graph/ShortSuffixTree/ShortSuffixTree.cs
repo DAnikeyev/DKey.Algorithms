@@ -1,17 +1,20 @@
-﻿namespace DKey.Algorithms.DataStructures.Graph.SuffixTree;
+﻿
+using DKey.Algorithms.DataStructures.Graph.SuffixTree;
+
+namespace DKey.Algorithms.DataStructures.Graph.ShortSuffixTree;
 
 /// <summary>
 /// Tree of suffixes for compact search of substrings.
 /// </summary>
 /// <typeparam name="T">Type of elements.</typeparam>
-public class SuffixTree<T> where T : IComparable<T>
+public class ShortSuffixTree
 {
 
-    public T[] Data;
+    public int[] Data;
     public int NodesSize;
-    public SuffixNode<T>[] Nodes;
+    public ShortSuffixNode[] Nodes;
     
-    public SuffixNode<T> Root;
+    public ShortSuffixNode Root;
 
     //Current longest suffix that is not leaf. Needed for efficient tree building.
     private Position CurrentLongestNonLeafSuffix;
@@ -22,14 +25,14 @@ public class SuffixTree<T> where T : IComparable<T>
     /// <param name="data">list of T.</param>
     /// <param name="minChar">Element, which is less, than data.Min(). Tree might be broken, if this is not correctly provided.</param>
     /// <returns>Suffix Tree.</returns>
-    public static SuffixTree<T> Build(IList<T> data, T minElement)
+    public static ShortSuffixTree Build(IList<int> data, int minElement)
     {
-        var tree = new SuffixTree<T>();
-        tree.Data = new T[data.Count + 1];
+        var tree = new ShortSuffixTree();
+        tree.Data = new int[data.Count + 1];
         data.CopyTo(tree.Data, 0);
         tree.Data[^1] = minElement;
-        tree.Root = new SuffixNode<T>(0, 0, 0, 0, 0);
-        tree.Nodes = new SuffixNode<T>[2 * tree.Data.Length + 1];
+        tree.Root = new ShortSuffixNode(0, 0, 0, 0, 0);
+        tree.Nodes = new ShortSuffixNode[2 * tree.Data.Length + 1];
         tree.Nodes[0] = tree.Root;
         tree.NodesSize = 1;
         tree.CurrentLongestNonLeafSuffix = new Position(0, 0);
@@ -48,7 +51,7 @@ public class SuffixTree<T> where T : IComparable<T>
     /// Those prefixes are calculated by going by modified suffix link.
     /// If child with given element exists or root is reached we stop the loop, as splits are no longer necessary.
     /// </summary>
-    private void AddSuffix(int index, T element)
+    private void AddSuffix(int index, int element)
     {
         var prevIndex = -1;
         var current = CurrentLongestNonLeafSuffix;
@@ -81,17 +84,16 @@ public class SuffixTree<T> where T : IComparable<T>
     /// New leaf vertex is generated for new item.
     /// if position is in the middle of the edge, the vertex is also created for this position.
     /// </summary>
-    private void Split(Position position, T element, int dataIndex)
+    private void Split(Position position, int element, int dataIndex)
     {
         if (!IsVertex(position))
         {
             EdgeSplit(position, dataIndex);
         }
-        var leafparent = Nodes[position.VertexIndex];
+        var depth = Nodes[position.VertexIndex].Depth;
         var edgeLength = Data.Length - dataIndex;
-        var newNode = new SuffixNode<T>(dataIndex - leafparent.Depth, leafparent.Depth+edgeLength, edgeLength, position.VertexIndex);
-        Nodes[NodesSize] = newNode;
-        leafparent.children[element] = NodesSize;
+        Nodes[NodesSize] = new ShortSuffixNode(dataIndex - depth, depth+edgeLength, edgeLength, position.VertexIndex);
+        Nodes[position.VertexIndex].Children[element] = NodesSize;
         NodesSize++;
         return;
     }
@@ -103,14 +105,14 @@ public class SuffixTree<T> where T : IComparable<T>
         var currentVertex = Nodes[position.VertexIndex];
         var parent = Nodes[currentVertex.ParentIndex];
         
-        var newNode = new SuffixNode<T>(dataOffset - position.ParentOffset - parent.Depth, parent.Depth+position.ParentOffset, position.ParentOffset, currentVertex.ParentIndex);
+        var newNode = new ShortSuffixNode(dataOffset - position.ParentOffset - parent.Depth, parent.Depth+position.ParentOffset, position.ParentOffset, currentVertex.ParentIndex);
         Nodes[NodesSize] = newNode;
         var parentNextDataIndex = currentVertex.ParentNextDataIndex;
         var prevNextElement = Data[parentNextDataIndex + position.ParentOffset];
-        newNode.children.Add(prevNextElement, position.VertexIndex);
-        parent.children[Data[parentNextDataIndex]] = NodesSize;
-        currentVertex.ParentIndex = NodesSize;
-        currentVertex.ParentEdgeLength = currentVertex.Depth - newNode.Depth;
+        newNode.Children[prevNextElement] = position.VertexIndex;
+        Nodes[currentVertex.ParentIndex].Children[Data[parentNextDataIndex]] = NodesSize;
+        Nodes[position.VertexIndex].ParentIndex = NodesSize;
+        Nodes[position.VertexIndex].ParentEdgeLength = currentVertex.Depth - newNode.Depth;
         position.Update(NodesSize, newNode.ParentEdgeLength);
         NodesSize++;
     }
@@ -119,12 +121,12 @@ public class SuffixTree<T> where T : IComparable<T>
     /// Get updated position after reading an item.
     /// If no valid position exists, returns false.
     /// </summary>
-    internal bool TryGoDown(Position position, T element)
+    internal bool TryGoDown(Position position, int element)
     {
         var vertex = Nodes[position.VertexIndex];
         if (position.ParentOffset < vertex.ParentEdgeLength)
         {
-            if (element.Equals(Data[vertex.ParentNextDataIndex + position.ParentOffset]))
+            if (element == Data[vertex.ParentNextDataIndex + position.ParentOffset])
             {
                 position.ParentOffset++;
                 return true;
@@ -132,7 +134,8 @@ public class SuffixTree<T> where T : IComparable<T>
             return false;
         }
 
-        if (!vertex.children.TryGetValue(element, out var child)) return false;
+        var child = vertex.Children[element];
+        if (child == 0) return false;
         position.Update(child, 1);
         return true;
 
@@ -171,7 +174,9 @@ public class SuffixTree<T> where T : IComparable<T>
         var currentVertex = Nodes[parent.SuffixLink];
         while (true)
         {
-            if (currentVertex.children.TryGetValue(Data[nextDataOffset], out var child))
+            
+            var child = currentVertex.Children[Data[nextDataOffset]];
+             if (child != 0)
             {
                 currentVertex = Nodes[child];
                 var edgeLength = currentVertex.ParentEdgeLength;
@@ -209,10 +214,10 @@ public class SuffixTree<T> where T : IComparable<T>
     /// <summary>
     /// Does srcdata contain data.
     /// </summary>
-    public bool Contains(IEnumerable<T> data)
+    public bool Contains(IEnumerable<int> data)
     {
         var position = new Position(0,0);
-        foreach (T element in data)
+        foreach (var element in data)
         {
             if (!TryGoDown(position, element))
                 return false;

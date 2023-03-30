@@ -1,16 +1,16 @@
-﻿namespace DKey.Algorithms.DataStructures.Graph.SuffixTree;
+﻿namespace DKey.Algorithms.DataStructures.Graph.ShortSuffixTree;
 
-public class SuffixNode<T>  where T : IComparable<T>
+public struct ShortSuffixNode
 {
     internal int ParentIndex;
     internal int Depth;
     internal int Offset;
     internal int ParentEdgeLength;
-    internal Dictionary<T, int> children = new ();
+    internal int[] Children = new int[32];
     internal int SuffixLink;
     internal int ParentNextDataIndex => Offset + Depth - ParentEdgeLength;
 
-    public SuffixNode(int offset, int depth, int parentEdgeLength, int parentIndex, int suffixLink = -1)
+    public ShortSuffixNode(int offset, int depth, int parentEdgeLength, int parentIndex, int suffixLink = -1)
     {
         Offset = offset;
         Depth = depth;
