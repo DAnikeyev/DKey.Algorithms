@@ -1,4 +1,6 @@
-﻿namespace DKey.CodeForces;
+﻿using DKey.Algorithms;
+
+namespace DKey.CodeForces;
 
 public abstract class MultiSolver : Solver
 {

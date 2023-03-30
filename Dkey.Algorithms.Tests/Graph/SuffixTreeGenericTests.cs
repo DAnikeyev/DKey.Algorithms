@@ -6,7 +6,7 @@ namespace DKey.Algorithms.Tests.Graph;
 public class SuffixTreeGenericTests
 {
     [Test]
-    public void TestMyValueSuffixTree_Positive()
+    public void T01_TestMyValueSuffixTree_Positive()
     {
         var data = new List<MyValue> { new MyValue(1), new MyValue(2), new MyValue(3), new MyValue(6), new MyValue(7), new MyValue(3) };
         var tree = SuffixTree<MyValue>.Build(data, new MyValue(int.MinValue));
@@ -18,7 +18,7 @@ public class SuffixTreeGenericTests
     }
 
     [Test]
-    public void TestMyValueSuffixTree_Negative()
+    public void T02_TestMyValueSuffixTree_Negative()
     {
         var data = new List<MyValue> { new MyValue(1), new MyValue(2), new MyValue(3), new MyValue(6), new MyValue(7), new MyValue(3) };
         var tree = SuffixTree<MyValue>.Build(data, new MyValue(0));

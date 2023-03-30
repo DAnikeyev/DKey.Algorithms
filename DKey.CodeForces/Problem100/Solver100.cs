@@ -1,4 +1,4 @@
-﻿using DKey.CodeForces;
+﻿using DKey.Algorithms;
 
 namespace DKey.CodeForces.Problem100;
 

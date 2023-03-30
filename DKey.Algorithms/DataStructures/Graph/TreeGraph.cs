@@ -1,4 +1,6 @@
-﻿namespace DKey.Algorithms.DataStructures.Graph;
+﻿using DKey.Algorithms.DataStructures.Graph.DepthFirstSearch;
+
+namespace DKey.Algorithms.DataStructures.Graph;
 
 public class TreeGraph
 {
@@ -7,7 +9,7 @@ public class TreeGraph
     public TreeVertex[] Vertices;
     public GraphContext Context;
 
-    protected internal void CreateVertexInDFS(GraphContext context)
+    protected internal void CreateVertexInDFS(DFSContext context)
     {
         var parent = -1;
         if (context.Parents.Any())
@@ -29,9 +31,9 @@ public class TreeGraph
 
     public static TreeGraph Build(List<int>[] Graph, int n, int root)
     {
-        var context = new GraphContext(Graph, new HashSet<int>(), root);
+        var context = new DFSContext(Graph, new HashSet<int>(), root);
         var tree = new TreeGraph(n, root, context);
-        DepthFirstSearch.Iterative(context, tree.CreateVertexInDFS);
+        DepthFirstSearch.DepthFirstSearch.Iterative(context, tree.CreateVertexInDFS);
         return tree;
     }
 }

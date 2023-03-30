@@ -6,7 +6,7 @@ namespace DKey.Algorithms.Tests.Graph;
     public class SuffixTreeTests
     {
         [Test]
-        public void Contains_IntTree_PositiveTests0()
+        public void T01_Contains_IntTree_PositiveTests0()
         {
             var data = new List<int> { 0,1 };
             var tree = SuffixTree<int>.Build(data, int.MinValue);
@@ -16,7 +16,7 @@ namespace DKey.Algorithms.Tests.Graph;
 
         
         [Test]
-        public void Contains_CharTree_PositiveTests()
+        public void T02_Contains_CharTree_PositiveTests()
         {
             var data = new List<char> { 'a', 'b', 'c', 'a', 'b', 'c' };
             var tree = SuffixTree<char>.Build(data, '\0');
@@ -28,7 +28,7 @@ namespace DKey.Algorithms.Tests.Graph;
         }
 
         [Test]
-        public void Contains_CharTree_NegativeTests()
+        public void T03_Contains_CharTree_NegativeTests()
         {
             var data = new List<char> { 'a', 'b', 'c', 'a', 'b', 'c' };
             var tree = SuffixTree<char>.Build(data, '\0');
@@ -40,7 +40,7 @@ namespace DKey.Algorithms.Tests.Graph;
         }
 
         [Test]
-        public void Contains_IntTree_PositiveTests()
+        public void T04_Contains_IntTree_PositiveTests()
         {
             var data = new List<int> { 1, 2, 3, 1, 2, 3 };
             var tree = SuffixTree<int>.Build(data, int.MinValue);
@@ -52,7 +52,7 @@ namespace DKey.Algorithms.Tests.Graph;
         }
 
         [Test]
-        public void Contains_IntTree_NegativeTests()
+        public void T05_Contains_IntTree_NegativeTests()
         {
             var data = new List<int> { 1, 2, 3, 1, 2, 3 };
             var tree = SuffixTree<int>.Build(data, int.MinValue);
@@ -65,7 +65,7 @@ namespace DKey.Algorithms.Tests.Graph;
         
         
         [Test]
-        public void Contains_IntTreeRepeat_PositiveTests()
+        public void T06_Contains_IntTreeRepeat_PositiveTests()
         {
             var data = new List<int> { 1,2,2,3 };
             var tree = SuffixTree<int>.Build(data, int.MinValue);
@@ -75,7 +75,7 @@ namespace DKey.Algorithms.Tests.Graph;
         
         
         [Test]
-        public void Contains_CharTree_ComplexTest()
+        public void T07_Contains_CharTree_ComplexTest()
         {
             var data = new List<char> { 'b', 'c', 'c', 'c', 'b', 'a', 'a', 'b', 'c', 'd' };
             var tree = SuffixTree<char>.Build(data, '\0');
@@ -94,7 +94,7 @@ namespace DKey.Algorithms.Tests.Graph;
         }
         
         [Test]
-        public void VariousSizeTree([Values(1, 5, 10, 25, 100, 1000, 10000, 100000, 500000)]int value)
+        public void T08_VariousSizeTree([Values(1, 5, 10, 25, 100, 1000, 10000, 100000, 500000)]int value)
         {
             var data = ListGenerator.Instance().RandomString(value, 5);
             var tree = SuffixTree<char>.Build(data.ToCharArray(), char.MinValue);
@@ -106,9 +106,9 @@ namespace DKey.Algorithms.Tests.Graph;
         [Test]
         [Explicit]
         //64GBRAM for 250_000_000, 32GBRAM for 100_000_000
-        public void BigBigTree([Values(1_000_000, 10_000_000, 50_000_000, 100_000_000, 250_000_000)] int value)
+        public void T09_BigBigTree([Values(1_000_000, 10_000_000, 50_000_000, 100_000_000, 250_000_000)] int value)
         {
-            var data = ListGenerator.Instance(42).RandomString(value, 20);
+            var data = ListGenerator.Instance(42).RandomString(value, 5);
             var tree = SuffixTree<char>.Build(data.ToCharArray(), char.MinValue);
             var ok = tree.Contains("bacd".ToCharArray());
             Assert.IsTrue(ok);

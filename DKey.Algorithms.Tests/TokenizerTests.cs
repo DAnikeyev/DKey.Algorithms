@@ -6,13 +6,13 @@ namespace DKey.Algorithms.Tests;
 public class TokenizerTests
 {
     [Test]
-    public void Split_TakeOnlyLetters_ReturnsCorrectTokens()
+    public void T01_Split_TakeOnlyLetters_ReturnsCorrectTokens()
     {
-        // Arrange
+        
         string inputText = "Hello, World! 123 Testing tokens?";
         var expectedResult = new List<string> { "Hello", "World", "Testing", "tokens" };
 
-        // Act
+        
         var result = Tokenizer.Split(inputText, TokenizerMode.TakeOnlyLetters);
 
         // Assert
@@ -20,13 +20,13 @@ public class TokenizerTests
     }
 
     [Test]
-    public void Split_WhiteSpaces_ReturnsCorrectTokens()
+    public void T02_Split_WhiteSpaces_ReturnsCorrectTokens()
     {
-        // Arrange
+        
         string inputText = "Hello, World! 123 Testing tokens?";
         var expectedResult = new List<string> { "Hello,", "World!", "123", "Testing", "tokens?" };
 
-        // Act
+        
         var result = Tokenizer.Split(inputText, TokenizerMode.WhiteSpaces);
 
         // Assert
@@ -34,13 +34,13 @@ public class TokenizerTests
     }
     
     [Test]
-    public void Split_TakeOnlyLettersOrDigit_ReturnsCorrectTokens()
+    public void T03_Split_TakeOnlyLettersOrDigit_ReturnsCorrectTokens()
     {
-        // Arrange
+        
         string inputText = "Hello, World! 123 Testing tokens?";
         var expectedResult = new List<string> { "Hello", "World", "123", "Testing", "tokens" };
 
-        // Act
+        
         var result = Tokenizer.Split(inputText, TokenizerMode.TakeOnlyLettersOrDigit);
 
         // Assert

@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace DKey.CodeForces;
+namespace DKey.Algorithms;
 
 internal static class IOHelper
 {

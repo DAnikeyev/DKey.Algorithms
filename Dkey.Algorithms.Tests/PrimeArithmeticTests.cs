@@ -10,20 +10,20 @@ namespace DKey.Algorithms.Tests
         [TestCase(4, false)]
         [TestCase(19, true)]
         [TestCase(20, false)]
-        public void IsPrimeTest(int n, bool expectedResult)
+        public void T01_IsPrimeTest(int n, bool expectedResult)
         {
             Assert.AreEqual(expectedResult, PrimeArithmetics.IsPrime(n));
         }
 
         [Test]
-        public void GetPrimeFactorsTest()
+        public void T02_GetPrimeFactorsTest()
         {
             var expectedResult = new List<(int prime, int factor)> { (2, 2), (5, 1) };
             CollectionAssert.AreEqual(expectedResult, PrimeArithmetics.GetPrimeFactors(20));
         }
 
         [Test]
-        public void GetPrimeFactorsForIntervalTest()
+        public void T03_GetPrimeFactorsForIntervalTest()
         {
             var expectedResult = new List<(int prime, int factor)>[] {
                 null,
@@ -41,7 +41,7 @@ namespace DKey.Algorithms.Tests
         }
 
         [Test]
-        public void GetAllDividersTest()
+        public void T04_GetAllDividersTest()
         {
             var expectedResult = new List<int> { 1, 2, 4, 5, 10, 20 };
             CollectionAssert.AreEqual(expectedResult, PrimeArithmetics.GetAllDividers(20));
@@ -49,7 +49,7 @@ namespace DKey.Algorithms.Tests
         
         [Test]
         [Explicit]
-        public void GetPrimeFactorsForIntervalBigTest()
+        public void T05_GetPrimeFactorsForIntervalBigTest()
         {
             var result = PrimeArithmetics.GetPrimeFactorsForInterval(1000002);
         }

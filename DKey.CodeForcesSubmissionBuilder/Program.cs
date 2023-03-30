@@ -1,21 +1,22 @@
 ﻿using System.Text;
-using DKey.Algorithms.DataStructures.Graph;
+using DKey.Algorithms.DataStructures.Graph.DepthFirstSearch;
 using DKey.Algorithms.TextProcessing;
+using SubmissionBuilder;
 
-namespace SubmissionBuilder;
+namespace CodeForcesSubmissionBuilder;
 
 public class Program
 {
-    public static Dictionary<string, string> classToPath = new ();
-    public static Dictionary<string, int> classToIndex = new ();
-    public static Dictionary<string, string> classToImplementation = new ();
-    public static Dictionary<string, HashSet<string>> classToUsings = new ();
-    public static List<string> Keys = new ();
+    private static Dictionary<string, string> _classToPath = new ();
+    private static Dictionary<string, int> _classToIndex = new ();
+    private static Dictionary<string, string> _classToImplementation = new ();
+    private static Dictionary<string, HashSet<string>> _classToUsings = new ();
+    private static List<string> _keys = new ();
     
     public static void Main()
     {
         var graph = BuildDependencies();
-        var context = new GraphContext(graph, new HashSet<int>(), classToIndex[Config.Root]);
+        var context = new DFSContext(graph, new HashSet<int>(), _classToIndex[Config.Root]);
         DepthFirstSearch.Iterative(context);
         var classIndexes = context.Used;
         File.WriteAllText(Config.SubmissionPath, BuildSubmission(classIndexes));
@@ -34,7 +35,7 @@ public class Program
         sb.AppendLine(@"//Might contain some unused methods.");
         sb.AppendLine();
 
-        var usings = classIndexes.Select(x => classToUsings[Keys[x]]).SelectMany(x => x).ToHashSet();
+        var usings = classIndexes.Select(x => _classToUsings[_keys[x]]).SelectMany(x => x).ToHashSet();
         foreach (var u in usings)
         {
             sb.AppendLine(u);
@@ -43,7 +44,7 @@ public class Program
         sb.AppendLine();
         sb.AppendLine("namespace Submission;");
         sb.AppendLine();
-        sb.AppendLine(string.Join("\r\n\r\n", classIndexes.Select(x => classToImplementation[Keys[x]])));
+        sb.AppendLine(string.Join("\r\n\r\n", classIndexes.Select(x => _classToImplementation[_keys[x]])));
         return sb.ToString();
     }
 
@@ -55,20 +56,20 @@ public class Program
             foreach (var filePath in Directory.EnumerateFiles(folderPath, "*.cs", SearchOption.AllDirectories))
             {
                 var className = Path.GetFileNameWithoutExtension(filePath);
-                if (Config.FoldersToExclude.Any(filePath.Contains) || Config.ExcludedClasses.Any(className.Contains) || classToPath.ContainsKey(className))
+                if (Config.FoldersToExclude.Any(filePath.Contains) || Config.ExcludedClasses.Any(className.Contains) || _classToPath.ContainsKey(className))
                     continue;
-                Keys.Add(className);
-                classToIndex.Add(className, Keys.Count - 1);
-                classToPath.Add(className, filePath);
+                _keys.Add(className);
+                _classToIndex.Add(className, _keys.Count - 1);
+                _classToPath.Add(className, filePath);
             }
         }
 
-        var size = Keys.Count;
+        var size = _keys.Count;
         var graph = new List<int>[size];
-        for(var i = 0; i < Keys.Count; i++)
+        for(var i = 0; i < _keys.Count; i++)
         {
-            var key = Keys[i];
-            graph[i] = ParseClass(key, File.ReadAllLines(classToPath[key]));
+            var key = _keys[i];
+            graph[i] = ParseClass(key, File.ReadAllLines(_classToPath[key]));
         }
 
         return graph;
@@ -76,23 +77,23 @@ public class Program
 
     private static List<int> ParseClass(string key, string[] lines)
     {
-        classToUsings[key] = new HashSet<string>();
+        _classToUsings[key] = new HashSet<string>();
         var index = 0;
         while (true)
         {
             var line = lines[index].Trim();
             if (line.Contains("using") && !line.Contains("DKey"))
-                classToUsings[key].Add(line);
-            if (line.Contains("namespace") || line.Contains("class") || line.Contains("enum") || line.Contains("struct"))
+                _classToUsings[key].Add(line);
+            if (line.Contains("namespace") || line.Contains("class") || line.Contains("enum") || line.Contains("struct") || line.Contains("interface"))
                 break;
             index++;
         }
 
-        while (index < lines.Length && !lines[index].Contains("class") && !lines[index].Contains("enum") && !lines[index].Contains("struct"))
+        while (index < lines.Length && !lines[index].Contains("class") && !lines[index].Contains("enum") && !lines[index].Contains("struct") && !lines[index].Contains("interface"))
             index++;
 
         var implementation = string.Join("\n", lines.Skip(index));
-        classToImplementation[key] = implementation;
+        _classToImplementation[key] = implementation;
         
         //Search dependencies inside a class excluding comments.
         var tokens = Tokenizer.Split(string.Join("\n", lines.Skip(index).Select(x => x.Trim()).Where(x => !x.StartsWith(@"//"))), TokenizerMode.TakeOnlyLettersOrDigit);
@@ -101,7 +102,7 @@ public class Program
         {
             if (t == key)
                 continue;
-            if(classToIndex.TryGetValue(t, out var dependencyIndex))
+            if(_classToIndex.TryGetValue(t, out var dependencyIndex))
                 indexes.Add(dependencyIndex);
         }
 

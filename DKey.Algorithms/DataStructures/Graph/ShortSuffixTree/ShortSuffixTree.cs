@@ -5,11 +5,14 @@ namespace DKey.Algorithms.DataStructures.Graph.ShortSuffixTree;
 
 /// <summary>
 /// Tree of suffixes for compact search of substrings.
+/// About twice as fast as SuffixTree<T>, but require elements in data to be in range [1, 31].
+/// Doesn't work for some alphabets, but English is fine ;)
+/// Performance is elastic by the size of the children array in Node, feel free to change it if your data allows it.
+/// It's possible to optimize Childrens further by counting distincts in data and mapping it to smaller interval,
+/// but it takes time and memory, while helpful only in specific cases.
 /// </summary>
-/// <typeparam name="T">Type of elements.</typeparam>
 public class ShortSuffixTree
 {
-
     public int[] Data;
     public int NodesSize;
     public ShortSuffixNode[] Nodes;
@@ -25,7 +28,7 @@ public class ShortSuffixTree
     /// <param name="data">list of T.</param>
     /// <param name="minChar">Element, which is less, than data.Min(). Tree might be broken, if this is not correctly provided.</param>
     /// <returns>Suffix Tree.</returns>
-    public static ShortSuffixTree Build(IList<int> data, int minElement)
+    public static ShortSuffixTree Build(IList<int> data, int minElement = 0)
     {
         var tree = new ShortSuffixTree();
         tree.Data = new int[data.Count + 1];

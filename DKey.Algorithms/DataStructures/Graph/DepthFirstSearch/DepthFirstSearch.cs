@@ -1,11 +1,11 @@
-﻿namespace DKey.Algorithms.DataStructures.Graph;
+﻿namespace DKey.Algorithms.DataStructures.Graph.DepthFirstSearch;
 
 public static class DepthFirstSearch
 {
     /// <summary>
     /// Iterative depth-first search with some action on the current context.
     /// </summary>
-    public static void Iterative<TContext>(TContext context, Action<TContext>? action = default) where TContext : GraphContext
+    public static void Iterative<TContext>(TContext context, Action<TContext>? action = default) where TContext : DFSContext
     {
         var stack = new Stack<(int, int)>();
         stack.Push((context.CurrentVertex, 0));
@@ -46,7 +46,7 @@ public static class DepthFirstSearch
     /// Depth-first search with some action on current context
     /// Use for n, less than 10000, otherwise there is a chance for stackoverflow.
     /// </summary>
-    public static void Recursive<TContext>(GraphContext context, Action<GraphContext>? action = default) where TContext : GraphContext
+    public static void Recursive<TContext>(TContext context, Action<TContext>? action = default) where TContext : DFSContext
     {
         if (context.Used.Contains(context.CurrentVertex))
             return;
@@ -56,7 +56,7 @@ public static class DepthFirstSearch
         foreach (var adjacent in context.Graph[context.CurrentVertex])
         {
             context.CurrentVertex = adjacent;
-            Recursive<TContext>(context, action);
+            Recursive(context, action);
         }
         context.Parents.Pop();
     }
