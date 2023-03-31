@@ -94,21 +94,11 @@ jobs:
     - name: Package project 3
       run: dotnet pack "DKey.CodeForcesSubmissionBuilder/DKey.CodeForcesSubmissionBuilder.csproj" --configuration Release --output packages
 
-        
-    - name: Publish NuGet packages 1
+    - name: Publish NuGet
       uses: rohith/publish-nuget@v2
       with:
-        PROJECT_FILE_PATH: "DKey.Algorithms/DKey.Algorithms.csproj"
-        NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-        
-    - name: Publish NuGet packages 2
-      uses: rohith/publish-nuget@v2
-      with:
-        PROJECT_FILE_PATH: "DKey.CodeForces/DKey.CodeForces.csproj"
-        NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-        
-    - name: Publish NuGet packages 3
-      uses: rohith/publish-nuget@v2
-      with:
-        PROJECT_FILE_PATH: "DKey.CodeForcesSubmissionBuilder/DKey.CodeForcesSubmissionBuilder.csproj"
-        NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+        project_file_path: DKey.Algorithms/DKey.Algorithms.csproj
+        nuget_key: ${{ secrets.NUGET_API_KEY }}
+        package_name: DKey.Algorithms
+        package_version: 1.0.0
+        nuget_push_args: ${{ env.PACKAGE_NAME }}.${{ env.PACKAGE_VERSION }}.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate

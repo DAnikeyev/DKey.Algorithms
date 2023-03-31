@@ -39,4 +39,19 @@ public class BinaryArithmetics
             throw new ArgumentException("data is too long");
         return data.Select((x, i) => x ? 1 << i : 0).Sum();
     }
+    
+    
+    public static int GetCeilingLog(int value)
+    {
+        if (value <= 1)
+            return 0;
+        var i = 0;
+        while (value > 1)
+        {
+            value = (value + 1) >> 1;
+            i++;
+        }
+
+        return i;
+    }
 }
