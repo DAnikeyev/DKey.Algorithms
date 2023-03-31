@@ -13,6 +13,7 @@ namespace DKey.Algorithms.DataStructures.Graph.ShortSuffixTree;
 /// </summary>
 public class ShortSuffixTree
 {
+    #pragma warning disable CS8618
     public int[] Data;
     public int NodesSize;
     public ShortSuffixNode[] Nodes;
@@ -22,6 +23,7 @@ public class ShortSuffixTree
     //Current longest suffix that is not leaf. Needed for efficient tree building.
     private Position CurrentLongestNonLeafSuffix;
     
+#pragma warning restore CS8618
     /// <summary>
     /// Build Suffix Tree from the list of T.
     /// </summary>

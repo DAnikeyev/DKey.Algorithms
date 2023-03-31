@@ -7,6 +7,7 @@
 public class SuffixTree<T> where T : IComparable<T>
 {
 
+    #pragma warning disable CS8618
     public T[] Data;
     public int NodesSize;
     public SuffixNode<T>[] Nodes;
@@ -15,6 +16,7 @@ public class SuffixTree<T> where T : IComparable<T>
 
     //Current longest suffix that is not leaf. Needed for efficient tree building.
     private Position CurrentLongestNonLeafSuffix;
+    #pragma warning restore CS8618
     
     /// <summary>
     /// Build Suffix Tree from the list of T.

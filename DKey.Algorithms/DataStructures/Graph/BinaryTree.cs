@@ -4,26 +4,44 @@ namespace DKey.Algorithms.DataStructures.Graph;
 
 public abstract class BinaryTree<T>
 {
-    public int size;
-    public int start;
-
+    public readonly int Size;
+    public readonly int Start;
     public T[] TreeModel;
+    public (int left, int right)[] LeafRanges;
+    
+    #pragma warning disable 1691
     public BinaryTree(IList<T> data)
     {
-        size = data.Count;
+        Size = data.Count;
         var boxSize = 1 << BinaryArithmetics.GetCeilingLog(data.Count);
         TreeModel = new T[boxSize * 2 - 1];
-        start = boxSize - 1;
-        for(var i = 0; i < data.Count; i++)
-            TreeModel[start + i] = data[i];
-        
-        for(var i = start - 1; i >=0; i++)
+        LeafRanges = new (int left, int right)[boxSize * 2 - 1];
+        Start = boxSize - 1;
+        for (var i = 0; i < data.Count; i++)
+        {
+            TreeModel[Start + i] = data[i];
+            LeafRanges[Start + i] = (i, i);
+        }
+
+        for (var i = data.Count; i < boxSize; i++)
+        {
+            TreeModel[Start +i] = Neutral();
+            LeafRanges[Start +i] = (i, i);
+        }
+
+
+        for (var i = Start - 1; i >= 0; i--)
+        {
             TreeModel[i] = Add(TreeModel[LeftChild(i)], TreeModel[RightChild(i)]);
+            LeafRanges[i] = (LeafRanges[LeftChild(i)].left, LeafRanges[RightChild(i)].right);
+        }
+
     }
+    #pragma warning disable 1691
     
     public void Set(int index, T value)
     {
-        index += start;
+        index += Start;
         TreeModel[index] = value;
 
         while (index > 0)
@@ -33,14 +51,15 @@ public abstract class BinaryTree<T>
         }
     }
 
-    public T GetSum(int left, int right)
+    public virtual T GetSum(int left, int right)
     {
-        return GetSumHelper(left, right, 0, start, start + 1);
+        return GetSumHelper(left, right, 0);
     }
 
-    private T GetSumHelper(int left, int right, int current, int rangeLeft, int rangeRight)
+    private T GetSumHelper(int left, int right, int current)
     {
-        if (left >= rangeRight || right <= rangeLeft)
+        var (rangeLeft, rangeRight) = LeafRanges[current];
+        if (left > rangeRight || right < rangeLeft)
         {
             return Neutral();
         }
@@ -50,9 +69,8 @@ public abstract class BinaryTree<T>
             return TreeModel[current];
         }
 
-        int mid = (rangeLeft + rangeRight) / 2;
-        T leftSum = GetSumHelper(left, right, LeftChild(current), rangeLeft, mid);
-        T rightSum = GetSumHelper(left, right, RightChild(current), mid, rangeRight);
+        T leftSum = GetSumHelper(left, right, LeftChild(current));
+        T rightSum = GetSumHelper(left, right, RightChild(current));
 
         return Add(leftSum, rightSum);
     }

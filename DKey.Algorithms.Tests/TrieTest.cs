@@ -49,7 +49,7 @@ public class TrieTest
             var words = new List<string> { "hello", "world", "foo", "bar" };
             _trie.Build(words);
             var result = _trie.SearchLongestPrefix("baz");
-            Assert.That(result, Is.Null);
+            Assert.That(result, Is.Empty);
         }
 
         [Test]

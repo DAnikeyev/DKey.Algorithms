@@ -47,8 +47,8 @@ public class Trie
     public string SearchLongestPrefix(string input)
     {
         var current = _root;
-        string longestMatch = null;
-        string currentMatch = string.Empty;
+        var longestMatch = string.Empty;
+        var currentMatch = string.Empty;
 
         foreach (var c in input)
         {

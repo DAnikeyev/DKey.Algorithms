@@ -8,14 +8,14 @@ internal static class IOHelper
     {
         { typeof(int), () => ReadInt() },
         { typeof(long), () => ReadLong() },
-        { typeof(string), () => Console.ReadLine() },
+        { typeof(string), () => Console.ReadLine()! },
         { typeof(List<int>), () => ReadIntLine() },
         { typeof(List<long>), () => ReadLongLine() },
-        { typeof(List<string>), () => Console.ReadLine().Split(' ').ToList() }
+        { typeof(List<string>), () => Console.ReadLine()!.Split(' ').ToList() }
     };
     
     public static List<T> ReadLine<T>(Func<string, T> f) =>
-        Console.ReadLine().Split(' ').Select(x => f(x)).ToList();
+        Console.ReadLine()!.Split(' ').Select(x => f(x)).ToList();
 
     public static List<int> ReadIntLine() => ReadLine(x => int.Parse(x));
     public static int ReadInt() => ReadIntLine()[0];
