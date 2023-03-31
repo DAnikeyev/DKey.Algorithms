@@ -94,5 +94,3 @@ jobs:
         project_file_path: DKey.Algorithms/DKey.Algorithms.csproj
         nuget_key: ${{ secrets.NUGET_API_KEY }}
         package_name: DKey.Algorithms
-        package_version: 1.0.1
-        nuget_push_args: ${{ env.PACKAGE_NAME }}.${{ env.PACKAGE_VERSION }}.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
