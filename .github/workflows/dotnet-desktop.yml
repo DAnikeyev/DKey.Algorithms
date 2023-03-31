@@ -85,9 +85,16 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
         
-    - name: Package projects
-      run: dotnet pack --configuration Release --no-build --output packages
+    - name: Package project 1
+      run: dotnet pack --project "DKey.Algorithms/DKey.Algorithms.csproj" --configuration Release --no-build --output packages
 
+    - name: Package project 2
+      run: dotnet pack --project "DKey.CodeForces/DKey.CodeForces.csproj" --configuration Release --no-build --output packages
+
+    - name: Package project 3
+      run: dotnet pack --project "DKey.CodeForcesSubmissionBuilder/DKey.CodeForcesSubmissionBuilder.csproj" --configuration Release --no-build --output packages
+
+        
     - name: Publish NuGet packages 1
       uses: rohith/publish-nuget@v2
       with:
