@@ -5,14 +5,13 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>CodeForcesSubmissionBuilder</RootNamespace>
+        <RootNamespace>DKey.CodeForcesSubmissionBuilder</RootNamespace>
+        <Version>1.0.0</Version>
+        <Authors>DAnikeyev</Authors>
+        <PackageDescription>CodeForces submission builder</PackageDescription>
+        <RepositoryUrl>https://github.com/DAnikeyev/DKey.Algorithms</RepositoryUrl>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Microsoft.CodeAnalysis" Version="4.6.0-1.final" />
-      <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.6.0-1.final" />
-      <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="4.6.0-1.final" />
-    </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\DKey.Algorithms\DKey.Algorithms.csproj" />

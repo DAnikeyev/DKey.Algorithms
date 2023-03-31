@@ -3,6 +3,11 @@
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
+        <PackageId>DKey.Algorithms</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>DAnikeyev</Authors>
+        <PackageDescription>Basic data structures and algorithms</PackageDescription>
+        <RepositoryUrl>https://github.com/DAnikeyev/DKey.Algorithms</RepositoryUrl>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
