@@ -13,7 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKey.Sandbox", "DKey.Sandbo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKey.CodeForces", "DKey.CodeForces\DKey.CodeForces.csproj", "{CF3D6CF5-1E8E-46C7-BD9F-E9BBEA9DF2ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKey.CodeForcesSubmissionBuilder", "DKey.CodeForcesSubmissionBuilder\DKey.CodeForcesSubmissionBuilder.csproj", "{742AEA26-C91C-4194-9274-B7B076E5B1A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKey.ContestSubmissionBuilder", "DKey.ContestSubmissionBuilder\DKey.ContestSubmissionBuilder.csproj", "{742AEA26-C91C-4194-9274-B7B076E5B1A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKey.ContestTemplateBuilder", "DKey.ContestTemplateBuilder\DKey.ContestTemplateBuilder.csproj", "{1C584EFD-E4FD-45D9-98A1-CEDE3F9AD1A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{6EF0CEE9-8655-4FAA-8E8C-2D3C8870F74B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,8 +49,18 @@ Global
 		{742AEA26-C91C-4194-9274-B7B076E5B1A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{742AEA26-C91C-4194-9274-B7B076E5B1A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{742AEA26-C91C-4194-9274-B7B076E5B1A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C584EFD-E4FD-45D9-98A1-CEDE3F9AD1A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C584EFD-E4FD-45D9-98A1-CEDE3F9AD1A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C584EFD-E4FD-45D9-98A1-CEDE3F9AD1A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C584EFD-E4FD-45D9-98A1-CEDE3F9AD1A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{87196F33-313D-44D1-A48C-40CBDEC13F5E} = {6EF0CEE9-8655-4FAA-8E8C-2D3C8870F74B}
+		{742AEA26-C91C-4194-9274-B7B076E5B1A6} = {6EF0CEE9-8655-4FAA-8E8C-2D3C8870F74B}
+		{13E20292-8CAD-415E-8E49-86B594299E74} = {6EF0CEE9-8655-4FAA-8E8C-2D3C8870F74B}
+		{1C584EFD-E4FD-45D9-98A1-CEDE3F9AD1A3} = {6EF0CEE9-8655-4FAA-8E8C-2D3C8870F74B}
 	EndGlobalSection
 EndGlobal

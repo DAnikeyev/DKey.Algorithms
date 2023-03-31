@@ -6,6 +6,7 @@ namespace DKey.CodeForces.Problem1780G;
 
 /// <summary>
 /// https://codeforces.com/contest/1780/problem/G
+/// Use ContestSubmissionBuilder to generate submission as a single file.
 /// </summary>
 public class Solver1780G : Solver
 {
@@ -20,7 +21,7 @@ public class Solver1780G : Solver
         var txt = (string)args[1];
         
         //SuffixTree<T> is ~20-30% too slow for time constraints, so we use ShortSuffixTree instead with some optimizations.
-        var tree = ShortSuffixTree.Build(txt.Select(x => x-'a'+2).ToArray(), 0);
+        var tree = ShortSuffixTree.Build(txt.Select(x => x-'a'+1).ToArray(), 0);
         var nodes = tree.Nodes;
         
         //Let's write number of occurences of substring = number of leafs for each vertex.

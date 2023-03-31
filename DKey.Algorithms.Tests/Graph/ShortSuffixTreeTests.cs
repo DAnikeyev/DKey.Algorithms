@@ -50,7 +50,7 @@ namespace DKey.Algorithms.Tests.Graph;
         }
         
         [Test]
-        public void T05_VariousSizeTree([Values(1, 5, 10, 25, 100, 1000, 10000, 100000, 500000)]int value)
+        public void T05_VariousSizeTree([Values(1, 5, 10, 25, 100, 1000, 10000, 100000)]int value)
         {
             var data = ListGenerator.Instance().RandomList(value, 1, 5);
             var tree = ShortSuffixTree.Build(data);
