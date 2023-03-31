@@ -91,17 +91,17 @@ jobs:
     - name: Publish NuGet packages 1
       uses: rohith/publish-nuget@v2
       with:
-        PROJECT_FILE_PATH: "DKey.Algorithms/DKey.Algorithms/DKey.Algorithms.csproj"
+        PROJECT_FILE_PATH: "DKey.Algorithms/DKey.Algorithms.csproj"
         NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
         
     - name: Publish NuGet packages 2
       uses: rohith/publish-nuget@v2
       with:
-        PROJECT_FILE_PATH: "DKey.Algorithms/DKey.CodeForces/DKey.CodeForces.csproj"
+        PROJECT_FILE_PATH: "DKey.CodeForces/DKey.CodeForces.csproj"
         NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
         
     - name: Publish NuGet packages 3
       uses: rohith/publish-nuget@v2
       with:
-        PROJECT_FILE_PATH: "DKey.Algorithms/DKey.CodeForcesSubmissionBuilder/DKey.CodeForcesSubmissionBuilder.csproj"
+        PROJECT_FILE_PATH: "DKey.CodeForcesSubmissionBuilder/DKey.CodeForcesSubmissionBuilder.csproj"
         NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
