@@ -8,10 +8,11 @@ public static class DataConverter
 
     /// <summary>
     /// Adjacent list to per-vertex list converter;
+    /// Most methods in this library use per-vertex list representation of graph.
     /// </summary>
-    /// <param name="edges">List of adjacent vertexes in [0..n-1] or [1..n] representation.</param>
-    /// <param name="n">Number of vertexes.</param>
-    /// <param name="isSameRepresentation">Are vertexes in edges from 0 to n-1.</param>
+    /// <param name="edges">List of adjacent vertices in [0..n-1] or [1..n] representation.</param>
+    /// <param name="n">Number of vertices.</param>
+    /// <param name="isSameRepresentation">Are vertices in edges from 0 to n-1.</param>
     /// <returns>List of Neigbours for every vertex in [0..n - 1] vertex representation.</returns>
     public static List<int>[] BuildNeighboursList(List<(int, int)> edges, int n, bool isSameRepresentation = true,
         bool ordered = false)

@@ -17,7 +17,7 @@ public class TreeDiameterTests
 
         var expectedDiameter = (3, 0, 3);
 
-        var diameter = GenericGraphAlgorithms.TreeDiameter(graph, 0, 3);
+        var diameter = GenericGraphAlgorithms.TreeDiameter(graph);
 
         Assert.AreEqual(expectedDiameter, diameter);
     }
@@ -35,7 +35,7 @@ public class TreeDiameterTests
 
         var expectedDiameter = (3, 2, 2);
 
-        var diameter = GenericGraphAlgorithms.TreeDiameter(graph, 1, 2);
+        var diameter = GenericGraphAlgorithms.TreeDiameter(graph);
 
         Assert.AreEqual(expectedDiameter, diameter);
     }
@@ -57,7 +57,7 @@ public class TreeDiameterTests
 
         var expectedDiameter = (7, 4, 5);
 
-        var diameter = GenericGraphAlgorithms.TreeDiameter(graph, 3, 7);
+        var diameter = GenericGraphAlgorithms.TreeDiameter(graph);
 
         Assert.AreEqual(expectedDiameter, diameter);
     }

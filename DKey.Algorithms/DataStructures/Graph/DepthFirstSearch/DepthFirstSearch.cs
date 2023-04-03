@@ -5,7 +5,7 @@ public static class DFS
     /// <summary>
     /// Iterative depth-first search with some action on the current context.
     /// Use this for big graphs to avoid stack overflow.
-    /// Can be more memory efficient if you push vertexes 1 by 1 tracking how many children ha been pushed, but this is easier to understand.
+    /// Can be more memory efficient if you push vertices 1 by 1 tracking how many children ha been pushed, but this is easier to understand.
     /// </summary>
     public static void Iterative<TContext>(TContext context, Action<TContext>? action = default) where TContext : DFSContext
     {
@@ -26,7 +26,7 @@ public static class DFS
                 context.Used.Add(currentVertex);
                 context.Parents.Push(currentVertex);
 
-                //Pushing children to the stack of vertexes to visit.
+                //Pushing children to the stack of vertices to visit.
                 for (int i = context.Graph[currentVertex].Count - 1; i >=0 ; i--)
                 {
                     var nextAdjacent = context.Graph[currentVertex][i];

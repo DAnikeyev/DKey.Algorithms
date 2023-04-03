@@ -49,7 +49,7 @@ public class GenericGraphAlgorithms
     /// <summary>
     /// Find the diameter of the tree
     /// </summary>
-    public static (int v1, int v2, int diameterLength) TreeDiameter(List<int>[] Graph, int u, int v)
+    public static (int v1, int v2, int diameterLength) TreeDiameter(List<int>[] Graph)
     {
         int furthestIndex1 = 0;
         int furthestDepth1 = 0;
@@ -69,7 +69,7 @@ public class GenericGraphAlgorithms
     }
 
     /// <summary>
-    /// Shortest path between vertexes u and v.
+    /// Shortest path between vertices u and v.
     /// Returns null if there is no path.
     /// </summary>
     public static List<int>? ShortestPath(List<int>[] Graph, int u, int v)
