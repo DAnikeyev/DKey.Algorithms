@@ -42,8 +42,15 @@ on:
     branches: [main]
 
 jobs:
+
   build:
+  
+    strategy:
+      matrix:
+        configuration: [Debug]
+        
     runs-on: windows-latest
+    
     env:
       Solution_Name: DKey.Algorithms.sln
       Test_Project_Path: DKey.Algorithms.Tests\DKey.Algorithms.Tests.csproj
