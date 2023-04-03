@@ -1,12 +1,14 @@
 ﻿namespace DKey.Algorithms.DataStructures.Graph.BreadthFirstSearch;
 
-public class BreadthFirstSearch
+public class BFS
 {
     /// <summary>
     /// Breadth-first search with some action on the current context.
     /// </summary>
     public static void Traverse<TContext>(TContext context, Action<TContext>? action = default) where TContext : BFSContext
     {
+        if(context.stopFlag)
+            return;
         var queue = new Queue<int>();
         var currentDepth = 0;
 

@@ -11,7 +11,7 @@ public class SegmentTree
         public void T01_TestBasicIntervalAdditionAndQuery()
         {
             IList<int> data = new List<int> { 1, 2, 3, 4, 5 };
-            IntegerIntervalTree tree = new IntegerIntervalTree(data);
+            IntegerSegmentTree tree = new IntegerSegmentTree(data);
 
             tree.AddToInterval(1, 3, 2);
             SegmentTreeNode sum = tree.GetSum(1, 4);
@@ -22,7 +22,7 @@ public class SegmentTree
     public void T02_TestMultipleOperationsWithLargerList()
     {
         IList<int> data = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        IntegerIntervalTree tree = new IntegerIntervalTree(data);
+        IntegerSegmentTree tree = new IntegerSegmentTree(data);
 
         // Add 5 to the interval [2, 5]
         tree.AddToInterval(2, 5, 5);

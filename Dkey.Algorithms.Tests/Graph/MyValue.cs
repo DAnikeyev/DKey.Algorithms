@@ -9,14 +9,14 @@ public class MyValue : IComparable<MyValue>
         Value = value;
     }
 
-    public int CompareTo(MyValue other)
+    public int CompareTo(MyValue? other)
     {
         if (ReferenceEquals(this, other)) return 0;
         if (ReferenceEquals(null, other)) return 1;
         return (Value % 5).CompareTo(other.Value % 5);
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj == null || GetType() != obj.GetType())
         {

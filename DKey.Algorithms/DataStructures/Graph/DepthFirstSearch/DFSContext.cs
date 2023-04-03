@@ -4,9 +4,10 @@ public class DFSContext : GraphContext
 {
     public Stack<int> Parents = new();
     public HashSet<int> Used;
+    public bool stopFlag;
     public int Depth => Parents.Count;
-    public DFSContext(List<int>[] graph, HashSet<int> used, int currentVertex) : base(graph, currentVertex)
+    public DFSContext(List<int>[] graph, int currentVertex, HashSet<int>? used = null) : base(graph, currentVertex)
     {
-        Used = used;
+        Used = used ?? new HashSet<int>();
     }
 }

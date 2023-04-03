@@ -2,11 +2,11 @@
 
 public struct SegmentTreeNode
 {
-    public int Value;
-    public int LazyValue;
+    public long Value;
+    public long LazyValue;
     public bool Pending;
 
-    public SegmentTreeNode(int value)
+    public SegmentTreeNode(long value)
     {
         Value = value;
         LazyValue = 0;

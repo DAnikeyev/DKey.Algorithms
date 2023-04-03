@@ -13,6 +13,6 @@ public class Solver100 : Solver
         var seq = (List<int>) objects[0];
         var a = seq[0];
         var b = seq[1];
-        output.AddL(a+b);
+        output.AddLine(a+b);
     }
 }

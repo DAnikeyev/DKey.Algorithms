@@ -24,8 +24,8 @@ public class Program
     public static void Main()
     {
         var graph = BuildDependencies();
-        var context = new DFSContext(graph, new HashSet<int>(), _classToIndex[Config.Root]);
-        DepthFirstSearch.Iterative(context);
+        var context = new DFSContext(graph, _classToIndex[Config.Root]);
+        DFS.Recursive(context);
         var classIndexes = context.Used;
         File.WriteAllText(Config.SubmissionPath, BuildSubmission(classIndexes));
     }

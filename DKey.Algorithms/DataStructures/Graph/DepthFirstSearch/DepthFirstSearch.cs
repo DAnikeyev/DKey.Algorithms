@@ -1,50 +1,52 @@
 ﻿namespace DKey.Algorithms.DataStructures.Graph.DepthFirstSearch;
 
-public static class DepthFirstSearch
+public static class DFS
 {
     /// <summary>
     /// Iterative depth-first search with some action on the current context.
+    /// Use this for big graphs to avoid stack overflow.
+    /// Can be more memory efficient if you push vertices 1 by 1 tracking how many children ha been pushed, but this is easier to understand.
     /// </summary>
     public static void Iterative<TContext>(TContext context, Action<TContext>? action = default) where TContext : DFSContext
     {
-        var stack = new Stack<(int, int)>();
-        stack.Push((context.CurrentVertex, 0));
+        if(context.stopFlag)
+            return;
+        var stack = new Stack<int>(context.Graph.Length);
+        stack.Push(context.CurrentVertex);
 
         while (stack.Count > 0)
         {
-            var (currentVertex, adjacentIndex) = stack.Pop();
-
+            var currentVertex = stack.Peek();
+            context.CurrentVertex = currentVertex;
+            
             if (!context.Used.Contains(currentVertex))
             {
-                context.CurrentVertex = currentVertex;
+                //On entering the vertex.
                 action?.Invoke(context);
                 context.Used.Add(currentVertex);
-            }
+                context.Parents.Push(currentVertex);
 
-            if (adjacentIndex < context.Graph[currentVertex].Count)
-            {
-                var nextAdjacent = context.Graph[currentVertex][adjacentIndex];
-                stack.Push((currentVertex, adjacentIndex + 1));
-
-                if (!context.Used.Contains(nextAdjacent))
+                //Pushing children to the stack of vertices to visit.
+                for (int i = context.Graph[currentVertex].Count - 1; i >=0 ; i--)
                 {
-                    context.Parents.Push(currentVertex);
-                    stack.Push((nextAdjacent, 0));
+                    var nextAdjacent = context.Graph[currentVertex][i];
+                    if (!context.Used.Contains(nextAdjacent))
+                        stack.Push(nextAdjacent);
                 }
             }
             else
             {
-                if (context.Parents.Count > 0 && context.Parents.Peek() == currentVertex)
-                {
+                //On exiting the vertex. If graph is not tree, we need to check current parent, to avoid removing vertex if it already was removed, but got visited through another branch.
+                if(context.Parents.Peek() == currentVertex)
                     context.Parents.Pop();
-                }
+                stack.Pop();
             }
         }
     }
-    
+
     /// <summary>
     /// Depth-first search with some action on current context
-    /// Use for n, less than 10000, otherwise there is a chance for stackoverflow.
+    /// Use for n, less than 10000, otherwise there is a chance for stack overflow.
     /// </summary>
     public static void Recursive<TContext>(TContext context, Action<TContext>? action = default) where TContext : DFSContext
     {

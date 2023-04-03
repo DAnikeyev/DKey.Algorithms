@@ -13,9 +13,9 @@ public class BFSTests
         {
             var graph = new List<int>[] {new List<int> {1}, new List<int>()};
             var used = new HashSet<int>();
-            var context = new BFSContext(graph, used, 0);
+            var context = new BFSContext(graph, 0);
 
-            BreadthFirstSearch.Traverse(context);
+            BFS.Traverse(context);
 
             Assert.That(context.Used, Has.Member(0));
             Assert.That(context.Used, Has.Member(1));
@@ -26,9 +26,9 @@ public class BFSTests
         {
             var graph = new List<int>[] {new List<int> {1, 2}, new List<int> {0, 2}, new List<int> {0, 1}};
             var used = new HashSet<int>();
-            var context = new BFSContext(graph, used, 0);
+            var context = new BFSContext(graph, 0);
 
-            BreadthFirstSearch.Traverse(context);
+            BFS.Traverse(context);
 
             Assert.That(context.Used, Has.Member(0));
             Assert.That(context.Used, Has.Member(1));
@@ -42,9 +42,9 @@ public class BFSTests
             var graph = new List<int>[]
                 {new List<int> {1, 2}, new List<int> {3, 4}, new List<int>(), new List<int>(), new List<int>()};
             var used = new HashSet<int>();
-            var context = new BFSContext(graph, used, 0);
+            var context = new BFSContext(graph, 0);
 
-            BreadthFirstSearch.Traverse(context);
+            BFS.Traverse(context);
             
             Assert.That(context.Used, Has.Member(0));
             Assert.That(context.Used, Has.Member(1));
@@ -59,9 +59,9 @@ public class BFSTests
             var graph = new List<int>[]
                 {new List<int> {1, 2}, new List<int> {3, 4}, new List<int>(), new List<int>(), new List<int>()};
             var used = new HashSet<int>();
-            var context = new BFSContext(graph, used, 0);
+            var context = new BFSContext(graph, 0);
 
-            BreadthFirstSearch.Traverse(context);
+            BFS.Traverse(context);
 
             Assert.That(context.VertexInfo[0].parent, Is.EqualTo(-1));
             Assert.That(context.VertexInfo[0].depth, Is.EqualTo(0));

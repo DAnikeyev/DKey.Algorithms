@@ -16,10 +16,10 @@ public class DFSTests
             new List<int>(),
             new List<int>(),
         };
-        var context = new DFSContext(graph, new HashSet<int>(), 0);
+        var context = new DFSContext(graph, 0);
         var traversal = new List<int>();
 
-        DepthFirstSearch.Iterative(context, c => traversal.Add(c.CurrentVertex));
+        DFS.Iterative(context, c => traversal.Add(c.CurrentVertex));
 
         Assert.That(traversal, Is.EqualTo(new[] { 0, 1, 3, 4, 2 }));
     }
@@ -35,9 +35,9 @@ public class DFSTests
             new List<int>(),
             new List<int>(),
         };
-        var context = new DFSContext(graph, new HashSet<int>(), 0);
+        var context = new DFSContext(graph, 0);
         var traversal = new List<int>();
-        DepthFirstSearch.Recursive(context, c => traversal.Add(c.CurrentVertex));
+        DFS.Recursive(context, c => traversal.Add(c.CurrentVertex));
         Assert.That(traversal, Is.EqualTo(new[] { 0, 1, 3, 4, 2 }));
     }
 }

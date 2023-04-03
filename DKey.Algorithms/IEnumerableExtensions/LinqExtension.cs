@@ -40,6 +40,48 @@ public static class LinqExtension
         return dictionary;
     }
     
+    public static int GetIndexOfMaxBy<TSource, TKey>
+        (this IEnumerable<TSource> source, Func<TSource, TKey> valueSelector) where TKey : IComparable<TKey>
+    {
+        if (source.FirstOrDefault() == null)
+            return -1;
+        var index = 0;
+        var maxindex = 0;
+        var max = valueSelector(source.First());
+        foreach (TSource element in source)
+        {
+            var currentValue = valueSelector(element);
+            if (currentValue.CompareTo(max) > 0)
+            {
+                max = currentValue;
+                maxindex = index;
+            }
+
+            index++;
+        }
+        return maxindex;
+    }
+    
+    //ValueSelector(item) must be monotonic increasing in source
+    public static int GetFirstIndexInSortedListInInterval<TSource>
+        (this IList<TSource> source, int min, int max, Func<TSource, long> valueSelector)
+    {
+        var n = source.Count();
+        var maxindex = (int)BinarySearch.GetIndexLong(0, n - 1, x => valueSelector(source[x]) - max > 0 ? 1 : -1);
+        var minindex = (int)BinarySearch.GetIndexLong(0, n - 1, x => valueSelector(source[x]) - min > 0 ? 1 : -1) - 1;
+        minindex = Math.Max(minindex, 0);
+        for (var i = minindex; i <= maxindex; i++)
+        {
+            if (valueSelector(source[i]) > min && valueSelector(source[i]) < max)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    
+    
     public static void AddToCountDictionary<TSource, TKey>
         (this Dictionary<TKey, int> dictionary, IEnumerable<TSource> source, Func<TSource, TKey> keySelector) where TKey : notnull
     {
