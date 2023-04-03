@@ -24,15 +24,15 @@ internal static class IOHelper
     public static List<ulong> ReadUlongLine() => ReadLine(x => ulong.Parse(x));
     public static List<int> ReadintLine() => ReadLine(x => int.Parse(x));
     
-    public static void AddL(this StringBuilder sb, object obj)
+    public static void AddLine(this StringBuilder sb, object obj)
     {
         sb.Append(obj.ToString());
         sb.Append("\n");
     }
     
-    public static void AddL(this StringBuilder sb, IEnumerable<object> data)
+    public static void AddListLine<T>(this StringBuilder sb, IEnumerable<T> data)
     {
-        sb.Append(string.Join(" ", data.ToString()));
+        sb.Append(string.Join(" ", data.Select(x => x?.ToString())));
         sb.Append("\n");
     }
 

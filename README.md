@@ -7,8 +7,12 @@ DKey.Algorithms is an unfinished library that provides basic algorithms and data
    - [x] Tree
    - [x] Segment Tree
    - [x] Generic Suffix Tree
-   - [x] Prefix Trie
    - [x] Short Suffix Tree (2x faster then generic)
+   - [x] Prefix Trie
+ - **Graph Processing**
+   - [x] Depth First Search
+   - [x] Breadth First Search
+   - [x] Generic graph statistics (Components, Cycle, Shortest path, Diameter)
  - **Number Theory**
    - [x] Prime Arithmetic
    - [x] Binary Arithmetic

@@ -1,10 +1,10 @@
-﻿using DKey.CodeForces.Problem1780G;
+﻿using DKey.CodeForces.Contest1805;
 
 namespace DKey.CodeForces;
 
 public static class Program
 {
-    public static Solver solver = new Solver1780G();
+    public static Solver solver = new Solver1805D();
     public static void Main()
     {
         solver.Run();

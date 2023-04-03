@@ -26,15 +26,16 @@ namespace DKey.Algorithms.Tests
         public void T03_GetPrimeFactorsForIntervalTest()
         {
             var expectedResult = new List<(int prime, int factor)>[] {
-                null,
-                null,
+                new(),
+                new(),
                 new() { (2, 1) },
                 new() { (3, 1) },
                 new() { (2, 2) },
                 new() { (5, 1) },
+                new() { (2, 1), (3, 1) },
             };
-            var result = PrimeArithmetics.GetPrimeFactorsForInterval(5);
-            for (int i = 2; i <= 5; i++)
+            var result = PrimeArithmetics.GetPrimeFactorsForInterval(6);
+            for (int i = 0; i <= 6; i++)
             {
                 CollectionAssert.AreEqual(expectedResult[i], result[i]);
             }

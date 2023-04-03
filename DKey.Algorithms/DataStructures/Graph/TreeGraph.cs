@@ -31,9 +31,9 @@ public class TreeGraph
 
     public static TreeGraph Build(List<int>[] Graph, int n, int root)
     {
-        var context = new DFSContext(Graph, new HashSet<int>(), root);
+        var context = new DFSContext(Graph, root);
         var tree = new TreeGraph(n, root, context);
-        DepthFirstSearch.DepthFirstSearch.Iterative(context, tree.CreateVertexInDFS);
+        DepthFirstSearch.DFS.Iterative(context, tree.CreateVertexInDFS);
         return tree;
     }
 }

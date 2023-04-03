@@ -63,6 +63,8 @@ public class PrimeArithmetics
         }
 
         var result = new List<(int prime, int factor)>[n + 1];
+        result[0] = new List<(int prime, int factor)>();
+        result[1] = new List<(int prime, int factor)>();
         for (int i = 2; i <= n; i++)
         {
             result[i] = new List<(int prime, int factor)>();

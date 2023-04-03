@@ -47,7 +47,7 @@ public class Solver1780G : Solver
         }
         
         //SuffixTree has terminal vertex with minChar, which we must exclude.
-        output.AddL(result - 1);
+        output.AddLine(result - 1);
     }
 
     private int GetDividerOccurences(int mindepth, int maxdepth, int occurrences)

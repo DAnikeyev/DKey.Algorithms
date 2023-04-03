@@ -3,19 +3,25 @@
 namespace DKey.Algorithms.DataStructures.SegmentTree;
 
 /// <summary>
+///IntervalTree for addition, which supports lazy propagation, so adding value to interval is O(log n) instead of O(n).
 ///Can be modified to perform any associative operation like max or bit operations.
-///Supports lazy propagation, so adding value to interval is O(log n) instead of O(n).
+///Other versions currently not implemented, because I couldn't find problems, that required them, but it will be revised again later.
 /// </summary>
-public class IntegerIntervalTree : BinaryTree<SegmentTreeNode>
+public class IntegerSegmentTree : BinaryTree<SegmentTreeNode>
 {
-    public IntegerIntervalTree(IList<int> data)
+    public IntegerSegmentTree(IList<int> data)
         : base(data.Select(x => new SegmentTreeNode(x)).ToArray())
     {
     }
 
     protected override SegmentTreeNode Add(SegmentTreeNode a, SegmentTreeNode b)
     {
-        return new SegmentTreeNode(a.Value + b.Value);
+        return new SegmentTreeNode(ItemOperation(a.Value, b.Value));
+    }
+
+    protected long ItemOperation(long a, long b)
+    {
+        return a + b;
     }
 
     protected override SegmentTreeNode Neutral()
@@ -32,19 +38,15 @@ public class IntegerIntervalTree : BinaryTree<SegmentTreeNode>
     {
         var (rangeLeft, rangeRight) = LeafRanges[current];
 
-        TreeModel[current].Value += TreeModel[current].LazyValue * (rangeRight - rangeLeft + 1);
+        TreeModel[current].Value = UpdateValue(TreeModel[current].Value, 0, TreeModel[current].LazyValue, rangeLeft, rangeRight);
 
         // If the current node is not a leaf, propagate the lazy value to its children
         if (rangeLeft != rangeRight)
         {
             int leftChild = LeftChild(current);
             int rightChild = RightChild(current);
-
-            TreeModel[leftChild].LazyValue += TreeModel[current].LazyValue;
-            TreeModel[leftChild].Pending = true;
-
-            TreeModel[rightChild].LazyValue += TreeModel[current].LazyValue;
-            TreeModel[rightChild].Pending = true;
+            LazyUpdate(leftChild, TreeModel[current].LazyValue);
+            LazyUpdate(rightChild, TreeModel[current].LazyValue);
         }
 
         // Reset the lazy value and pending flag for the current node
@@ -69,20 +71,16 @@ public class IntegerIntervalTree : BinaryTree<SegmentTreeNode>
         // If the current node is within the query range, update its value and propagate the lazy value to its children
         if (left <= rangeLeft && right >= rangeRight)
         {
-            TreeModel[current].Value += value * (rangeRight - rangeLeft + 1);
+            TreeModel[current].Value = UpdateValue(TreeModel[current].Value, value, 0, rangeLeft, rangeRight);
 
             if (rangeLeft != rangeRight)
             {
                 int leftChild = LeftChild(current);
                 int rightChild = RightChild(current);
 
-                TreeModel[leftChild].LazyValue += value;
-                TreeModel[leftChild].Pending = true;
-
-                TreeModel[rightChild].LazyValue += value;
-                TreeModel[rightChild].Pending = true;
+                LazyUpdate(leftChild, value);
+                LazyUpdate(rightChild, value);
             }
-
             return;
         }
 
@@ -91,7 +89,23 @@ public class IntegerIntervalTree : BinaryTree<SegmentTreeNode>
         AddToIntervalHelper(left, right, value, RightChild(current));
 
         // Update the current node value based on its children's values
-        TreeModel[current].Value = TreeModel[LeftChild(current)].Value + TreeModel[RightChild(current)].Value;
+        TreeModel[current].Value = ItemOperation(TreeModel[LeftChild(current)].Value, TreeModel[RightChild(current)].Value);
+    }
+
+    private void LazyUpdate(int index, long value)
+    {
+        TreeModel[index].LazyValue = UpdateLazyValue(TreeModel[index].LazyValue, value);
+        TreeModel[index].Pending = true;
+    }
+
+    private long UpdateValue(long oldValue, long update, long LazyValue, int left, int right)
+    {
+        return oldValue + (update + LazyValue) * (right - left + 1);
+    }
+    
+    private long UpdateLazyValue(long oldValue, long addedValue)
+    {
+        return ItemOperation(oldValue, addedValue);
     }
 
     public override SegmentTreeNode GetSum(int left, int right)

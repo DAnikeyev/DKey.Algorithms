@@ -4,10 +4,11 @@ public class BFSContext : GraphContext
 {
     public Dictionary<int, (int parent, int depth)> VertexInfo = new();
     public HashSet<int> Used;
+    public bool stopFlag;
     public int Depth => VertexInfo[CurrentVertex].depth;
     public int Parent => VertexInfo[CurrentVertex].parent;
-    public BFSContext(List<int>[] graph, HashSet<int> used, int currentVertex) : base(graph, currentVertex)
+    public BFSContext(List<int>[] graph, int currentVertex, HashSet<int>? used = null) : base(graph, currentVertex)
     {
-        Used = used;
+        Used = used ?? new HashSet<int>();
     }
 }
