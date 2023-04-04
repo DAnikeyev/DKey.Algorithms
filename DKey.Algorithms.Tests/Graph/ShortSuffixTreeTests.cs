@@ -52,7 +52,7 @@ namespace DKey.Algorithms.Tests.Graph;
         [Test]
         public void T05_VariousSizeTree([Values(1, 5, 10, 25, 100, 1000, 10000, 100000)]int value)
         {
-            var data = ListGenerator.Instance().RandomList(value, 1, 5);
+            var data = ListGenerator.Instance(42).RandomList(value, 1, 5);
             var tree = ShortSuffixTree.Build(data);
             var ok = tree.Contains(new List<int> { 2, 4 });
             Assert.IsTrue(ok || value < 9999);
@@ -63,7 +63,7 @@ namespace DKey.Algorithms.Tests.Graph;
         //64GBRAM for 250_000_000, 32GBRAM for 100_000_000
         public void T06_BigBigTree([Values(1_000_000, 10_000_000, 50_000_000, 100_000_000, 250_000_000)] int value)
         {
-            var data = ListGenerator.Instance().RandomList(value, 1, 6);
+            var data = ListGenerator.Instance(42).RandomList(value, 1, 6);
             var tree = ShortSuffixTree.Build(data);
             var ok = tree.Contains(new List<int> { 1, 2, 4 });
             Assert.IsTrue(ok || value < 9999);

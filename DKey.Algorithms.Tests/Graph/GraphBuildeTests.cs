@@ -2,10 +2,10 @@ using DKey.Algorithms.DataStructures.Graph;
 
 namespace DKey.Algorithms.Tests.Graph;
 
-public class HelperTests
+public class GraphBuildeTests
 {
     [Test]
-    public void T01_BuildNeighboursListTest()
+    public void T01_BuildGraphTest()
     {
         var V = 5;
         var edges = new List<(int, int)>()
