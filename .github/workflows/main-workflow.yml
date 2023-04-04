@@ -38,12 +38,10 @@
 
 name: Main Workflow
 
-on:
-  pull_request:
+on:on:
+  push:
     branches:
       - main
-    types:
-      - closed
 
 jobs:
 
@@ -60,18 +58,7 @@ jobs:
       Solution_Name: DKey.Algorithms.sln
       Test_Project_Path: DKey.Algorithms.Tests\DKey.Algorithms.Tests.csproj
 
-    steps:
-    - name: Check if PR was merged
-      id: check
-      run: |
-        echo "Merged status: ${{ github.event.pull_request.merged }}"
-        if (${{ github.event.pull_request.merged }}) {
-          echo "::set-output name=merged::true"
-        }
-        else {
-          echo "::set-output name=merged::false"
-        }
-        
+    steps:        
     - name: Checkout
       uses: actions/checkout@v3
       with:
@@ -101,7 +88,6 @@ jobs:
       run: dotnet pack "DKey.Algorithms/DKey.Algorithms.csproj" --configuration Release --output packages
 
     - name: Publish NuGet
-      if: steps.check.outputs.merged == 'true'
       uses: rohith/publish-nuget@v2
       with:
         project_file_path: DKey.Algorithms/DKey.Algorithms.csproj
