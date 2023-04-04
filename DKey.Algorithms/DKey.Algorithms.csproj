@@ -9,6 +9,10 @@
         <PackageDescription>Basic data structures and algorithms</PackageDescription>
         <RepositoryUrl>https://github.com/DAnikeyev/DKey.Algorithms</RepositoryUrl>
         <Nullable>enable</Nullable>
+        <PackageIcon>icon.png</PackageIcon>
     </PropertyGroup>
-
+    
+    <ItemGroup>
+    <None Include="icon.png" Pack="true" PackagePath="" />
+    </ItemGroup>
 </Project>
