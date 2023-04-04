@@ -11,9 +11,8 @@ String Algorithms:
 a. Knuth-Morris-Pratt (KMP) Algorithm  
 b. Z-Algorithm  
 c. Aho-Corasick Algorithm  
-d. Longest Common Subsequence (LCS)  
-e. Longest Increasing Subsequence (LIS)  
-f. Levenshtein Distance
+d. Longest Increasing Subsequence (LIS)  
+e. Levenshtein Distance
 
 Dynamic Programming:  
 a. 0-1 Knapsack  
@@ -24,8 +23,8 @@ e. Longest Palindromic Subsequence
 f. Traveling Salesman Problem (TSP)  
 
 Data Structures:  
-a. Disjoint Set / Union-Find  
-b. AVL Tree  
+a. Disjoint Set / Union-Find 
+b. AVL Tree
 c. Red-Black Tree  
 d. Heap (Min-Heap and Max-Heap)  
 e. Priority Queue  

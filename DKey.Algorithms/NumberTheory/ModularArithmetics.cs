@@ -5,11 +5,15 @@ namespace DKey.Algorithms.NumberTheory;
 public class ModularArithmetics
 {
     public readonly int Module;
-    public Dictionary<int, bool[]> bitsCache = new Dictionary<int, bool[]>();
+    private Dictionary<int, bool[]> _bitsCache = new ();
+    private List<int>? _factorialCache;
+    
  
     /// <param name="module">Should be prime.</param>
-    public ModularArithmetics(int module = 1000000007)
+    public ModularArithmetics(int module = 1000000007, bool cacheFactorials = true)
     {
+        if (cacheFactorials)
+            _factorialCache = new() {1, 1, 2};
         Module = module;
     }
  
@@ -20,10 +24,10 @@ public class ModularArithmetics
     {
         if (power == 0)
             return 1;
-        if (!bitsCache.TryGetValue(power, out var bits))
+        if (!_bitsCache.TryGetValue(power, out var bits))
         {
             bits = BinaryArithmetics.ConvertToBoolArray(power);
-            bitsCache.Add(power, bits);
+            _bitsCache.Add(power, bits);
         }
  
  
@@ -39,7 +43,7 @@ public class ModularArithmetics
     }
  
     /// <summary>
-    /// GPTSugessted, TODO: check perfomance and values
+    /// GPT Sugessted, TODO: check perfomance and values.
     /// </summary>
     public uint Power2(uint value, uint power)
     {
@@ -70,6 +74,12 @@ public class ModularArithmetics
  
     public int Factorial(int n)
     {
+        if (_factorialCache != null)
+        {
+            for(var i = _factorialCache.Count; i <= n; i++)
+                _factorialCache.Add(Multiply(_factorialCache[i - 1], i));
+            return _factorialCache[n];
+        }
         var ans = 1;
         for (var i = 1; i <= n; i++)
         {
@@ -80,10 +90,10 @@ public class ModularArithmetics
     }
  
     /// <summary>
-    /// n choose k
+    /// n choose k.
     /// </summary>
     public int Choose(int n, int k)
     {
-        return Divide(Divide(Factorial(n), Factorial(k)), Factorial(n - k));
+        return n < k ? 0 : Divide(Divide(Factorial(n), Factorial(k)), Factorial(n - k));
     }
 }

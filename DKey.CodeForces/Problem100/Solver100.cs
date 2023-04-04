@@ -2,6 +2,9 @@
 
 namespace DKey.CodeForces.Problem100;
 
+/// <summary>
+/// https://codeforces.com/problemsets/acmsguru/problem/99999/100
+/// </summary>
 public class Solver100 : Solver
 {
     public Solver100() : base( new []{typeof(List<int>)})

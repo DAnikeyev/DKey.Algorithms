@@ -68,4 +68,45 @@ namespace DKey.Algorithms.Tests.Graph;
             var ok = tree.Contains(new List<int> { 1, 2, 4 });
             Assert.IsTrue(ok || value < 9999);
         }
+        
+        [Test]
+        public void T07_LongestCommonSubstring()
+        {
+            var s1 = "awsbwjevbasajdvabevbaweebviwbrviberb";
+            var s2 = "awsbwjevbasajdvabevbaweebviwbrviberb";
+            var tree = ShortSuffixTree.Build(s1.Select(x => (int)(x - 'a'+ 1)).ToList());
+            var lcs = tree.LongestCommonSubstring(s2.Select(x => (int)(x - 'a'+ 1)));
+            Assert.AreEqual((0,0,s1.Length), lcs);
+        }
+        
+        [Test]
+        public void T08_LongestCommonSubstring()
+        {
+            var s1 = "aaaaaaaaaaaaaaaaaaaa";
+            var s2 = "bababaaaaaaaaaaa";
+            var tree = ShortSuffixTree.Build(s1.Select(x => (int)(x - 'a'+ 1)).ToList());
+            var lcs = tree.LongestCommonSubstring(s2.Select(x => (int)(x - 'a'+ 1)));
+            Assert.AreEqual((9,5,s2.Length - 5), lcs);
+        }
+        
+        [Test]
+        public void T09_LongestCommonSubstring()
+        {
+            var s1 = "owocowocowocowowcwowowowb";
+            var s2 = "owowowowowowo";
+            var tree = ShortSuffixTree.Build(s1.Select(x => (int)(x - 'a'+ 1)).ToList());
+            var lcs = tree.LongestCommonSubstring(s2.Select(x => (int)(x - 'a'+ 1)));
+            Assert.AreEqual(s1.Substring(lcs.srcOffset, lcs.length), s2.Substring(lcs.docOffset, lcs.length));
+            Assert.AreEqual(s1.Substring(lcs.srcOffset, lcs.length), "wowowow");
+        }
+        
+        [Test]
+        public void T10_LongestCommonSubstring()
+        {
+            var s1 = ListGenerator.Instance(42).RandomString(10000, 5);
+            var s2 = ListGenerator.Instance(42).RandomString(10000, 5);
+            var tree = ShortSuffixTree.Build(s1.Select(x => (int)(x - 'a'+ 1)).ToList());
+            var lcs = tree.LongestCommonSubstring(s2.Select(x => (int)(x - 'a'+ 1)));
+            Assert.IsTrue(lcs.length > 4);
+        }
     }

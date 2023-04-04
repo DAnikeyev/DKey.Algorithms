@@ -1,5 +1,9 @@
 ﻿namespace DKey.Algorithms.DataStructures.Graph.PrefixTrie;
 
+/// <summary>
+/// Prefic trie implementation. Useful for searching for longest prefix in a list of words.
+/// Can achieve same or better results with suffix tree, but it's more complicated and require words to not be a prefix of another word.
+/// </summary>
 public class Trie
 {
     private readonly TrieNode _root;

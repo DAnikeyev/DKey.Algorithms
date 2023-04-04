@@ -45,6 +45,8 @@ public class GraphGenerator
             RandomErdesRenyi(n, n),
             RandomErdesRenyi(n, n * n / 3),
             RandomTree(n),
+            RandomCycle(n),
+            RandomCycle(n),
             RandomTree(n),
             RandomUnicyclic(n),
             RandomUnicyclic(n),
@@ -107,7 +109,13 @@ public class GraphGenerator
             }
         }
 
-        return DataConverter.BuildNeighboursList(selected_edges, vertices);
+        return GraphBuilder.Unordered(selected_edges, vertices);
+    }
+    
+    public List<int>[] RandomCycle(int n)
+    {
+        var perm = ListGenerator.Instance().RandomPermutation(n);
+        return GraphBuilder.Unordered(perm.Select((x,i) => (x, perm[(i+1)%n])).ToList().ToList(), n);
     }
 
     public List<int>[] RandomTree(int n)

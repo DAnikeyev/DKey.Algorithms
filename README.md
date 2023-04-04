@@ -21,13 +21,14 @@ DKey.Algorithms is an unfinished library that provides basic algorithms and data
 - **Data Manipulation**
    - [x] IOHelper
    - [x] Tokenizer
-   - [x] Random Data Generator (for Lists, strings and Graphs)
+   - [x] Random Data Generator (for lists, strings and graphs)
 - **Others**
    - [x] Binary Search
+   - [x] Problem Solver
    - [x] LINQ Extension
 
 ## DKey.Codeforces
-DKey.Codeforces contains examples of solutions for [Codeforces Problems](http://codeforces.com/) that can be used as a template for solving and testing problems, not limited to Codeforces.
+DKey.Codeforces contains favorite examples of solutions for [Codeforces Problems](http://codeforces.com/) that can be used as a template for solving and testing problems, not limited to Codeforces.
 
 **To run a new solution:**
  - Create a new Solver class
@@ -48,7 +49,8 @@ To use application correctly, please, follow **these rules**
 - Use file-scoped namespace declarations like **namespace x;** instead of **namespace x{}**
 - Your files should contain class, struct, enum or interface
 - Don't name you variables like other classes (usually only problem for public members, as they start with UpperCase)  
-- Be careful with static extension methods (with **this** keyword), as their class name is not garanteed to be in dependent class and might be skipped while combining submission 
+- Be careful with static extension methods (with **this** keyword), as their class name is not garanteed to be in dependent class and might be skipped while combining submission
+- Try to avoid complex static classes with many dependencies, if only 1 method might be required from it, as it will lead to a lot of unnecessary dependencies in submission.cs
 
 Please note that violating most of the rules will result in unnecessary classes in submission.cs, but some might break the logic.
 

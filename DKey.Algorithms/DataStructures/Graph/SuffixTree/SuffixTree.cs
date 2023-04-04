@@ -44,10 +44,9 @@ public class SuffixTree<T> where T : IComparable<T>
         return tree;
     }
     /// <summary>
-    /// To add an item, for current iteration we must add
-    /// all necessary splits and track CurrentLongestNonLeafSuffix
-    /// Necessary splits are splits for current non-leaf suffix and their prefixes
-    /// Those prefixes are calculated by going by modified suffix link.
+    /// To add an item, for current iteration we must add all necessary splits and track CurrentLongestNonLeafSuffix.
+    /// Necessary splits are splits for current non-leaf suffix and their prefixes.
+    /// Those prefixes are calculated by traversing modified suffix link.
     /// If child with given element exists or root is reached we stop the loop, as splits are no longer necessary.
     /// </summary>
     private void AddSuffix(int index, T element)
@@ -220,5 +219,32 @@ public class SuffixTree<T> where T : IComparable<T>
                 return false;
         }
         return true;
+    }
+
+    /// <summary>
+    /// Returns the longest common substring between srcdata and data.
+    /// </summary>
+    public (int srcOffset, int docOffset, int length) LongestCommonSubstring(IEnumerable<T> data)
+    {
+        var currentLength = 0;
+        var currentIndex = -1;
+        (int bestSrcOffset, int docOffset, int length) best = new();
+        var position = new Position(0,0);
+        foreach (T element in data)
+        {
+            currentIndex++;
+            while (!TryGoDown(position, element) && currentLength > 0)
+            {
+                GoAnySuffixLink(position);
+                currentLength--;
+            }
+            if(position.VertexIndex == 0)
+                continue;
+
+            currentLength++;
+            if(currentLength>best.length)
+                best = (Nodes[position.VertexIndex].Offset, currentIndex - currentLength + 1, currentLength);
+        }
+        return best;
     }
 }

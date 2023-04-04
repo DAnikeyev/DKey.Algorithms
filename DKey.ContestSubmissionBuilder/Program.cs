@@ -21,6 +21,9 @@ public class Program
         {"MultiSolver", -2},
     };
     
+    /// <summary>
+    /// Builds a single .cs file with all the dependencies starting from program.cs of DKey.CodeForces.
+    /// </summary>
     public static void Main()
     {
         var graph = BuildDependencies();

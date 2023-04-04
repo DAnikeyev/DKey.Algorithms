@@ -7,7 +7,7 @@ namespace DKey.Algorithms.DataStructures.SegmentTree;
 ///Can be modified to perform any associative operation like max or bit operations.
 ///Other versions currently not implemented, because I couldn't find problems, that required them, but it will be revised again later.
 /// </summary>
-public class IntegerSegmentTree : BinaryTree<SegmentTreeNode>
+public class IntegerSegmentTree : ImmutableBinaryTree<SegmentTreeNode>
 {
     public IntegerSegmentTree(IList<int> data)
         : base(data.Select(x => new SegmentTreeNode(x)).ToArray())

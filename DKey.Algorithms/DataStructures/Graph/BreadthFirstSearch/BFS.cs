@@ -5,7 +5,7 @@ public class BFS
     /// <summary>
     /// Breadth-first search with some action on the current context.
     /// </summary>
-    public static void Traverse<TContext>(TContext context, Action<TContext>? action = default) where TContext : BFSContext
+    public static void Traverse<TContext>(TContext context, Action<TContext>? action = default) where TContext : TraverseContext
     {
         if(context.stopFlag)
             return;
@@ -14,7 +14,7 @@ public class BFS
 
         queue.Enqueue(context.CurrentVertex);
         context.Used.Add(context.CurrentVertex);
-        context.VertexInfo[context.CurrentVertex] = (-1, currentDepth);
+        context.VertexInfo[context.CurrentVertex] = (-1, 0);
 
         while (queue.Count > 0)
         {

@@ -1,4 +1,5 @@
 ﻿using DKey.Algorithms.DataStructures.Graph;
+using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
 
 namespace DKey.Algorithms.Tests.Graph;
 
@@ -21,7 +22,7 @@ public class ShortestPathTests
         var endVertex = 4;
         var expectedPath = new List<int> { 0, 1, 3, 4 };
 
-        var path = GenericGraphAlgorithms.ShortestPath(graph, startVertex, endVertex);
+        var path = ShortestPath.Get(graph, startVertex, endVertex);
 
         Assert.IsNotNull(path);
         Assert.AreEqual(expectedPath, path);
@@ -42,7 +43,7 @@ public class ShortestPathTests
         var startVertex = 0;
         var endVertex = 4;
 
-        var path = GenericGraphAlgorithms.ShortestPath(graph, startVertex, endVertex);
+        var path = ShortestPath.Get(graph, startVertex, endVertex);
 
         Assert.IsNull(path);
     }
@@ -59,7 +60,7 @@ public class ShortestPathTests
         var endVertex = 0;
         var expectedPath = new List<int> { 0 };
 
-        var path = GenericGraphAlgorithms.ShortestPath(graph, startVertex, endVertex);
+        var path = ShortestPath.Get(graph, startVertex, endVertex);
 
         Assert.IsNotNull(path);
         Assert.AreEqual(expectedPath, path);

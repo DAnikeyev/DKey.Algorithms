@@ -4,7 +4,7 @@ namespace DKey.Algorithms.TextProcessing;
 
 public class Tokenizer
 {
-    public static Dictionary<TokenizerMode, string> Patterns = new Dictionary<TokenizerMode, string>()
+    private static Dictionary<TokenizerMode, string> Patterns = new Dictionary<TokenizerMode, string>()
     {
         {TokenizerMode.TakeOnlyLetters, @"\b[a-zA-Z]+\b"},
         {TokenizerMode.TakeOnlyLettersOrDigit, @"\b[a-zA-Z0-9]+\b"},

@@ -1,4 +1,5 @@
-﻿using DKey.Algorithms.DataStructures.Graph.BreadthFirstSearch;
+﻿using DKey.Algorithms.DataStructures.Graph;
+using DKey.Algorithms.DataStructures.Graph.BreadthFirstSearch;
 
 namespace DKey.Algorithms.Tests.Graph;
 
@@ -13,7 +14,7 @@ public class BFSTests
         {
             var graph = new List<int>[] {new List<int> {1}, new List<int>()};
             var used = new HashSet<int>();
-            var context = new BFSContext(graph, 0);
+            var context = new TraverseContext(graph, 0);
 
             BFS.Traverse(context);
 
@@ -26,7 +27,7 @@ public class BFSTests
         {
             var graph = new List<int>[] {new List<int> {1, 2}, new List<int> {0, 2}, new List<int> {0, 1}};
             var used = new HashSet<int>();
-            var context = new BFSContext(graph, 0);
+            var context = new TraverseContext(graph, 0);
 
             BFS.Traverse(context);
 
@@ -42,7 +43,7 @@ public class BFSTests
             var graph = new List<int>[]
                 {new List<int> {1, 2}, new List<int> {3, 4}, new List<int>(), new List<int>(), new List<int>()};
             var used = new HashSet<int>();
-            var context = new BFSContext(graph, 0);
+            var context = new TraverseContext(graph, 0);
 
             BFS.Traverse(context);
             
@@ -59,7 +60,7 @@ public class BFSTests
             var graph = new List<int>[]
                 {new List<int> {1, 2}, new List<int> {3, 4}, new List<int>(), new List<int>(), new List<int>()};
             var used = new HashSet<int>();
-            var context = new BFSContext(graph, 0);
+            var context = new TraverseContext(graph, 0);
 
             BFS.Traverse(context);
 

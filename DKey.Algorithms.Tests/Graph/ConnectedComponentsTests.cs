@@ -1,4 +1,5 @@
 ﻿using DKey.Algorithms.DataStructures.Graph;
+using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
 
 namespace DKey.Algorithms.Tests.Graph;
 
@@ -22,7 +23,7 @@ public class ConnectedComponentsTests
             new List<int> {3, 4}
         };
 
-        var result = GenericGraphAlgorithms.ConnectedComponents(graph);
+        var result = ConnectedComponents.Get(graph);
         Assert.AreEqual(expectedComponents.Count, result.Count);
         
         for (var i = 0; i < expectedComponents.Count; i++)

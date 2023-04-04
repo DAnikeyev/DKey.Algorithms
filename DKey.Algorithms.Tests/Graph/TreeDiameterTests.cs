@@ -1,4 +1,5 @@
 ﻿using DKey.Algorithms.DataStructures.Graph;
+using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
 
 namespace DKey.Algorithms.Tests.Graph;
 
@@ -17,7 +18,7 @@ public class TreeDiameterTests
 
         var expectedDiameter = (3, 0, 3);
 
-        var diameter = GenericGraphAlgorithms.TreeDiameter(graph);
+        var diameter = TreeDiameter.Get(graph);
 
         Assert.AreEqual(expectedDiameter, diameter);
     }
@@ -35,7 +36,7 @@ public class TreeDiameterTests
 
         var expectedDiameter = (3, 2, 2);
 
-        var diameter = GenericGraphAlgorithms.TreeDiameter(graph);
+        var diameter = TreeDiameter.Get(graph);
 
         Assert.AreEqual(expectedDiameter, diameter);
     }
@@ -57,7 +58,7 @@ public class TreeDiameterTests
 
         var expectedDiameter = (7, 4, 5);
 
-        var diameter = GenericGraphAlgorithms.TreeDiameter(graph);
+        var diameter = TreeDiameter.Get(graph);
 
         Assert.AreEqual(expectedDiameter, diameter);
     }
