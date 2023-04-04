@@ -1,6 +1,6 @@
 ﻿using DKey.Algorithms;
 
-namespace DKey.CodeForces.ContestsXXX;
+namespace DKey.CodeForces.ContestXXX;
 
 public class SolverXXXY : MultiSolver
 {
