@@ -2,11 +2,10 @@
 using DKey.Algorithms.DataStructures.Graph.ShortSuffixTree;
 using DKey.Algorithms.NumberTheory;
 
-namespace DKey.CodeForces.Problem1780G;
+namespace DKey.CodeForces.Contest1780;
 
 /// <summary>
 /// https://codeforces.com/contest/1780/problem/G
-/// Use ContestSubmissionBuilder to generate submission as a single file.
 /// </summary>
 public class Solver1780G : Solver
 {

@@ -2,7 +2,7 @@
 
 public class BinarySearch
 {
-    //Min x: f(x)>0 for mono increasing func;
+    //Min x: f(x)>0 for mono increasing function.
     public static int GetIndex(int left, int right, Func<int, int> func)
     {
         if (right - left == 0)
@@ -11,7 +11,7 @@ public class BinarySearch
         return (func(mid) <= 0) ? GetIndex(mid + 1, right, func) : GetIndex(left, mid, func);
     }
     
-    //Min x: f(x)>0 for mono increasing func;
+    //Min x: f(x)>0 for mono increasing function.
     public static long GetIndexLong(int left, int right, Func<int, long> func)
     {
         if (right - left == 0)

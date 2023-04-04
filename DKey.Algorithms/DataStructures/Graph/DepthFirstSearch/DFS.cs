@@ -7,13 +7,14 @@ public static class DFS
     /// Use this for big graphs to avoid stack overflow.
     /// Can be more memory efficient if you push vertices 1 by 1 tracking how many children ha been pushed, but this is easier to understand.
     /// </summary>
-    public static void Iterative<TContext>(TContext context, Action<TContext>? action = default) where TContext : DFSContext
+    public static void Iterative<TContext>(TContext context, Action<TContext>? action = default, bool preallocate = false) where TContext : DFSContext
     {
         if(context.stopFlag)
             return;
-        var stack = new Stack<int>(context.Graph.Length);
+        var stack = new Stack<int>(preallocate ? context.Graph.Length : 0);
         stack.Push(context.CurrentVertex);
-
+        context.VertexInfo[context.CurrentVertex] = (-1, 0);
+        
         while (stack.Count > 0)
         {
             var currentVertex = stack.Peek();
@@ -31,7 +32,11 @@ public static class DFS
                 {
                     var nextAdjacent = context.Graph[currentVertex][i];
                     if (!context.Used.Contains(nextAdjacent))
+                    {
                         stack.Push(nextAdjacent);
+                        context.VertexInfo[nextAdjacent] = (currentVertex, context.TraverseDepth);
+                    }
+
                 }
             }
             else

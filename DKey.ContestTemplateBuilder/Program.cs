@@ -4,6 +4,9 @@ namespace ContestTemplateBuilder;
 
 public class Program
 {
+    /// <summary>
+    /// Creates a folder in DKey.CodeForces with a template for problems A-F in the contest.
+    /// </summary>
     public static void Main()
     {
         var folder = Path.Combine(Config.repoPath, "Contest" + Config.contestID);

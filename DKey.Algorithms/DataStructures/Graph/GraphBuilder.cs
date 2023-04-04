@@ -3,18 +3,18 @@
 /// <summary>
 /// Basic graph converter.
 /// </summary>
-public static class DataConverter
+public static class GraphBuilder
 {
 
     /// <summary>
-    /// Adjacent list to per-vertex list converter;
+    /// Adjacent list to per-vertex list converter.
     /// Most methods in this library use per-vertex list representation of graph.
     /// </summary>
     /// <param name="edges">List of adjacent vertices in [0..n-1] or [1..n] representation.</param>
     /// <param name="n">Number of vertices.</param>
     /// <param name="isSameRepresentation">Are vertices in edges from 0 to n-1.</param>
     /// <returns>List of Neigbours for every vertex in [0..n - 1] vertex representation.</returns>
-    public static List<int>[] BuildNeighboursList(List<(int, int)> edges, int n, bool isSameRepresentation = true,
+    public static List<int>[] Unordered(List<(int, int)> edges, int n, bool isSameRepresentation = true,
         bool ordered = false)
     {
         var res = new List<int>[n];
@@ -42,7 +42,7 @@ public static class DataConverter
     /// <summary>
     /// Build forwards and backwards graph.
     /// <summary>
-    public static (List<int>[]G, List<int>[] GRev) BuildOrderedNeighboursList(List<(int, int)> edges, int n,
+    public static (List<int>[]G, List<int>[] GRev) Ordered(List<(int, int)> edges, int n,
         bool isSameRepresentation = true)
     {
         var res = new List<int>[n];
@@ -66,8 +66,8 @@ public static class DataConverter
     /// <summary>
     /// Graph from representation of tree with root_index = 1, by list of parents for vertxes [2..n].
     /// </summary>
-    public static List<int>[] BuildFromTreeIndexation(List<int> parents)
+    public static List<int>[] FromTreeIndexation(List<int> parents)
     {
-        return BuildNeighboursList(parents.Select((x, i) => (x, i + 2)).ToList(), parents.Count + 1, false, false);
+        return Unordered(parents.Select((x, i) => (x, i + 2)).ToList(), parents.Count + 1, false, false);
     }
 }

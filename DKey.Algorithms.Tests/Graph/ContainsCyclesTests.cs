@@ -1,4 +1,5 @@
 ﻿using DKey.Algorithms.DataStructures.Graph;
+using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
 
 namespace DKey.Algorithms.Tests.Graph;
 
@@ -15,7 +16,7 @@ public class ContainsCyclesTests
             new List<int> {2}
         };
 
-        Assert.IsTrue(GenericGraphAlgorithms.ContainsCycle(graph));
+        Assert.IsTrue(Cycle.Exists(graph));
     }
 
     [Test]
@@ -30,6 +31,6 @@ public class ContainsCyclesTests
             new List<int> {3}
         };
 
-        Assert.IsFalse(GenericGraphAlgorithms.ContainsCycle(graph));
+        Assert.IsFalse(Cycle.Exists(graph));
     }
 }

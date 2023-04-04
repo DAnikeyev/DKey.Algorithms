@@ -2,7 +2,7 @@
 
 namespace DKey.Algorithms.Tests;
 
-public class IntegerSumBinaryTree : BinaryTree<int>
+public class IntegerSumBinaryTree : ImmutableBinaryTree<int>
 {
     public IntegerSumBinaryTree(IList<int> data) : base(data) { }
 

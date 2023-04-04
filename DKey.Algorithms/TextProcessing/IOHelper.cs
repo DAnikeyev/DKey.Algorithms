@@ -30,6 +30,12 @@ internal static class IOHelper
         sb.Append("\n");
     }
     
+    public static void AddAnswer(this StringBuilder sb, bool ans, bool camel = true)
+    {
+        sb.Append(ans? (camel? "Yes" : "YES") : (camel? "No" : "NO"));
+        sb.Append("\n");
+    }
+    
     public static void AddListLine<T>(this StringBuilder sb, IEnumerable<T> data)
     {
         sb.Append(string.Join(" ", data.Select(x => x?.ToString())));

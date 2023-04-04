@@ -113,4 +113,45 @@ namespace DKey.Algorithms.Tests.Graph;
             var ok = tree.Contains("bacd".ToCharArray());
             Assert.IsTrue(ok);
         }
+
+        [Test]
+        public void T10_LongestCommonSubstring()
+        {
+            var s1 = "awsbwjevbasajdvabevbaweebviwbrviberb";
+            var s2 = "awsbwjevbasajdvabevbaweebviwbrviberb";
+            var tree = SuffixTree<char>.Build(s1.ToCharArray(), char.MinValue);
+            var lcs = tree.LongestCommonSubstring(s2);
+            Assert.AreEqual((0,0,s1.Length), lcs);
+        }
+        
+        [Test]
+        public void T11_LongestCommonSubstring()
+        {
+            var s1 = "aaaaaaaaaaaaaaaaaaaa";
+            var s2 = "bababaaaaaaaaaaa";
+            var tree = SuffixTree<char>.Build(s1.ToCharArray(), char.MinValue);
+            var lcs = tree.LongestCommonSubstring(s2);
+            Assert.AreEqual((9,5,s2.Length - 5), lcs);
+        }
+        
+        [Test]
+        public void T12_LongestCommonSubstring()
+        {
+            var s1 = "owoAowoAowoAowowAwowowowb";
+            var s2 = "owowowowowowo";
+            var tree = SuffixTree<char>.Build(s1.ToCharArray(), char.MinValue);
+            var lcs = tree.LongestCommonSubstring(s2);
+            Assert.AreEqual(s1.Substring(lcs.srcOffset, lcs.length), s2.Substring(lcs.docOffset, lcs.length));
+            Assert.AreEqual(s1.Substring(lcs.srcOffset, lcs.length), "wowowow");
+        }
+        
+        [Test]
+        public void T13_LongestCommonSubstring()
+        {
+            var s1 = ListGenerator.Instance(42).RandomString(10000, 5);
+            var s2 = ListGenerator.Instance(42).RandomString(10000, 5);
+            var tree = SuffixTree<char>.Build(s1.ToCharArray(), char.MinValue);
+            var lcs = tree.LongestCommonSubstring(s2);
+            Assert.IsTrue(lcs.length > 4);
+        }
     }

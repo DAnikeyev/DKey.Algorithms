@@ -1,8 +1,6 @@
 ﻿using System.Text;
-using DKey.Algorithms;
-using DKey.Algorithms.IEnumerableExtensions;
 
-namespace DKey.CodeForces;
+namespace DKey.Algorithms;
 
 public abstract class Solver
 {
@@ -32,4 +30,10 @@ public abstract class Solver
         output.Print();
     }
 
+    public virtual void RunWithArgs(object[] args, bool print = false)
+    {
+        Solve(args);
+        if (print)
+            output.Print();
+    }
 }

@@ -2,7 +2,12 @@
 
 namespace DKey.Algorithms.DataStructures.Graph;
 
-public abstract class BinaryTree<T>
+/// <summary>
+/// Use this for Immutable trees, like SegmentTree.
+/// Fast access to the tree elements, but rotations/insertion/deletion can't be implemented fast,
+/// as it requires to store tree of nodes, instead of array.
+/// </summary>
+public abstract class ImmutableBinaryTree<T>
 {
     public readonly int Size;
     public readonly int Start;
@@ -10,7 +15,7 @@ public abstract class BinaryTree<T>
     public (int left, int right)[] LeafRanges;
     
     #pragma warning disable 1691
-    public BinaryTree(IList<T> data)
+    public ImmutableBinaryTree(IList<T> data)
     {
         Size = data.Count;
         var boxSize = 1 << BinaryArithmetics.GetCeilingLog(data.Count);

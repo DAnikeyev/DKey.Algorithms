@@ -62,7 +62,12 @@ public static class LinqExtension
         return maxindex;
     }
     
-    //ValueSelector(item) must be monotonic increasing in source
+    
+    /// <summary>
+    /// Returns the index of the first element in the sorted list that is in the interval (min, max).
+    /// </summary>
+    /// <param name="valueSelector">must be monotonic increasing in source.</param>
+    /// <returns></returns>
     public static int GetFirstIndexInSortedListInInterval<TSource>
         (this IList<TSource> source, int min, int max, Func<TSource, long> valueSelector)
     {
@@ -79,8 +84,6 @@ public static class LinqExtension
         }
         return -1;
     }
-
-    
     
     public static void AddToCountDictionary<TSource, TKey>
         (this Dictionary<TKey, int> dictionary, IEnumerable<TSource> source, Func<TSource, TKey> keySelector) where TKey : notnull

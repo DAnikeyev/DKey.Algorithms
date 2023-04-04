@@ -1,4 +1,5 @@
 ﻿using DKey.Algorithms.DataStructures.Graph;
+using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
 using DKey.Algorithms.RandomData;
 
 namespace DKey.Algorithms.Tests.Graph;
@@ -12,10 +13,11 @@ public class RandomGraphsTests
         var graphs = graphGenerator.GetVariousGraphes(10);
         foreach (var graph in graphs)
         {
-            var containsCycle = GenericGraphAlgorithms.ContainsCycle(graph);
-            var components = GenericGraphAlgorithms.ConnectedComponents(graph);
-            var path = GenericGraphAlgorithms.ShortestPath(graph, 0, 1);
-            var diameter = GenericGraphAlgorithms.TreeDiameter(graph);
+            var containsCycle = Cycle.Exists(graph);
+            var getCycle = Cycle.Find(graph);
+            var components = ConnectedComponents.Get(graph);
+            var path = ShortestPath.Get(graph, 0, 1);
+            var diameter = TreeDiameter.Get(graph);
         }
     }
     [Explicit]
@@ -26,10 +28,11 @@ public class RandomGraphsTests
         var graphs = graphGenerator.GetVariousGraphes(value);
         foreach (var graph in graphs)
         {
-            var containsCycle = GenericGraphAlgorithms.ContainsCycle(graph);
-            var components = GenericGraphAlgorithms.ConnectedComponents(graph);
-            var path = GenericGraphAlgorithms.ShortestPath(graph, 0, 1);
-            var diameter = GenericGraphAlgorithms.TreeDiameter(graph);
+            var containsCycle = Cycle.Exists(graph);
+            var getCycle = Cycle.Find(graph);
+            var components = ConnectedComponents.Get(graph);
+            var path = ShortestPath.Get(graph, 0, 1);
+            var diameter = TreeDiameter.Get(graph);
         }
     }
 }

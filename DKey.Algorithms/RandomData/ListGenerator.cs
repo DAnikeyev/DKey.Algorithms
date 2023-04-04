@@ -24,6 +24,9 @@ public sealed class ListGenerator
         }
     }
 
+    /// <summary>
+    /// Random list of length n with elements from minValue to maxValue.
+    /// </summary>
     public List<int> RandomList(int length, int minValue, int maxValue)
     {
         var list = new List<int>();
@@ -34,6 +37,9 @@ public sealed class ListGenerator
         return list;
     }
     
+    /// <summary>
+    /// Random permutation of {0,...,n-1};
+    /// </summary>
     public List<int> RandomPermutation(int n)
     {
         var permutation = new List<int>();
@@ -49,16 +55,16 @@ public sealed class ListGenerator
         return permutation;
     }
     
+    /// <summary>
+    /// Random string of length n with letters from 'a' to 'a' + letters - 1.
+    /// </summary>
     public string RandomString(int n, int letters)
     {
         return new string(RandomList(n, 0, letters - 1).Select(x => (char)(x + 'a')).ToArray());
     }
     /// <summary>
-    /// Returns random sequence of k ones and n-k zeros
+    /// Returns random sequence of k ones and n-k zeros.
     /// </summary>
-    /// <param name="n"></param>
-    /// <param name="k"></param>
-    /// <returns></returns>
     public List<int> RandomKElements(int n, int k)
     {
        var result = new int[n];

@@ -229,4 +229,31 @@ public class ShortSuffixTree
         }
         return true;
     }
+    
+    /// <summary>
+    /// Returns the longest common substring between srcdata and data.
+    /// </summary>
+    public (int srcOffset, int docOffset, int length) LongestCommonSubstring(IEnumerable<int> data)
+    {
+        var currentLength = 0;
+        var currentIndex = -1;
+        (int bestSrcOffset, int docOffset, int length) best = new();
+        var position = new Position(0,0);
+        foreach (int element in data)
+        {
+            currentIndex++;
+            while (!TryGoDown(position, element) && currentLength > 0)
+            {
+                GoAnySuffixLink(position);
+                currentLength--;
+            }
+            if(position.VertexIndex == 0)
+                continue;
+
+            currentLength++;
+            if(currentLength>best.length)
+                best = (Nodes[position.VertexIndex].Offset, currentIndex - currentLength + 1, currentLength);
+        }
+        return best;
+    }
 }
