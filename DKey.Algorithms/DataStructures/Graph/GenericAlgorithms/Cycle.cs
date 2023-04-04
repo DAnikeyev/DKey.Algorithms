@@ -7,9 +7,9 @@ public class Cycle
     /// <summary>
     /// Detects if there is a cycle in an undirected graph
     /// </summary>
-    public static bool Exists(List<int>[] graph)
+    public static bool Exists(List<int>[] graph, int start = 0)
     {
-        var context = new DFSContext(graph, 0);
+        var context = new DFSContext(graph, start);
         for (int i = 0; i < graph.Length; i++)
         {
             if (!context.Used.Contains(i))
