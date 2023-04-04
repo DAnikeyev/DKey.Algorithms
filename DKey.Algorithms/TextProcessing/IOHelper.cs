@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using DKey.Algorithms.TextProcessing;
 
 namespace DKey.Algorithms;
 
@@ -6,6 +7,7 @@ internal static class IOHelper
 {
     public static Dictionary<Type, Func<object>> typeReaderMap = new()
     {
+        { typeof(Skip), () => Console.ReadLine()},
         { typeof(int), () => ReadInt() },
         { typeof(long), () => ReadLong() },
         { typeof(string), () => Console.ReadLine()! },
