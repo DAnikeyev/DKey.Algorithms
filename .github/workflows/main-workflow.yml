@@ -65,11 +65,12 @@ jobs:
       id: check
       run: |
         echo "Merged status: ${{ github.event.pull_request.merged }}"
-        if [ "${{ github.event.pull_request.merged }}" = "true" ]; then
+        if (${{ github.event.pull_request.merged }}) {
           echo "::set-output name=merged::true"
-        else
+        }
+        else {
           echo "::set-output name=merged::false"
-        fi
+        }
         
     - name: Checkout
       uses: actions/checkout@v3
