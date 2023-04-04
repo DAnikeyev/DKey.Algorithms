@@ -96,7 +96,7 @@ namespace DKey.Algorithms.Tests.Graph;
         [Test]
         public void T08_VariousSizeTree([Values(1, 5, 10, 25, 100, 1000, 10000, 100000)]int value)
         {
-            var data = ListGenerator.Instance().RandomString(value, 5);
+            var data = ListGenerator.Instance(42).RandomString(value, 5);
             var tree = SuffixTree<char>.Build(data.ToCharArray(), char.MinValue);
             var ok = tree.Contains("ba".ToCharArray());
             Assert.IsTrue(ok || value < 9999);

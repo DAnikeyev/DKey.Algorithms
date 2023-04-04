@@ -138,10 +138,11 @@ public class GraphGenerator
 
     public List<int>[] RandomUnicyclic(int n)
     {
-
         var tree = RandomTree(n - 1);
         var v1 = _random.Next(n - 1);
-        var v2 = _random.Next(n - 1);
+        var v2 = v1;
+        while(v2 == v1)
+            v2 = _random.Next(n - 1);
 
         Array.Resize(ref tree, n);
         tree[n - 1] = new List<int> {v1, v2};

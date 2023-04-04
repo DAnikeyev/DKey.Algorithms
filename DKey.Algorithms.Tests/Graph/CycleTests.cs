@@ -47,7 +47,7 @@ public class CycleTests
     [Test]
     public void T03_FindACycle_CycleExists()
     {
-        var graph = GraphGenerator.Instance().RandomUnicyclic(10);
+        var graph = GraphGenerator.Instance(42).RandomUnicyclic(10);
         var result = Cycle.Find(graph);
         Assert.IsNotNull(result);
     }
