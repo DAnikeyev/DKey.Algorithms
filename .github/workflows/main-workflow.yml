@@ -86,9 +86,6 @@ jobs:
         
     - name: Package project 1
       run: dotnet pack "DKey.Algorithms/DKey.Algorithms.csproj" --configuration Release --output packages
-
-    - name: Publish NuGet
-      run: dotnet nuget push "packages/*.nupkg" -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
       
     - name: Set NuGet package paths
       shell: pwsh
