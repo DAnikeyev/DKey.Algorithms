@@ -97,5 +97,7 @@ jobs:
       run: |
         $packages = $env:PACKAGES -split ';'
         foreach ($package in $packages) {
-          dotnet nuget push "packages/$package"      
-
+          dotnet nuget push "packages/$package" -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
+        }
+      shell: pwsh
+    
