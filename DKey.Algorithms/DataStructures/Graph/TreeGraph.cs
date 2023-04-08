@@ -33,7 +33,7 @@ public class TreeGraph
     {
         var context = new DFSContext(Graph, root);
         var tree = new TreeGraph(n, root, context);
-        DepthFirstSearch.DFS.Iterative(context, tree.CreateVertexInDFS);
+        DFS.Iterative(context, tree.CreateVertexInDFS);
         return tree;
     }
 }

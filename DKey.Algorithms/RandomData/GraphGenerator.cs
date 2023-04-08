@@ -57,6 +57,7 @@ public class GraphGenerator
             RandomPartitionGraph(n, 2, 1),
             RandomPartitionGraph(n, 3, 0.5),
             RandomPartitionGraph(n, n / 2, 0.5),
+            EyeOfTheUniverse,
         };
     }
 
@@ -189,4 +190,20 @@ public class GraphGenerator
 
         return graph;
     }
+    
+    public List<int>[] EyeOfTheUniverse => GraphBuilder.Unordered(
+        new List<(int, int)>()
+        {
+            (1,5),
+            (5,4),
+            (9,6),
+            (6,7),
+            (7,10),
+            (16,17),
+            (17,12),
+            (12,15),
+            (15,14),
+            (14,13)
+        },
+        18);
 }

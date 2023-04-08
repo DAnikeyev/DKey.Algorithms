@@ -5,6 +5,7 @@ DKey.Algorithms is an unfinished library that provides basic algorithms and data
  - **Data Structures**
    - [x] Graph
    - [x] Tree
+   - [x] Sorted Multiset
    - [x] Segment Tree
    - [x] Generic Suffix Tree
    - [x] Short Suffix Tree (2x faster then generic)
@@ -30,12 +31,15 @@ DKey.Algorithms is an unfinished library that provides basic algorithms and data
 ## DKey.Codeforces
 DKey.Codeforces contains favorite examples of solutions for [Codeforces Problems](http://codeforces.com/) that can be used as a template for solving and testing problems, not limited to Codeforces.
 
+
 **To run a new solution:**
  - Create a new Solver class
  - The Solver constructor should contain the **types** of parameters that are going to be parsed and delivered in arguments of the **Solve()** method
  - The **Solve()** method should contain the solution logic and use **output.Append()** or **output.AddL()** to append the result to StringBuilder that will print output at the end of the program
  - Swap the Solver class in program.cs to run your solver
  - Use the **MultiSolver** instead, if the problem input starts with number of test cases followed by multiple test cases.
+
+ContestTemplateBuilder can be used to create contest templates to work in this project.
 
 ## DKey.ContestSubmissionBuilder
 DKey.ContestSubmissionBuilder is an application to build a single file submission for Codeforces problems.  

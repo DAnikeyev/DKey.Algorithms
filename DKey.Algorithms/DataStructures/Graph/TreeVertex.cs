@@ -4,7 +4,7 @@ public class TreeVertex
 {
     public int ParentIndex;
     public int Index;
-    public List<int>? Children;
+    public List<int> Children;
 
     public TreeVertex()
     {
