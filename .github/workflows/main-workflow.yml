@@ -98,7 +98,7 @@ jobs:
 
     - name: Publish NuGet
       run: |
-          $packages = $env:PACKAGES -split ';'
-          foreach ($package in $packages) {
-            dotnet nuget push "packages/$package"      
+        $packages = $env:PACKAGES -split ';'
+        foreach ($package in $packages) {
+          dotnet nuget push "packages/$package"      
 
