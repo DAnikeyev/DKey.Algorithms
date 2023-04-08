@@ -4,7 +4,7 @@ namespace DKey.CodeForces.ContestXXX;
 
 public class SolverXXXY : MultiSolver
 {
-    public SolverXXXY() : base( new []{typeof(List<int>)})
+    public SolverXXXY() : base( new Type[]{typeof(List<int>)})
     {
     }
 

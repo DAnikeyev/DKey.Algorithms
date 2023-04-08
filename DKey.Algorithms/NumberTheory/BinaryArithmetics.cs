@@ -72,4 +72,19 @@ public class BinaryArithmetics
 
         return i;
     }
+    
+    public static string IntToString(long value, char[] baseChars)
+    {
+        var result = string.Empty;
+        var targetBase = baseChars.Length;
+ 
+        do
+        {
+            result = baseChars[value % targetBase] + result;
+            value = value / targetBase;
+        } 
+        while (value > 0);
+ 
+        return result;
+    }
 }
