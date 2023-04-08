@@ -38,7 +38,7 @@
 
 name: Main Workflow
 
-on:on:
+on:
   push:
     branches:
       - main
