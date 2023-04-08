@@ -89,4 +89,16 @@ jobs:
 
     - name: Publish NuGet
       run: dotnet nuget push "packages/*.nupkg" -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
+      
+    - name: Set NuGet package paths
+      shell: pwsh
+      run: |
+        $packages = (Get-ChildItem packages -Filter *.nupkg -File -Name) -join ';'
+        echo "PACKAGES=$packages" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+    - name: Publish NuGet
+      run: |
+        $packages = $env:PACKAGES -split ';'
+        foreach ($package in $packages) {
+          dotnet nuget push "packages/$package"      
 
