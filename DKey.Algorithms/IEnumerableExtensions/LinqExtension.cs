@@ -1,4 +1,6 @@
-﻿namespace DKey.Algorithms.IEnumerableExtensions;
+﻿using DKey.Algorithms.Search;
+
+namespace DKey.Algorithms.IEnumerableExtensions;
 
 public static class LinqExtension
 {
@@ -26,7 +28,7 @@ public static class LinqExtension
             }
         }
     }
-    
+
     public static Dictionary<TKey, int> ToCountDictionary<TSource, TKey>
         (this IEnumerable<TSource> source, Func<TSource, TKey> keySelector) where TKey : notnull
     {
@@ -37,54 +39,10 @@ public static class LinqExtension
             dictionary.TryGetValue(key, out var val);
             dictionary[key] = val + 1;
         }
+
         return dictionary;
     }
-    
-    public static int GetIndexOfMaxBy<TSource, TKey>
-        (this IEnumerable<TSource> source, Func<TSource, TKey> valueSelector) where TKey : IComparable<TKey>
-    {
-        if (source.FirstOrDefault() == null)
-            return -1;
-        var index = 0;
-        var maxindex = 0;
-        var max = valueSelector(source.First());
-        foreach (TSource element in source)
-        {
-            var currentValue = valueSelector(element);
-            if (currentValue.CompareTo(max) > 0)
-            {
-                max = currentValue;
-                maxindex = index;
-            }
 
-            index++;
-        }
-        return maxindex;
-    }
-    
-    
-    /// <summary>
-    /// Returns the index of the first element in the sorted list that is in the interval (min, max).
-    /// </summary>
-    /// <param name="valueSelector">must be monotonic increasing in source.</param>
-    /// <returns></returns>
-    public static int GetFirstIndexInSortedListInInterval<TSource>
-        (this IList<TSource> source, int min, int max, Func<TSource, long> valueSelector)
-    {
-        var n = source.Count();
-        var maxindex = (int)BinarySearch.GetIndexLong(0, n - 1, x => valueSelector(source[x]) - max > 0 ? 1 : -1);
-        var minindex = (int)BinarySearch.GetIndexLong(0, n - 1, x => valueSelector(source[x]) - min > 0 ? 1 : -1) - 1;
-        minindex = Math.Max(minindex, 0);
-        for (var i = minindex; i <= maxindex; i++)
-        {
-            if (valueSelector(source[i]) > min && valueSelector(source[i]) < max)
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
-    
     public static void AddToCountDictionary<TSource, TKey>
         (this Dictionary<TKey, int> dictionary, IEnumerable<TSource> source, Func<TSource, TKey> keySelector) where TKey : notnull
     {

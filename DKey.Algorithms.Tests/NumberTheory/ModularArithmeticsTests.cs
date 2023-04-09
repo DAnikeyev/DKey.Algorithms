@@ -1,6 +1,6 @@
 ﻿using DKey.Algorithms.NumberTheory;
 
-namespace DKey.Algorithms.Tests;
+namespace DKey.Algorithms.Tests.NumberTheory;
 
 [TestFixture]
 public class ModularArithmeticsTests

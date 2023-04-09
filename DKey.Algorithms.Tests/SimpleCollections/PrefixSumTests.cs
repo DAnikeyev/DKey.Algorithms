@@ -1,8 +1,8 @@
 ﻿using DKey.Algorithms.DataStructures.IntervalTree;
 
-namespace DKey.Algorithms.Tests;
+namespace DKey.Algorithms.Tests.SimpleCollections;
 
-public class IntervalTreeTests
+public class PrefixSumTests
 {
     [Test]
     public void T01_PrefixSum_SingleTestCase_CorrectResult()

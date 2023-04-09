@@ -1,6 +1,6 @@
 ﻿using DKey.Algorithms.TextProcessing;
 
-namespace DKey.Algorithms.Tests;
+namespace DKey.Algorithms.Tests.Strings;
 
 [TestFixture]
 public class TokenizerTests

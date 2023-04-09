@@ -9,7 +9,15 @@
 
     <ItemGroup>
       <None Remove="Template.txt" />
-      <Content Include="Template.txt">
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="MainTemplate.txt" />
+      <Content Include="MainTemplate.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="ProblemTemplate.txt" />
+      <Content Include="ProblemTemplate.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
     </ItemGroup>

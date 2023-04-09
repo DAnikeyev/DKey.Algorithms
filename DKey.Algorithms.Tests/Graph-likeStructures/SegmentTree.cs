@@ -1,6 +1,6 @@
 ﻿using DKey.Algorithms.DataStructures.SegmentTree;
 
-namespace DKey.Algorithms.Tests;
+namespace DKey.Algorithms.Tests.Graph_likeStructures;
 
 public class SegmentTree
 {

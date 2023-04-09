@@ -1,34 +1,37 @@
 # DKey.Algorithms
-DKey.Algorithms is an unfinished library that provides basic algorithms and data structures implementation in C#.
+DKey.Algorithms is a library that provides basic algorithms and data structures implementation in C#.
 
 ### Currently Implemented:
- - **Data Structures**
-   - [x] Graph
-   - [x] Tree
-   - [x] Sorted Multiset
-   - [x] Segment Tree
-   - [x] Generic Suffix Tree
-   - [x] Short Suffix Tree (2x faster then generic)
-   - [x] Prefix Trie
- - **Graph Processing**
-   - [x] Depth First Search
-   - [x] Breadth First Search
-   - [x] Generic graph statistics (Components, Cycle, Shortest path, Diameter)
- - **Number Theory**
-   - [x] Prime Arithmetic
-   - [x] Binary Arithmetic
-   - [x] Modular Arithmetic
-   - [x] Combinatorics
+- **Data Structures**
+  - [x] Graph
+  - [x] Tree
+  - [x] Sorted Multiset
+  - [x] Segment Tree
+  - [x] Generic Suffix Tree
+  - [x] Short Suffix Tree
+  - [x] Prefix Trie
+- **Graph Processing**
+  - [x] Depth First Search
+  - [x] Breadth First Search
+  - [x] Generic graph statistics (Components, Cycle, Shortest path, Diameter)
+- **Number Theory**
+  - [x] Prime Arithmetic
+  - [x] Binary Arithmetic
+  - [x] Modular Arithmetic
+  - [x] Combinatorics
+- **Argument Search**
+  - [x] Binary Search
+  - [x] Ternary Search
+  - [x] Sorted Data Search
 - **Data Manipulation**
-   - [x] IOHelper
-   - [x] Tokenizer
-   - [x] Random Data Generator (for lists, strings and graphs)
+  - [x] IOHelper
+  - [x] Tokenizer
+  - [x] Random Data Generator (for lists, strings and graphs)
 - **Others**
-   - [x] Binary Search
-   - [x] Problem Solver
-   - [x] LINQ Extension
+  - [x] Problem Solver and MultiSolver
+  - [x] LINQ Extension
 
-## DKey.Codeforces
+### DKey.Codeforces
 DKey.Codeforces contains favorite examples of solutions for [Codeforces Problems](http://codeforces.com/) that can be used as a template for solving and testing problems, not limited to Codeforces.
 
 
@@ -41,7 +44,8 @@ DKey.Codeforces contains favorite examples of solutions for [Codeforces Problems
 
 ContestTemplateBuilder can be used to create contest templates to work in this project.
 
-## DKey.ContestSubmissionBuilder
+## Utils:
+### DKey.ContestSubmissionBuilder
 DKey.ContestSubmissionBuilder is an application to build a single file submission for Codeforces problems.  
 It takes the EntryPoint of your solution (supposedly **program.cs** located in DKey.Codeforces) as root and builds a single file submission combining the subtree of dependencies.  
 Traverse through tree of dependencies is not perfect.  
@@ -58,7 +62,12 @@ To use application correctly, please, follow **these rules**
 
 Please note that violating most of the rules will result in unnecessary classes in submission.cs, but some might break the logic.
 
-## DKey.ContestTemplateBuilder
+### DKey.ContestTemplateBuilder
 DKey.ContestTemplateBuilder generates folder Contest{number} in DKey.CodeForces and fill it with 6 solution templates based on MultiSolver for Problems A-F.
 
-Thank you for using DKey.Algorithms!
+### DKey.ContestProcedure
+DKey.ContestProcedure creates submission file and launch Codeforces.Program.Main() simultaneously. Perfect for checking the test output or debugging right before submitting the solution.
+
+### Thank you for using DKey.Algorithms!
+### Contacts: 
+**dmitry.anikeyev@gmail.com**

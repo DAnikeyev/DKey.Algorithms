@@ -17,6 +17,8 @@ public class Solver1696E : Solver
         var data = (List<int>) (objects[1]);
         var mod = new ModularArithmetics(1_000_000_007);
         var res = 0;
+        
+        //Convolution of required binoms has O(n) terms, instead of O(n^2).
         for (var i = 0; i < data.Count; i++)
             res = mod.Add(res, mod.Choose(i + data[i], i + 1));
         output.AddLine(res);
