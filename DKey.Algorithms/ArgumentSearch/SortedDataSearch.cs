@@ -27,8 +27,8 @@ public class SortedDataSearch
     
     /// <summary>
     /// Returns the index of the first element in the sorted list that is in the interval (min, max).
+    /// valueSelector must be monotonic increasing in source.
     /// </summary>
-    /// <param name="valueSelector">must be monotonic increasing in source.</param>
     public static int GetFirstIndexInSortedListInInterval<TSource>
         ( IList<TSource> source, int min, int max, Func<TSource, long> valueSelector)
     {

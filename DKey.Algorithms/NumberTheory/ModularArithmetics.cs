@@ -9,7 +9,9 @@ public class ModularArithmetics
     private List<int>? _factorialCache;
     
  
-    /// <param name="module">Should be prime.</param>
+    /// <summary>
+    /// Create a modular arithmetic fot some PRIME module.
+    /// </summary>
     public ModularArithmetics(int module = 1000000007, bool cacheFactorials = true)
     {
         if (cacheFactorials)

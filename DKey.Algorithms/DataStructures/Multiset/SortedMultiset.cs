@@ -3,8 +3,8 @@
 /// <typeparam name="T"></typeparam>
 public class SortedMultiset<T> where T : IComparable<T>
 {
-    private T _min;
-    private T _max;
+    private T? _min;
+    private T? _max;
     private bool _storeMinMax;
     public long Count { get; private set; }
     internal readonly SortedDictionary<T, long> Multiset;
@@ -48,9 +48,9 @@ public class SortedMultiset<T> where T : IComparable<T>
         Count += value;
         if (_storeMinMax && count == 0)
         {
-            if(_min.CompareTo(item) > 0)
+            if(_min!.CompareTo(item) > 0)
                 _min = item;
-            if(_max.CompareTo(item) < 0)
+            if(_max!.CompareTo(item) < 0)
                 _max = item;
         }
     }
@@ -70,9 +70,9 @@ public class SortedMultiset<T> where T : IComparable<T>
             Multiset.Remove(item);
             if(!_storeMinMax)
                 return count >= value;
-            if(_max.CompareTo(item)<=0)
+            if(_max!.CompareTo(item)<=0)
                 _max = (Multiset.Keys.Count > 0 ? Multiset.Keys.Max() : default(T))!;
-            if(_min.CompareTo(item)>=0)
+            if(_min!.CompareTo(item)>=0)
                 _min = (Multiset.Keys.Count > 0 ? Multiset.Keys.Min() : default(T))!;
         }
 
@@ -97,9 +97,9 @@ public class SortedMultiset<T> where T : IComparable<T>
         return hasKey;
     }
 
-    public T Min => _storeMinMax ? _min : Multiset.First().Key;
+    public T? Min => _storeMinMax ? _min : Multiset.First().Key;
     
     //Last in Multiset is O(n), not O(log(n))!
-    public T Max => _storeMinMax ? _max : Multiset.Last().Key;
+    public T? Max => _storeMinMax ? _max : Multiset.Last().Key;
     public int CountDistinct => Multiset.Count();
 }

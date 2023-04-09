@@ -22,7 +22,7 @@ public class SuffixTree<T> where T : IComparable<T>
     /// Build Suffix Tree from the list of T.
     /// </summary>
     /// <param name="data">list of T.</param>
-    /// <param name="minChar">Element, which is less, than data.Min(). Tree might be broken, if this is not correctly provided.</param>
+    /// <param name="minElement">Element, which is less, than data.Min(). Tree might be broken, if this is not correctly provided.</param>
     /// <returns>Suffix Tree.</returns>
     public static SuffixTree<T> Build(IList<T> data, T minElement)
     {
@@ -141,7 +141,7 @@ public class SuffixTree<T> where T : IComparable<T>
     
     /// <summary>
     /// Supports getting suffix link from edges.
-    /// <summary>
+    /// </summary>
     internal void GoAnySuffixLink(Position position)
     {
         if (TryGoVertexSuffixLink(position))

@@ -7,7 +7,7 @@ internal static class IOHelper
 {
     public static Dictionary<Type, Func<object>> typeReaderMap = new()
     {
-        { typeof(Skip), () => Console.ReadLine()},
+        { typeof(Skip), () => Console.ReadLine()!},
         { typeof(int), () => ReadInt() },
         { typeof(long), () => ReadLong() },
         { typeof(string), () => Console.ReadLine()! },
