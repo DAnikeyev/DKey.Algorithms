@@ -142,7 +142,7 @@ namespace DKey.Algorithms.Tests.SufixTree;
             var tree = SuffixTree<char>.Build(s1.ToCharArray(), char.MinValue);
             var lcs = tree.LongestCommonSubstring(s2);
             Assert.AreEqual(s1.Substring(lcs.srcOffset, lcs.length), s2.Substring(lcs.docOffset, lcs.length));
-            Assert.AreEqual(s1.Substring(lcs.srcOffset, lcs.length), "wowowow");
+            Assert.AreEqual("wowowow", s1.Substring(lcs.srcOffset, lcs.length));
         }
         
         [Test]

@@ -10,7 +10,7 @@
 
         <RootNamespace>DKey.Algorithms.Tests</RootNamespace>
 
-        <PackageId>DKey2.Algorithms.Tests</PackageId>
+        <PackageId>DKey.Algorithms.Tests</PackageId>
     </PropertyGroup>
 
     <ItemGroup>
