@@ -16,7 +16,7 @@ e. Levenshtein Distance
 
 Dynamic Programming:  
 a. 0-1 Knapsack  
-b. Coin Change Problem  
+b. Coin Change Problem  ****
 c. Rod Cutting Problem  
 d. Matrix Chain Multiplication  
 e. Longest Palindromic Subsequence  

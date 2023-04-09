@@ -8,8 +8,11 @@
         <RootNamespace>DKey.CodeForces</RootNamespace>
         <Version>1.0.0</Version>
         <Authors>DAnikeyev</Authors>
+        
         <PackageDescription>CodeForces examples and main Solver workflow</PackageDescription>
         <RepositoryUrl>https://github.com/DAnikeyev/DKey.Algorithms</RepositoryUrl>
+        
+        <NoWarn>$(NoWarn);1591</NoWarn>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 

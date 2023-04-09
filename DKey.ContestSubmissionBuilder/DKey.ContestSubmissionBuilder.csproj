@@ -9,6 +9,7 @@
         <Authors>DAnikeyev</Authors>
         <PackageDescription>CodeForces submission builder</PackageDescription>
         <RepositoryUrl>https://github.com/DAnikeyev/DKey.Algorithms</RepositoryUrl>
+        <NoWarn>$(NoWarn);1591</NoWarn>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 

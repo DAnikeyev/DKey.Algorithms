@@ -13,12 +13,13 @@
         <PackageDescription>Basic data structures and algorithms by Dmitry Anikeyev. For more information, visit: https://github.com/DAnikeyev/DKey.Algorithms</PackageDescription>
         <PackageIcon>icon.png</PackageIcon>
         <RepositoryUrl>https://github.com/DAnikeyev/DKey.Algorithms</RepositoryUrl>
+        <NoWarn>$(NoWarn);1591</NoWarn>
         <Nullable>enable</Nullable>
     </PropertyGroup>
     
     <ItemGroup>
         <None Include="icon.png" Pack="true" PackagePath="\" />
-        <None Include="README.md" Pack="true" PackagePath="..\" />
-        <None Include="LICENSE" Pack="true" PackagePath="..\" />
+        <None Include="..\README.md" Pack="true" PackagePath="\" />
+        <None Include="..\LICENSE" Pack="true" PackagePath="\" />
     </ItemGroup>
 </Project>
