@@ -96,7 +96,7 @@ namespace DKey.Algorithms.Tests.SufixTree;
             var tree = ShortSuffixTree.Build(s1.Select(x => (int)(x - 'a'+ 1)).ToList());
             var lcs = tree.LongestCommonSubstring(s2.Select(x => (int)(x - 'a'+ 1)));
             Assert.AreEqual(s1.Substring(lcs.srcOffset, lcs.length), s2.Substring(lcs.docOffset, lcs.length));
-            Assert.AreEqual(s1.Substring(lcs.srcOffset, lcs.length), "wowowow");
+            Assert.AreEqual("wowowow", s1.Substring(lcs.srcOffset, lcs.length));
         }
         
         [Test]
