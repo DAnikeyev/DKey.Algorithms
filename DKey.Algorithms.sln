@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DKey.Algorithms", "DKey.Algorithms\DKey.Algorithms.csproj", "{5355ADC5-816F-430A-BDB1-BB51E9394FF7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DKey.Algorithms.Tests", "DKey.Algorithms.Tests\DKey.Algorithms.Tests.csproj", "{705969DA-A152-47DC-9BB6-D5060B8D81F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DKey2.Algorithms.Tests", "DKey2.Algorithms.Tests\DKey2.Algorithms.Tests.csproj", "{705969DA-A152-47DC-9BB6-D5060B8D81F0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DKey.Algorithms.Benchmark", "DKey.Algorithms.Benchmark\DKey.Algorithms.Benchmark.csproj", "{87196F33-313D-44D1-A48C-40CBDEC13F5E}"
 EndProject
