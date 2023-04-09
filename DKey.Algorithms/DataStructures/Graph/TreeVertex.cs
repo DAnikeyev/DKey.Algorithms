@@ -8,6 +8,7 @@ public class TreeVertex
 
     public TreeVertex()
     {
+        Children = new List<int>();
     }
 
     public TreeVertex(int parentIndex, int index, List<int> children)

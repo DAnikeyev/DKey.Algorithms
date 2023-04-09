@@ -5,7 +5,6 @@
 /// </summary>
 public static class GraphBuilder
 {
-
     /// <summary>
     /// Adjacent list to per-vertex list converter.
     /// Most methods in this library use per-vertex list representation of graph.
@@ -13,6 +12,7 @@ public static class GraphBuilder
     /// <param name="edges">List of adjacent vertices in [0..n-1] or [1..n] representation.</param>
     /// <param name="n">Number of vertices.</param>
     /// <param name="isSameRepresentation">Are vertices in edges from 0 to n-1.</param>
+    /// <param name="ordered">Store children in increasing order.</param>
     /// <returns>List of Neigbours for every vertex in [0..n - 1] vertex representation.</returns>
     public static List<int>[] Unordered(List<(int, int)> edges, int n, bool isSameRepresentation = true,
         bool ordered = false)
@@ -41,7 +41,7 @@ public static class GraphBuilder
 
     /// <summary>
     /// Build forwards and backwards graph.
-    /// <summary>
+    /// </summary>
     public static (List<int>[]G, List<int>[] GRev) Ordered(List<(int, int)> edges, int n,
         bool isSameRepresentation = true)
     {
