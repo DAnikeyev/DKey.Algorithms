@@ -8,9 +8,9 @@
 
         <IsPackable>false</IsPackable>
 
-        <AssemblyName>DKey.Algorithms.Tests</AssemblyName>
-
         <RootNamespace>DKey.Algorithms.Tests</RootNamespace>
+
+        <PackageId>DKey2.Algorithms.Tests</PackageId>
     </PropertyGroup>
 
     <ItemGroup>
