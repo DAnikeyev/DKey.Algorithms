@@ -44,7 +44,7 @@ DKey.Codeforces contains favorite examples of solutions for [Codeforces Problems
 
 ContestTemplateBuilder can be used to create contest templates to work in this project.
 
-## Utils:
+## Utils
 ### DKey.ContestSubmissionBuilder
 DKey.ContestSubmissionBuilder is an application to build a single file submission for Codeforces problems.  
 It takes the EntryPoint of your solution (supposedly **program.cs** located in DKey.Codeforces) as root and builds a single file submission combining the subtree of dependencies.  
