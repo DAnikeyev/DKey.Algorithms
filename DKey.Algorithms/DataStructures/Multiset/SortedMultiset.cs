@@ -5,17 +5,25 @@ public class SortedMultiset<T> where T : IComparable<T>
 {
     private T _min;
     private T _max;
+    private bool _storeMinMax;
     public long Count { get; private set; }
     internal readonly SortedDictionary<T, long> Multiset;
 
-    public SortedMultiset()
+    public SortedMultiset(bool storeMinMax = false)
     {
+        _storeMinMax = storeMinMax;
         Multiset = new();
     }
     
-    public SortedMultiset(Dictionary<T, long> countDictionary)
+    public SortedMultiset(Dictionary<T, long> countDictionary, bool storeMinMax = false)
     {
+        _storeMinMax = storeMinMax;
         Multiset = new SortedDictionary<T, long>(countDictionary);
+        Count = countDictionary.Sum(x => x.Value);
+        
+        if(!storeMinMax)
+            return;
+        
         _min = _max = countDictionary.FirstOrDefault().Key;
         foreach (var item in countDictionary)
         {
@@ -23,7 +31,6 @@ public class SortedMultiset<T> where T : IComparable<T>
                 _min = item.Key;
             if(_max.CompareTo(item.Key) < 0)
                 _max = item.Key;
-            Count += item.Value;
         }
     }
 
@@ -39,7 +46,7 @@ public class SortedMultiset<T> where T : IComparable<T>
         Multiset.TryGetValue(item, out var count);
         Multiset[item] = count + value;
         Count += value;
-        if (count == 0)
+        if (_storeMinMax && count == 0)
         {
             if(_min.CompareTo(item) > 0)
                 _min = item;
@@ -61,6 +68,8 @@ public class SortedMultiset<T> where T : IComparable<T>
         if (count <= value)
         {
             Multiset.Remove(item);
+            if(!_storeMinMax)
+                return count >= value;
             if(_max.CompareTo(item)<=0)
                 _max = (Multiset.Keys.Count > 0 ? Multiset.Keys.Max() : default(T))!;
             if(_min.CompareTo(item)>=0)
@@ -88,7 +97,9 @@ public class SortedMultiset<T> where T : IComparable<T>
         return hasKey;
     }
 
-    public T Min => _min;
-    public T Max => _max;
+    public T Min => _storeMinMax ? _min : Multiset.First().Key;
+    
+    //Last in Multiset is O(n), not O(log(n))!
+    public T Max => _storeMinMax ? _max : Multiset.Last().Key;
     public int CountDistinct => Multiset.Count();
 }

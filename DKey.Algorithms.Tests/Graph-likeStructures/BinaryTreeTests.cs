@@ -1,6 +1,6 @@
 ﻿using DKey.Algorithms.DataStructures.Graph;
 
-namespace DKey.Algorithms.Tests;
+namespace DKey.Algorithms.Tests.Graph_likeStructures;
 
 public class IntegerSumBinaryTree : ImmutableBinaryTree<int>
 {

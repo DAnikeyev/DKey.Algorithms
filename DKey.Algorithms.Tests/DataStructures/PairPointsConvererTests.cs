@@ -1,6 +1,6 @@
 ﻿using DKey.Algorithms.DataStructures.Interval;
 
-namespace DKey.Algorithms.Tests
+namespace DKey.Algorithms.Tests.DataStructures
 {
     [TestFixture]
     public class PairPointsConvererTests

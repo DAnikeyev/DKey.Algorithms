@@ -3,5 +3,5 @@
 public class Config
 {
     public static string repoPath = @"C:\Repos\github\DKey.Algorithms\Dkey.CodeForces";
-    public static string contestID = "1797";
+    public static string contestID = "1816";
 }

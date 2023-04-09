@@ -7,7 +7,7 @@ namespace DKey.Algorithms.Tests.DataStructures
         [Test]
         public void T01_Add_Remove_Tests()
         {
-            var multiset = new SortedMultiset<int>();
+            var multiset = new SortedMultiset<int>(true);
             multiset.Add(5);
             multiset.Add(3);
             multiset.Add(5);
@@ -34,7 +34,7 @@ namespace DKey.Algorithms.Tests.DataStructures
         [Test]
         public void T02_TryGetValue_Tests()
         {
-            var multiset = new SortedMultiset<int>();
+            var multiset = new SortedMultiset<int>(true);
             multiset.Add(5);
             multiset.Add(3);
             multiset.Add(5);
@@ -52,7 +52,7 @@ namespace DKey.Algorithms.Tests.DataStructures
         [Test]
         public void T03_GetDistinctItems_Tests()
         {
-            var multiset = new SortedMultiset<int>();
+            var multiset = new SortedMultiset<int>(true);
             multiset.Add(5);
             multiset.Add(3);
             multiset.Add(5);

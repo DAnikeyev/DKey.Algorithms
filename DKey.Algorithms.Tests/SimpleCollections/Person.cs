@@ -1,4 +1,4 @@
-﻿namespace DKey.Algorithms.Tests;
+﻿namespace DKey.Algorithms.Tests.SimpleCollections;
 
 public class Person
 {

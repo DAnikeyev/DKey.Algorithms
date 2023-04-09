@@ -1,11 +1,11 @@
-using DKey.Algorithms;
-using DKey.CodeForces.Contest1816;
+﻿using DKey.Algorithms;
+using DKey.CodeForces.ContestXXX;
 
 namespace DKey.CodeForces;
 
 public static class Program
 {
-    private static Solver _solver = new Solver1816E();
+    private static Solver _solver = new SolverXXXA();
     public static void Main()
     {
         _solver.Run();

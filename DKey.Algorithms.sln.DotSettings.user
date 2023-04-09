@@ -7,7 +7,14 @@
 	
 	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=da0784d7_002Dba34_002D413e_002D82f5_002Da990c8d84b73/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Tests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="C:\Repos\github\DKey.Algorithms\Dkey.Algorithms.Tests" Presentation="&amp;lt;DKey.Algorithms.Tests&amp;gt;" /&gt;&#xD;
+  &lt;Not&gt;&#xD;
+    &lt;And&gt;&#xD;
+      &lt;Project Location="C:\Repos\github\DKey.Algorithms\Dkey.Algorithms.Tests" Presentation="&amp;lt;DKey.Algorithms.Tests&amp;gt;" /&gt;&#xD;
+      &lt;TestAncestor&gt;&#xD;
+        &lt;TestId&gt;NUnit3x::705969DA-A152-47DC-9BB6-D5060B8D81F0::net7.0::DKey.Algorithms.Tests.Search.GoldenSectionSearchTests.Test_InvalidRange&lt;/TestId&gt;&#xD;
+      &lt;/TestAncestor&gt;&#xD;
+    &lt;/And&gt;&#xD;
+  &lt;/Not&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	
 	

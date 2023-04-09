@@ -1,6 +1,7 @@
 ﻿using DKey.Algorithms.DataStructures.Graph.SuffixTree;
+using DKey.Algorithms.Tests.Graph;
 
-namespace DKey.Algorithms.Tests.Graph;
+namespace DKey.Algorithms.Tests.SufixTree;
 
 [TestFixture]
 public class SuffixTreeGenericTests

@@ -1,8 +1,7 @@
 ﻿using DKey.Algorithms.DataStructures.Graph.ShortSuffixTree;
-using DKey.Algorithms.DataStructures.Graph.SuffixTree;
 using DKey.Algorithms.RandomData;
 
-namespace DKey.Algorithms.Tests.Graph;
+namespace DKey.Algorithms.Tests.SufixTree;
 
     public class ShortSuffixTreeTests
     {

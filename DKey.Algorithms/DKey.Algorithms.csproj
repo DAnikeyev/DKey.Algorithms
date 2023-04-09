@@ -4,15 +4,21 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <PackageId>DKey.Algorithms</PackageId>
-        <Version>1.0.5</Version>
+        <Version>1.1.0</Version>
         <Authors>DAnikeyev</Authors>
-        <PackageDescription>Basic data structures and algorithms</PackageDescription>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <PackageTags>data-structures algorithms contests</PackageTags>
+        <PackageDescription>Basic data structures and algorithms by Dmitry Anikeyev. For more information, visit: https://github.com/DAnikeyev/DKey.Algorithms</PackageDescription>
+        <PackageIcon>icon.png</PackageIcon>
         <RepositoryUrl>https://github.com/DAnikeyev/DKey.Algorithms</RepositoryUrl>
         <Nullable>enable</Nullable>
-        <PackageIcon>icon.png</PackageIcon>
     </PropertyGroup>
     
     <ItemGroup>
-    <None Include="icon.png" Pack="true" PackagePath="" />
+        <None Include="icon.png" Pack="true" PackagePath="\" />
+        <None Include="README.md" Pack="true" PackagePath="..\" />
+        <None Include="LICENSE" Pack="true" PackagePath="..\" />
     </ItemGroup>
 </Project>
