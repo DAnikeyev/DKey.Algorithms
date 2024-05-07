@@ -1,7 +1,8 @@
 ## 1.2.0 - 2024.08.05
 
-* **Added** IntegerOperationsSegmentTree
-* **Added** More tests
+* **Added** IntegerOperationsSegmentTree.
+* **Added** Example to work with SegmentTree.
+* **Added** More tests.
 * **Modified** Binary Tree.
 * **Refactored** Misc files and tests.
 
