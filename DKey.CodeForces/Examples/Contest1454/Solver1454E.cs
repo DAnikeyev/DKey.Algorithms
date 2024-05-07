@@ -10,7 +10,7 @@ namespace DKey.CodeForces.Contest1454;
 /// </summary>
 public class Solver1454E : MultiSolver
 {
-    public Solver1454E() : base( new []{typeof(int)})
+    public Solver1454E() : base( new []{typeof(int), typeof(List<int>)})
     {
     }
 

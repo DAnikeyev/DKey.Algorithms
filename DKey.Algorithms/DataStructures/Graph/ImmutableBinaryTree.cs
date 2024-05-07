@@ -9,13 +9,12 @@ namespace DKey.Algorithms.DataStructures.Graph;
 /// </summary>
 public abstract class ImmutableBinaryTree<T>
 {
-    public readonly int Size;
-    public readonly int Start;
+    public int Size;
+    public int Start;
     public T[] TreeModel;
     public (int left, int right)[] LeafRanges;
     
-    #pragma warning disable 1691
-    public ImmutableBinaryTree(IList<T> data)
+    public void Init(IList<T> data)
     {
         Size = data.Count;
         var boxSize = 1 << BinaryArithmetics.GetCeilingLog(data.Count);
@@ -34,15 +33,12 @@ public abstract class ImmutableBinaryTree<T>
             LeafRanges[Start +i] = (i, i);
         }
 
-
         for (var i = Start - 1; i >= 0; i--)
         {
             TreeModel[i] = Add(TreeModel[LeftChild(i)], TreeModel[RightChild(i)]);
             LeafRanges[i] = (LeafRanges[LeftChild(i)].left, LeafRanges[RightChild(i)].right);
         }
-
     }
-    #pragma warning disable 1691
     
     public void Set(int index, T value)
     {
@@ -56,7 +52,7 @@ public abstract class ImmutableBinaryTree<T>
         }
     }
 
-    public virtual T GetSum(int left, int right)
+    public virtual T GetCumulativeOperation(int left, int right)
     {
         return GetSumHelper(left, right, 0);
     }

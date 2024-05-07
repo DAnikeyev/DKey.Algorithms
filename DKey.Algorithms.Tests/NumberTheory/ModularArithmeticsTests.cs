@@ -38,4 +38,13 @@ public class ModularArithmeticsTests
     {
         Assert.AreEqual(6,Arithmetics.Divide(2,4));
     }
+    
+    [Test] 
+    public void T06_PowerComparison()
+    {
+        for (var i = 0; i < 10000000; i++)
+        {
+            var z = Arithmetics.Power(3, 123124);
+        }
+    }
 }

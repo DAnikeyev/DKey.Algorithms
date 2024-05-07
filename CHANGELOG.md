@@ -1,3 +1,10 @@
+## 1.2.0 - 2024.08.05
+
+* **Added** IntegerOperationsSegmentTree
+* **Added** More tests
+* **Modified** Binary Tree.
+* **Refactored** Misc files and tests.
+
 ## 1.1.0 - 2023.04.10
 * **Added** Ternary search.
 * **Added** Sorted data search.

@@ -44,3 +44,8 @@ b. Vigenere Cipher
 c. RSA Algorithm  
 d. Diffie-Hellman Key Exchange  
 e. AES (Advanced Encryption Standard)  
+
+Sequence Algorithms: 
+a. DFT (Discrete Fourier Transform)
+b. FFT (Fast Fourier Transform)
+c. Mobius Function
