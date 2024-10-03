@@ -3,11 +3,11 @@ using DKey.Algorithms.DataStructures.SegmentTree;
 namespace DKey.Algorithms.Tests.DataStructures;
 
 [TestFixture]
-public class SegmentTree
+public class SegmentTreeTests
 {
     
     [Test]
-    public void MinOperation()
+    public void MinOperation_ReturnsCorrectIntervalMin()
     {
         var sequence = new List<int> { 3, 1, 2, 5, 4, 2, 1, 6 };
         var dictionary = new Dictionary<long, long>();

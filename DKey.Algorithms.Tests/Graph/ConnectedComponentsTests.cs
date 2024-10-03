@@ -1,12 +1,12 @@
-﻿using DKey.Algorithms.DataStructures.Graph;
-using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
+﻿using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
 
 namespace DKey.Algorithms.Tests.Graph;
 
+[TestFixture]
 public class ConnectedComponentsTests
 {
     [Test]
-    public void T01_ConnectedComponents()
+    public void ConnectedComponents_ReturnsExpectedComponent()
     {
         var graph = new List<int>[]
         {

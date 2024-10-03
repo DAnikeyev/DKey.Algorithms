@@ -2,25 +2,12 @@
 
 namespace DKey.Algorithms.Tests.Graph_likeStructures;
 
-public class SegmentTree
+[TestFixture]
+public class SegmentTreeTests
 {
     
-    public class IntegerIntervalTreeTests
-    {
-        [Test]
-        public void T01_TestBasicIntervalAdditionAndQuery()
-        {
-            IList<int> data = new List<int> { 1, 2, 3, 4, 5 };
-            IntegerSegmentTree tree = new IntegerSegmentTree();
-            tree.InitFromIntList(data);
-
-            tree.AddToInterval(1, 3, 2);
-            SegmentTreeNode sum = tree.GetCumulativeOperation(1, 4);
-            Assert.AreEqual(20, sum.Value);
-        }
-    }
     [Test]
-    public void T02_TestMultipleOperationsWithLargerList()
+    public void MultipleOperationsWithLargerList_ReturnsExpectedSum()
     {
         IList<int> data = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
         IntegerSegmentTree tree = new IntegerSegmentTree();

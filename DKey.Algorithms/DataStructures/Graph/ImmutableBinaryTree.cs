@@ -1,4 +1,5 @@
 ﻿using DKey.Algorithms.NumberTheory;
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Initialized in Init().
 
 namespace DKey.Algorithms.DataStructures.Graph;
 

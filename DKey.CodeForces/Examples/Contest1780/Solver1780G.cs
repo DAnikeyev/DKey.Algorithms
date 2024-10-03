@@ -2,7 +2,7 @@
 using DKey.Algorithms.DataStructures.Graph.ShortSuffixTree;
 using DKey.Algorithms.NumberTheory;
 
-namespace DKey.CodeForces.Contest1780;
+namespace DKey.CodeForces.Examples.Contest1780;
 
 /// <summary>
 /// https://codeforces.com/contest/1780/problem/G

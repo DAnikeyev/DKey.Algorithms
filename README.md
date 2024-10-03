@@ -10,10 +10,12 @@ DKey.Algorithms is a library that provides basic algorithms and data structures 
   - [x] Generic Suffix Tree
   - [x] Short Suffix Tree
   - [x] Prefix Trie
+  - [x] Red-Black Tree
 - **Graph Processing**
   - [x] Depth First Search
   - [x] Breadth First Search
   - [x] Generic graph statistics (Components, Cycle, Shortest path, Diameter)
+  - [x] Dijkstra Algorithm
 - **Number Theory**
   - [x] Prime Arithmetic
   - [x] Binary Arithmetic

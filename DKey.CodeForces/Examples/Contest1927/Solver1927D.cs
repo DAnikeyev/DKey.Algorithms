@@ -1,6 +1,8 @@
 using DKey.Algorithms;
 using DKey.Algorithms.DataStructures.SegmentTree;
 
+namespace DKey.CodeForces.Examples.Contest1927;
+
 public class Solver1927D : MultiSolver
 {
     public Solver1927D() : base( new Type[]{typeof(int), typeof(List<long>), typeof(int)})

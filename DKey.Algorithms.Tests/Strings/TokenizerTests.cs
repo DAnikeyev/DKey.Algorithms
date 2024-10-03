@@ -6,7 +6,7 @@ namespace DKey.Algorithms.Tests.Strings;
 public class TokenizerTests
 {
     [Test]
-    public void T01_Split_TakeOnlyLetters_ReturnsCorrectTokens()
+    public void Split_TakeOnlyLetters_ReturnsCorrectTokens()
     {
         
         string inputText = "Hello, World! 123 Testing tokens?";
@@ -20,7 +20,7 @@ public class TokenizerTests
     }
 
     [Test]
-    public void T02_Split_WhiteSpaces_ReturnsCorrectTokens()
+    public void Split_WhiteSpaces_ReturnsCorrectTokens()
     {
         
         string inputText = "Hello, World! 123 Testing tokens?";
@@ -34,7 +34,7 @@ public class TokenizerTests
     }
     
     [Test]
-    public void T03_Split_TakeOnlyLettersOrDigit_ReturnsCorrectTokens()
+    public void Split_TakeOnlyLettersOrDigit_ReturnsCorrectTokens()
     {
         
         string inputText = "Hello, World! 123 Testing tokens?";

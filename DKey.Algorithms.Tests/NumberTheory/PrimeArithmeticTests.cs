@@ -2,6 +2,7 @@
 
 namespace DKey.Algorithms.Tests.NumberTheory;
 
+[TestFixture]
 public class PrimeArithmeticsTests
 {
     [TestCase(1, false)]
@@ -10,20 +11,20 @@ public class PrimeArithmeticsTests
     [TestCase(4, false)]
     [TestCase(19, true)]
     [TestCase(20, false)]
-    public void T01_IsPrimeTest(int n, bool expectedResult)
+    public void IsPrime_ReturnsExpectedValue(int n, bool expectedResult)
     {
         Assert.AreEqual(expectedResult, PrimeArithmetics.IsPrime(n));
     }
 
     [Test]
-    public void T02_GetPrimeFactorsTest()
+    public void GetPrimeFactors_ReturnsExpectedValue()
     {
         var expectedResult = new List<(int prime, int factor)> {(2, 2), (5, 1)};
         CollectionAssert.AreEqual(expectedResult, PrimeArithmetics.GetPrimeFactors(20));
     }
 
     [Test]
-    public void T03_GetPrimeFactorsForIntervalTest()
+    public void GetPrimeFactorsForInterval_ReturnsExpectedValue()
     {
         var expectedResult = new List<(int prime, int factor)>[]
         {
@@ -43,7 +44,7 @@ public class PrimeArithmeticsTests
     }
 
     [Test]
-    public void T04_GetAllDividersTest()
+    public void GetAllDividersTest_ReturnsExpectedValue()
     {
         var expectedResult = new List<int> {1, 2, 4, 5, 10, 20};
         CollectionAssert.AreEqual(expectedResult, PrimeArithmetics.GetAllDividers(20));
@@ -51,7 +52,7 @@ public class PrimeArithmeticsTests
 
     [Test]
     [Explicit]
-    public void T05_GetPrimeFactorsForIntervalBigTest()
+    public void GetPrimeFactorsForIntervalBig_ReturnsExpectedValue()
     {
         var result = PrimeArithmetics.GetPrimeFactorsForInterval(1000002);
     }

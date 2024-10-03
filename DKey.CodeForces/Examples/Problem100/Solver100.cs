@@ -1,6 +1,6 @@
 ﻿using DKey.Algorithms;
 
-namespace DKey.CodeForces.Problem100;
+namespace DKey.CodeForces.Examples.Problem100;
 
 /// <summary>
 /// https://codeforces.com/problemsets/acmsguru/problem/99999/100

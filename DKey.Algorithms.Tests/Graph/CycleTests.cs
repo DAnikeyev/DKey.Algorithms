@@ -1,17 +1,16 @@
-﻿using System.Security.Cryptography;
-using DKey.Algorithms.DataStructures.Graph;
-using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
+﻿using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
 using DKey.Algorithms.RandomData;
 
 namespace DKey.Algorithms.Tests.Graph;
 
+[TestFixture]
 public class CycleTests
 {
     
     [Test]
-    public void T01_FindACycle_NoCycle()
+    public void FindACycle_NoCycle()
     {
-        var graph = new List<int>[]
+        var graph = new[]
         {
             new List<int> { 1, 2 },
             new List<int> { 0, 3 },
@@ -27,9 +26,9 @@ public class CycleTests
     }
     
     [Test]
-    public void T02_FindACycle_CycleExists()
+    public void FindACycle_CycleExists()
     {
-        var graph = new List<int>[]
+        var graph = new[]
         {
             new List<int> { 1 },
             new List<int> { 2 },
@@ -45,7 +44,7 @@ public class CycleTests
     }
     
     [Test]
-    public void T03_FindACycle_CycleExists()
+    public void FindARandomCycle_CycleExists()
     {
         var graph = GraphGenerator.Instance(42).RandomUnicyclic(10);
         var result = Cycle.Find(graph);

@@ -19,7 +19,7 @@ public class IntegerSumBinaryTree : ImmutableBinaryTree<int>
 public class BinaryTreeTests
 {
     [Test]
-    public void GetSumTest()
+    public void GetSum_ReturnsExpectedValues()
     {
         var data = new List<int> { 1, 2, 3, 4, 5 };
         var tree = new IntegerSumBinaryTree();
