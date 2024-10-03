@@ -1,11 +1,10 @@
 Graph Algorithms:  
-a. Dijkstra's Shortest Path Algorithm  
+a. Maximum Flow algorithms (Ford-Fulkerson, Edmonds-Karp, Dinic's Algorithm)  
 b. Bellman-Ford Algorithm  
 c. Floyd-Warshall Algorithm  
 d. Kruskal's Minimum Spanning Tree Algorithm  
 e. Prim's Minimum Spanning Tree Algorithm  
 f. Topological Sorting  
-g. Maximum Flow algorithms (Ford-Fulkerson, Edmonds-Karp, Dinic's Algorithm)  
 
 String Algorithms:  
 a. Knuth-Morris-Pratt (KMP) Algorithm  
@@ -25,11 +24,10 @@ f. Traveling Salesman Problem (TSP)
 Data Structures:  
 a. Disjoint Set / Union-Find 
 b. AVL Tree
-c. Red-Black Tree  
-d. Heap (Min-Heap and Max-Heap)  
-e. Priority Queue  
-f. Bloom Filter  
-g. LRU Cache  
+c. Heap (Min-Heap and Max-Heap)  
+d. Priority Queue  
+e. Bloom Filter  
+f. LRU Cache  
 
 Geometry Algorithms:  
 a. Convex Hull (Graham Scan, Jarvis March)  

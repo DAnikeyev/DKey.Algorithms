@@ -1,5 +1,4 @@
 ## 1.3.0 - 2024.10.03
-
 * **Added** Red-Black Tree.
 * **Added** Dijkstra algorithm.
 * **Added** More tests.
@@ -9,8 +8,8 @@
 * **Modified** TernarySearch.	
 * **Refactored** Misc files and tests.
 * **Refactored** Test names to follow Microsoft's test naming convention.
-## 1.2.0 - 2024.08.05
 
+## 1.2.0 - 2024.08.05
 * **Added** IntegerOperationsSegmentTree.
 * **Added** Example to work with SegmentTree.
 * **Added** More tests.
