@@ -14,4 +14,17 @@ public class IntArithmetics
 
         return a | b;
     }
+    
+    public static long GCD(long a, long b)
+    {
+        while (a != 0 && b != 0)
+        {
+            if (a > b)
+                a %= b;
+            else
+                b %= a;
+        }
+
+        return a | b;
+    }
 }

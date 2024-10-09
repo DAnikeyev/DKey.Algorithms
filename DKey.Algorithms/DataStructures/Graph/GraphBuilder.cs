@@ -12,10 +12,10 @@ public static class GraphBuilder
     /// <param name="edges">List of adjacent vertices in [0..n-1] or [1..n] representation.</param>
     /// <param name="n">Number of vertices.</param>
     /// <param name="isSameRepresentation">Are vertices in edges from 0 to n-1.</param>
-    /// <param name="ordered">Store children in increasing order.</param>
+    /// <param name="orderedAdjacency">Store children in increasing order.</param>
     /// <returns>List of Neigbours for every vertex in [0..n - 1] vertex representation.</returns>
-    public static List<int>[] Unordered(List<(int, int)> edges, int n, bool isSameRepresentation = true,
-        bool ordered = false)
+    public static List<int>[] Undirected(List<(int, int)> edges, int n, bool isSameRepresentation = true,
+        bool orderedAdjacency = false)
     {
         var res = new List<int>[n];
         for (var i = 0; i < n; i++)
@@ -30,7 +30,7 @@ public static class GraphBuilder
             res[edge.Item2 - shift].Add(edge.Item1 - shift);
         }
 
-        if (ordered)
+        if (orderedAdjacency)
         {
             for (var i = 0; i < n; i++)
                 res[i] = res[i].OrderBy(x => x).ToList();
@@ -42,7 +42,7 @@ public static class GraphBuilder
     /// <summary>
     /// Build forwards and backwards graph.
     /// </summary>
-    public static (List<int>[]G, List<int>[] GRev) Ordered(List<(int, int)> edges, int n,
+    public static (List<int>[]G, List<int>[] GRev) Directed(List<(int, int)> edges, int n,
         bool isSameRepresentation = true)
     {
         var res = new List<int>[n];
@@ -68,6 +68,6 @@ public static class GraphBuilder
     /// </summary>
     public static List<int>[] FromTreeIndexation(List<int> parents)
     {
-        return Unordered(parents.Select((x, i) => (x, i + 2)).ToList(), parents.Count + 1, false, false);
+        return Undirected(parents.Select((x, i) => (x, i + 2)).ToList(), parents.Count + 1, false, false);
     }
 }

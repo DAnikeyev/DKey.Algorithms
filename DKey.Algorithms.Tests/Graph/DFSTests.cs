@@ -2,13 +2,14 @@
 
 namespace DKey.Algorithms.Tests.Graph;
 
+[TestFixture]
 public class DFSTests
 {
     
     [Test]
     public void Iterative_GivenGraph_ReturnsExpectedTraversal()
     {
-        var graph = new List<int>[]
+        var graph = new[]
         {
             new List<int> { 1, 2 },
             new List<int> { 3, 4 },
@@ -27,7 +28,7 @@ public class DFSTests
     [Test]
     public void Recursive_GivenGraph_ReturnsExpectedTraversal()
     {
-        var graph = new List<int>[]
+        var graph = new[]
         {
             new List<int> { 1, 2 },
             new List<int> { 3, 4 },

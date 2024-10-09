@@ -1,9 +1,8 @@
 using DKey.Algorithms;
 using DKey.Algorithms.DataStructures.Graph;
 using DKey.Algorithms.DataStructures.Graph.BreadthFirstSearch;
-using DKey.Algorithms.DataStructures.Graph.DepthFirstSearch;
 
-namespace DKey.CodeForces.Contest1816;
+namespace DKey.CodeForces.Examples.Contest1816;
 
 /// <summary>
 /// https://codeforces.com/contest/1816/problem/E
@@ -20,7 +19,7 @@ public class Solver1816E : MultiSolver
         var n = seq[0];
         var m = seq[1];
         var edges = IOHelper.Read2dList(m).Select(x => (x[0] - 1, x[1] - 1)).ToList();
-        var (forwardGraph, backwardGraph) = GraphBuilder.Ordered(edges, n);
+        var (forwardGraph, backwardGraph) = GraphBuilder.Directed(edges, n);
         var context = new TraverseContext(backwardGraph, 0);
         var depth = new int[n];
         

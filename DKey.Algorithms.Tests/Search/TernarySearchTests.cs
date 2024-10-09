@@ -2,10 +2,11 @@
 
 namespace DKey.Algorithms.Tests.Search;
 
+[TestFixture]
 public class TernarySearchTests
 {
     [Test]
-    public void T01_QuadraticFunction()
+    public void QuadraticFunction_FoundMinimumWithPrecision()
     {
         // Quadratic function with minimum at x = 3
         int QuadraticFunction(int x) => (x - 3) * (x - 3);
@@ -19,7 +20,7 @@ public class TernarySearchTests
     }
 
     [Test]
-    public void T02_ReverseLinearFunction()
+    public void ReverseLinearFunction_FoundMinimumWithPrecision()
     {
         // Reverse linear function with minimum at x = 9
         long ReverseLinearFunction(int x) => 10 - x;
@@ -33,7 +34,7 @@ public class TernarySearchTests
     }
     
     [Test]
-    public void T03_FlatLine()
+    public void FlatLine_FoundMinimumWithPrecision()
     {
         // Reverse linear function with minimum at x = 9
         int ReverseLinearFunction(int x) => 10;

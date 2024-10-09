@@ -19,5 +19,10 @@
     <ItemGroup>
         <ProjectReference Include="..\DKey.Algorithms\DKey.Algorithms.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Contest1921\Solver1921F.cs" />
+      <Compile Remove="Contest1913\Solver1913D.cs" />
+    </ItemGroup>
 </Project>
 

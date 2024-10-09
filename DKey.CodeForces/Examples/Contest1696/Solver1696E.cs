@@ -1,7 +1,7 @@
 ﻿using DKey.Algorithms;
 using DKey.Algorithms.NumberTheory;
 
-namespace DKey.CodeForces.Contest1696;
+namespace DKey.CodeForces.Examples.Contest1696;
 
 /// <summary>
 /// https://codeforces.com/contest/1696/problem/E

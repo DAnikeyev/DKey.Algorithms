@@ -38,6 +38,20 @@ public sealed class ListGenerator
     }
     
     /// <summary>
+    /// Random list of length n with elements from minValue to maxValue.
+    /// </summary>
+    public List<long> RandomList(int length, long minValue, long maxValue)
+    {
+        var list = new List<long>();
+        for (var i = 0; i < length; i++)
+        {
+            list.Add(_random.NextInt64(minValue, maxValue + 1));
+        }
+        return list;
+    }
+
+    
+    /// <summary>
     /// Random permutation of {0,...,n-1};
     /// </summary>
     public List<int> RandomPermutation(int n)
@@ -54,7 +68,16 @@ public sealed class ListGenerator
         }
         return permutation;
     }
-    
+
+    public void Shuffle(List<int> data)
+    {
+        for (var i = data.Count - 1; i >= 1; i--)
+        {
+            var j = _random.Next(i + 1);
+            (data[i], data[j]) = (data[j], data[i]);
+        }
+    }
+
     /// <summary>
     /// Random string of length n with letters from 'a' to 'a' + letters - 1.
     /// </summary>
