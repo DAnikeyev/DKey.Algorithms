@@ -1,6 +1,4 @@
-﻿using DKey.Algorithms.Search;
-
-namespace DKey.Algorithms.IEnumerableExtensions;
+﻿namespace DKey.Algorithms.LinqExtension;
 
 public static class LinqExtension
 {
