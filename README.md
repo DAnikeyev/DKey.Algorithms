@@ -48,7 +48,7 @@ ContestTemplateBuilder can be used to create contest templates to work in this p
 
 ## Utils
 ### DKey.ContestSubmissionBuilder
-DKey.ContestSubmissionBuilder is an application to build a single file submission for Codeforces problems.  
+DKey.ContestSubmissionBuilder is a console application to build a single file submission for Codeforces problems.  
 It takes the EntryPoint of your solution (supposedly **program.cs** located in DKey.Codeforces) as root and builds a single file submission combining the subtree of dependencies.  
 Traverse through tree of dependencies is not perfect.  
 To use application correctly, please, follow **these rules**
@@ -59,7 +59,7 @@ To use application correctly, please, follow **these rules**
 - Use file-scoped namespace declarations like **namespace x;** instead of **namespace x{}**
 - Your files should contain class, struct, enum or interface
 - Don't name you variables like other classes (usually only problem for public members, as they start with UpperCase)  
-- Be careful with static extension methods (with **this** keyword), as their class name is not garanteed to be in dependent class and might be skipped while combining submission
+- Be careful with static extension methods (with **this** keyword), as their class name is not garanteed to be in dependent class and might be skipped while combining submission. Extension should be in their own namespace and should be added manually to config of ContestSubmissionBuilder.
 - Try to avoid complex static classes with many dependencies, if only 1 method might be required from it, as it will lead to a lot of unnecessary dependencies in submission.cs
 
 Please note that violating most of the rules will result in unnecessary classes in submission.cs, but some might break the logic.

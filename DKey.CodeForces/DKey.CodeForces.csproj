@@ -24,5 +24,9 @@
       <Compile Remove="Contest1921\Solver1921F.cs" />
       <Compile Remove="Contest1913\Solver1913D.cs" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Contest2025\" />
+    </ItemGroup>
 </Project>
 
