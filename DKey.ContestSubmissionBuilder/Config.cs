@@ -4,7 +4,7 @@ namespace SubmissionBuilder;
 
 internal class Config
 {
-    public static string RepoPath = @"C:\Repos\github\DKey.Algorithms";
+    public static string RepoPath = @"C:\Repos\GitHub\DKey.Algorithms";
     public static string[] FoldersToExplore = new []{"DKey.Algorithms", "DKey.CodeForces"};
     public static string[] FoldersToExclude = new []{@"\obj\", @"\bin\"};
     public static string Root = "Program";

@@ -1,4 +1,5 @@
-﻿using DKey.Algorithms.DataStructures.Graph;
+﻿using System.Data;
+using DKey.Algorithms.DataStructures.Graph;
 
 namespace DKey.Algorithms.DataStructures.SegmentTree;
 
@@ -9,9 +10,18 @@ namespace DKey.Algorithms.DataStructures.SegmentTree;
 /// </summary>
 public class IntegerSegmentTree : ImmutableBinaryTree<SegmentTreeNode>
 {
-    public IntegerSegmentTree(IList<int> data)
-        : base(data.Select(x => new SegmentTreeNode(x)).ToArray())
+    public IntegerSegmentTree()
     {
+    }
+
+    public void InitFromLongList(IList<long> data)
+    {
+        this.Init(data.Select(x => new SegmentTreeNode(x)).ToList());
+    }
+    
+    public void InitFromIntList(IList<int> data)
+    {
+        this.Init(data.Select(x => new SegmentTreeNode(x)).ToList());
     }
 
     protected override SegmentTreeNode Add(SegmentTreeNode a, SegmentTreeNode b)
@@ -19,7 +29,7 @@ public class IntegerSegmentTree : ImmutableBinaryTree<SegmentTreeNode>
         return new SegmentTreeNode(ItemOperation(a.Value, b.Value));
     }
 
-    protected long ItemOperation(long a, long b)
+    protected virtual long ItemOperation(long a, long b)
     {
         return a + b;
     }
@@ -108,7 +118,7 @@ public class IntegerSegmentTree : ImmutableBinaryTree<SegmentTreeNode>
         return ItemOperation(oldValue, addedValue);
     }
 
-    public override SegmentTreeNode GetSum(int left, int right)
+    public override SegmentTreeNode GetCumulativeOperation(int left, int right)
     {
         return GetSumHelper(left, right, 0);
     }

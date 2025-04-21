@@ -2,8 +2,13 @@
 
 public abstract class MultiSolver : Solver
 {
+    public virtual void Init()
+    {
+    }
+
     public override void Run()
     {
+        Init();
         var iterations = IOHelper.ReadInt();
         for (var i = 0; i < iterations; i++)
         {

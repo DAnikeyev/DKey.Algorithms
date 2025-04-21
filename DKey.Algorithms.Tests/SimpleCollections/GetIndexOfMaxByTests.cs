@@ -2,6 +2,7 @@
 
 namespace DKey.Algorithms.Tests.SimpleCollections;
 
+[TestFixture]
 public class GetIndexOfMaxByTests
 {
     [Test]

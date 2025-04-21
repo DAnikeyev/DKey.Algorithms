@@ -1,8 +1,7 @@
 using DKey.Algorithms;
 using DKey.Algorithms.Combinatorics;
-using DKey.Algorithms.NumberTheory;
 
-namespace DKey.CodeForces.Contest1816;
+namespace DKey.CodeForces.Examples.Contest1816;
 
 public class Solver1816D : MultiSolver
 {

@@ -1,14 +1,13 @@
-﻿using DKey.Algorithms.DataStructures.Graph;
-using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
+﻿using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
 
 namespace DKey.Algorithms.Tests.Graph;
 
 public class ContainsCyclesTests
 {
     [Test]
-    public void T01_ContainsCycle_True()
+    public void GivenGraph_ContainsCycle_True()
     {
-        var graph = new List<int>[]
+        var graph = new[]
         {
             new List<int> {1, 2},
             new List<int> {0, 2},
@@ -20,9 +19,9 @@ public class ContainsCyclesTests
     }
 
     [Test]
-    public void T02_ContainsCycle_False()
+    public void GivenGraph_ContainsCycle_False()
     {
-        var graph = new List<int>[]
+        var graph = new[]
         {
             new List<int> {1},
             new List<int> {0, 2},

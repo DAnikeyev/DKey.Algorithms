@@ -1,9 +1,30 @@
-﻿using DKey.Algorithms.Search;
-
-namespace DKey.Algorithms.IEnumerableExtensions;
+﻿namespace DKey.Algorithms.LinqExtension;
 
 public static class LinqExtension
 {
+
+    public static long LongSum<T1, T2>(this IEnumerable<T1> flow, Func<T1, long> func)
+    {
+        var ans = 0L;
+        foreach (var item in flow)
+        {
+            ans += func(item);
+        }
+
+        return ans;
+    }
+
+    public static long LongSum(this IEnumerable<int> flow)
+    {
+        var ans = 0L;
+        foreach (var item in flow)
+        {
+            ans += item;
+        }
+
+        return ans;
+    }
+
     public static T2[] SelectToArray<T1, T2>(this IEnumerable<T1> flow, int count, Func<T1, T2> func)
     {
         var ret = new T2[count];
@@ -15,7 +36,7 @@ public static class LinqExtension
 
         return ret;
     }
-    
+
     public static IEnumerable<TSource> DistinctBy<TSource, TKey>
         (this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
     {
@@ -61,8 +82,8 @@ public static class LinqExtension
         dictionary.TryGetValue(key, out var val);
         dictionary[key] = val + 1;
     }
-    
-    
+
+
     public static void AddSorted<T>(this List<T> list, T item) where T : IComparable<T>
     {
         if (list.Count == 0)

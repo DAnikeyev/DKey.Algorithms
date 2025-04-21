@@ -1,15 +1,15 @@
-﻿using DKey.Algorithms.DataStructures.Graph;
-using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
+﻿using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
 
 namespace DKey.Algorithms.Tests.Graph;
 
+[TestFixture]
 public class ShortestPathTests
 {
     
     [Test]
-    public void T01_ShortestPath_UnweightedGraph_ReturnsCorrectPath()
+    public void ShortestPath_UnweightedGraph_ReturnsCorrectPath()
     {
-        var graph = new List<int>[]
+        var graph = new[]
         {
             new List<int> { 1, 2 },
             new List<int> { 0, 3 },
@@ -29,9 +29,9 @@ public class ShortestPathTests
     }
 
     [Test]
-    public void T02_ShortestPath_UnconnectedVertices_ReturnsNull()
+    public void ShortestPath_UnconnectedVertices_ReturnsNull()
     {
-        var graph = new List<int>[]
+        var graph = new[]
         {
             new List<int> { 1 },
             new List<int> { 0 },
@@ -49,9 +49,9 @@ public class ShortestPathTests
     }
 
     [Test]
-    public void T03_ShortestPath_SingleVertex_ReturnsPathWithOneVertex()
+    public void ShortestPath_SingleVertex_ReturnsPathWithOneVertex()
     {
-        var graph = new List<int>[]
+        var graph = new[]
         {
             new List<int> { }
         };

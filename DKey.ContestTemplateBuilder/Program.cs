@@ -14,14 +14,14 @@ public class Program
             return;
         Directory.CreateDirectory(folder);
         var template = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "ProblemTemplate.txt"));
-        foreach (var problem in Enumerable.Range(0, 6).Select(x => (char)('A' + x)))
+        foreach (var problem in Enumerable.Range(0, Config.problemCount).Select(x => (char)('A' + x)))
         {
-            var solverTemplate = template.Replace("XXXY", Config.contestID + problem).Replace("XXX", Config.contestID);
+            var solverTemplate = template.Replace("{ContestNumber}", Config.contestID).Replace("{ProblemLetter}", problem.ToString());
             File.WriteAllText(Path.Combine(folder, "Solver" + Config.contestID + problem + ".cs"), solverTemplate);
         }
         
         var mainTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "MainTemplate.txt"));
-        mainTemplate = mainTemplate.Replace("XXX", Config.contestID);
+        mainTemplate = mainTemplate.Replace("{ContestNumber}", Config.contestID).Replace("{ProblemLetter}", "A");
         File.WriteAllText(Path.Combine(Config.repoPath, "Program.cs"), mainTemplate);
     }
 }

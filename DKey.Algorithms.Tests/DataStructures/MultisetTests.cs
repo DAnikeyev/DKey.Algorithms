@@ -5,7 +5,7 @@ namespace DKey.Algorithms.Tests.DataStructures
     public class SortedMultisetTests
     {
         [Test]
-        public void T01_Add_Remove_Tests()
+        public void AddRemoveValues_ExpectValidMultiser()
         {
             var multiset = new SortedMultiset<int>(true);
             multiset.Add(5);
@@ -32,7 +32,7 @@ namespace DKey.Algorithms.Tests.DataStructures
         }
 
         [Test]
-        public void T02_TryGetValue_Tests()
+        public void TryGetValue_ReturnExistedValues()
         {
             var multiset = new SortedMultiset<int>(true);
             multiset.Add(5);
@@ -50,7 +50,7 @@ namespace DKey.Algorithms.Tests.DataStructures
         }
 
         [Test]
-        public void T03_GetDistinctItems_Tests()
+        public void GetDistinctItems_ReturnsExpectedCollection()
         {
             var multiset = new SortedMultiset<int>(true);
             multiset.Add(5);

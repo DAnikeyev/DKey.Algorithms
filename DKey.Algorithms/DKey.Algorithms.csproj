@@ -1,22 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <PackageId>DKey.Algorithms</PackageId>
-        <Version>1.1.0</Version>
+        <Version>1.4.0</Version>
         <Authors>DAnikeyev</Authors>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <PackageTags>data-structures algorithms contests</PackageTags>
+        <PackageTags>data-structures algorithms contests csharp</PackageTags>
         <PackageDescription>Basic data structures and algorithms by Dmitry Anikeyev. For more information, visit: https://github.com/DAnikeyev/DKey.Algorithms</PackageDescription>
         <PackageIcon>icon.png</PackageIcon>
         <RepositoryUrl>https://github.com/DAnikeyev/DKey.Algorithms</RepositoryUrl>
         <NoWarn>$(NoWarn);1591</NoWarn>
         <Nullable>enable</Nullable>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <None Include="icon.png" Pack="true" PackagePath="\" />
         <None Include="..\README.md" Pack="true" PackagePath="\" />

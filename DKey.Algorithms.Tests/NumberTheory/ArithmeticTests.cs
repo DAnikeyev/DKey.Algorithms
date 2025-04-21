@@ -2,10 +2,11 @@
 
 namespace DKey.Algorithms.Tests.NumberTheory;
 
+[TestFixture]
 public class ArithmeticTests
 {
     [Test]
-    public void T01_GCD()
+    public void GCD_ReturnsExpectedValue()
     {
         Assert.AreEqual(12, IntArithmetics.GCD(144, 60));
     }

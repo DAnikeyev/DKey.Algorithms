@@ -1,14 +1,14 @@
-﻿using DKey.Algorithms.DataStructures.Graph;
-using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
+﻿using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
 
 namespace DKey.Algorithms.Tests.Graph;
 
+[TestFixture]
 public class TreeDiameterTests
 {
     [Test]
-    public void T01_TreeDiameter_LinearTree_ReturnsCorrectDiameter()
+    public void TreeDiameter_LinearTree_ReturnsCorrectDiameter()
     {
-        var graph = new List<int>[]
+        var graph = new[]
         {
             new List<int> { 1 },
             new List<int> { 0, 2 },
@@ -24,9 +24,9 @@ public class TreeDiameterTests
     }
 
     [Test]
-    public void T02_TreeDiameter_StarShapeTree_ReturnsCorrectDiameter()
+    public void TreeDiameter_StarShapeTree_ReturnsCorrectDiameter()
     {
-        var graph = new List<int>[]
+        var graph = new[]
         {
             new List<int> { 1, 2, 3 },
             new List<int> { 0 },
@@ -42,9 +42,9 @@ public class TreeDiameterTests
     }
 
     [Test]
-    public void T03_TreeDiameter_ComplexTree_ReturnsCorrectDiameter()
+    public void TreeDiameter_ComplexTree_ReturnsCorrectDiameter()
     {
-        var graph = new List<int>[]
+        var graph = new[]
         {
             new List<int> { 1, 2 },
             new List<int> { 0, 3, 4 },

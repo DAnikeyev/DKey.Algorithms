@@ -2,11 +2,11 @@
 
 namespace DKey.Algorithms.Tests.SimpleCollections;
 
+[TestFixture]
 public class GetFirstIndexInSortedListInIntervalTests
 {
-    
     [Test]
-    public void T01_GetFirstIndexInSortedListInInterval_TestWithIntegers_ReturnsCorrectIndex()
+    public void GetFirstIndexInSortedListInInterval_TestWithIntegers_ReturnsCorrectIndex()
     {
         var input = new List<int> { 1, 3, -7, 9, 15 };
         var min = 16;
@@ -18,8 +18,7 @@ public class GetFirstIndexInSortedListInIntervalTests
         Assert.AreEqual(expectedResult, actualResult);
     }
 
-    [Test]
-    public void T02_GetFirstIndexInSortedListInInterval_TestWithCustomObject_ReturnsCorrectIndex()
+    public void GetFirstIndexInSortedListInInterval_TestWithCustomObject_ReturnsCorrectIndex()
     {
         IList<Person> input = new List<Person>
         {

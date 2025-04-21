@@ -1,4 +1,4 @@
-﻿namespace DKey.Algorithms.Tests.Graph;
+﻿namespace DKey.Algorithms.Tests.SufixTree;
 
 public class MyValue : IComparable<MyValue>
 {

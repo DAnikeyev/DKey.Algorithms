@@ -5,7 +5,7 @@ namespace DKey.Algorithms.Tests.Graph;
 public class TreeTests
 {
     [Test]
-    public void T01_ChildNumbersTest()
+    public void GivenGraph_ReturnsExpectedChildNumbers()
     {
         var V = 5;
         var edges = new List<(int, int)>()
@@ -16,15 +16,15 @@ public class TreeTests
             (4,1),
             (1,5),
         };
-        var G = GraphBuilder.Unordered(edges, V, false);
+        var G = GraphBuilder.Undirected(edges, V, false);
         var tree = TreeGraph.Build(G, 5, 1);
         CollectionAssert.AreEqual(new List<int>(){2,1,0,1,0}, tree.Vertices.Select(x => x.Children!.Count).ToList());
     }
     
     [Test]
-    public void T02_Build_GivenTreeGraph_ReturnsTreeGraph()
+    public void Build_GivenTreeGraph_ReturnsTreeGraph()
     {
-        var graph = new List<int>[]
+        var graph = new[]
         {
             new List<int> { 1, 2 },
             new List<int> { 3, 4 },

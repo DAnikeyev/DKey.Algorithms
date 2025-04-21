@@ -2,44 +2,101 @@
 
 public static class TernarySearch
 {
-    //Argmin f(x), for unimodal function (function that has minimum and non-increasing before it and non-decrising after it)
+ 
+    // Argmin f(x), for unimodal function (function that has minimum and non-increasing before it and non-decreasing after it)
     public static int GetIndex(int left, int right, Func<int, int> func)
     {
-        while (true)
+        while (right - left > 2)
         {
-            if (right - left <= 1) return func(left) <= func(right) ? left : right;
-
-            var mid1 = left + Math.Max((right - left) / 3, 1);
-            var mid2 = right - Math.Max((right - left) / 3, 1);
-
+            var mid1 = left + (right - left) / 3;
+            var mid2 = right - (right - left) / 3;
+    
             if (func(mid1) > func(mid2))
             {
                 left = mid1;
-                continue;
             }
-
-            right = mid2;
+            else
+            {
+                right = mid2;
+            }
         }
+    
+        var minIndex = left;
+        var minValue = func(left);
+        for (var i = left + 1; i <= right; i++)
+        {
+            var value = func(i);
+            if (value < minValue)
+            {
+                minValue = value;
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+    
+    // Argmin f(x), for unimodal function (function that has minimum and non-increasing before it and non-decreasing after it)
+    public static int GetIndexLong(int left, int right, Func<int, long> func)
+    {
+        while (right - left > 2)
+        {
+            var mid1 = left + (right - left) / 3;
+            var mid2 = right - (right - left) / 3;
+    
+            if (func(mid1) > func(mid2))
+            {
+                left = mid1;
+            }
+            else
+            {
+                right = mid2;
+            }
+        }
+    
+        var minIndex = left;
+        var minValue = func(left);
+        for (var i = left + 1; i <= right; i++)
+        {
+            var value = func(i);
+            if (value < minValue)
+            {
+                minValue = value;
+                minIndex = i;
+            }
+        }
+        return minIndex;
     }
     
     //Argmin f(x), for unimodal function (function that has minimum and non-increasing before it and non-decrising after it)
-    public static int GetIndexLong(int left, int right, Func<int, long> func)
+    public static long GetLongIndexLong(long left, long right, Func<long, long> func)
     {
-        while (true)
+        while (right - left > 2)
         {
-            if (right - left <= 1) return func(left) <= func(right) ? left : right;
-
-            var mid1 = left + Math.Max((right - left) / 3, 1);
+            var mid1 = left + (right - left) / 3;
             var mid2 = right - (right - left) / 3;
 
             if (func(mid1) > func(mid2))
             {
                 left = mid1;
-                continue;
             }
-
-            right = mid2;
+            else
+            {
+                right = mid2;
+            }
         }
+
+        var minIndex = left;
+        var minValue = func(left);
+        for (var i = left + 1; i <= right; i++)
+        {
+            var value = func(i);
+            if (value < minValue)
+            {
+                minValue = value;
+                minIndex = i;
+            }
+        }
+        return minIndex;
     }
 
 

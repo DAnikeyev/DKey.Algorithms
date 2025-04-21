@@ -9,7 +9,7 @@ public class PermutationsTests
     public void Inverse_ValidPermutation_ReturnsInverse()
     {
         var permutation = new List<int> { 2, 0, 1 };
-        var expected = new int[] { 1, 2, 0 };
+        var expected = new[] { 1, 2, 0 };
         var actual = Permutations.Inverse(permutation);
 
         Assert.AreEqual(expected, actual);
@@ -31,7 +31,7 @@ public class PermutationsTests
     {
         var permutation1 = new List<int> { 2, 0, 1 };
         var permutation2 = new List<int> { 1, 2, 0 };
-        var expected = new int[] { 0, 1, 2 };
+        var expected = new[] { 0, 1, 2 };
 
         var actual = Permutations.Multiply(permutation1, permutation2);
 

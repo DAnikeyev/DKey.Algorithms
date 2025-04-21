@@ -1,6 +1,4 @@
-﻿using DKey.Algorithms.DataStructures.Multiset;
-
-namespace DKey.Algorithms.DataStructures.Interval;
+﻿namespace DKey.Algorithms.DataStructures.Interval;
 
 public class PairPointsCoverer
 {

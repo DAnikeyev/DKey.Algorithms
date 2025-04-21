@@ -2,7 +2,7 @@ using DKey.Algorithms;
 using DKey.Algorithms.DataStructures.Graph;
 using DKey.Algorithms.DataStructures.Graph.DepthFirstSearch;
 
-namespace DKey.CodeForces.Contest1797;
+namespace DKey.CodeForces.Examples.Contest1797;
 
 /// <summary>
 /// https://codeforces.com/contest/1797/problem/D
@@ -21,7 +21,7 @@ public class Solver1797D : Solver
         var a = (List<int>) objects[1];
         
         var edges = IOHelper.Read2dList(n-1).Select(x => (x[0] - 1, x[1] - 1)).ToList();
-        var graph = GraphBuilder.Unordered(edges,n);
+        var graph = GraphBuilder.Undirected(edges,n);
         var tree = TreeGraph.Build(graph, n, 0);
         var context = new DFSContext(graph, 0);
         

@@ -6,7 +6,7 @@ namespace DKey.Algorithms.Tests.DataStructures
     public class PairPointsConvererTests
     {
         [Test]
-        public void T01_OneInterval()
+        public void OneInterval_ReturnsExpectedCover()
         {
             var intervals = new List<(long left, long right)> {(1, 4)};
             var pairPointsCoverer = new PairPointsCoverer(intervals);
@@ -15,7 +15,7 @@ namespace DKey.Algorithms.Tests.DataStructures
         }
 
         [Test]
-        public void T02_TwoIntervals()
+        public void TwoIntervals_ReturnsExpectedCover()
         {
             var intervals = new List<(long left, long right)> {(1, 4), (2, 5)};
             var pairPointsCoverer = new PairPointsCoverer(intervals);
@@ -24,7 +24,7 @@ namespace DKey.Algorithms.Tests.DataStructures
         }
 
         [Test]
-        public void T03_ThreeIntervals()
+        public void ThreeIntervals_ReturnsExpectedCover()
         {
             var intervals = new List<(long left, long right)> {(1, 4), (2, 5), (3, 6)};
             var pairPointsCoverer = new PairPointsCoverer(intervals);
@@ -33,7 +33,7 @@ namespace DKey.Algorithms.Tests.DataStructures
         }
 
         [Test]
-        public void T04_FourIntervals()
+        public void FourIntervals_ReturnsExpectedCover()
         {
             var intervals = new List<(long left, long right)> {(1, 4), (2, 5), (3, 6), (2, 7)};
             var pairPointsCoverer = new PairPointsCoverer(intervals);
@@ -42,7 +42,7 @@ namespace DKey.Algorithms.Tests.DataStructures
         }
 
         [Test]
-        public void T05_FiveIntervals()
+        public void FiveIntervals_ReturnsExpectedCover()
         {
             var intervals = new List<(long left, long right)> {(1, 7), (2, 6), (3, 3), (3, 4), (2, 9)};
             var pairPointsCoverer = new PairPointsCoverer(intervals);
@@ -51,7 +51,7 @@ namespace DKey.Algorithms.Tests.DataStructures
         }
 
         [Test]
-        public void T06_SomeIntervals()
+        public void SomeIntervals_ReturnsExpectedCover()
         {
             var intervals = new List<(long left, long right)> {(0, 0), (3, 100)};
             var pairPointsCoverer = new PairPointsCoverer(intervals);

@@ -3,7 +3,7 @@ using DKey.Algorithms.DataStructures.Graph;
 using DKey.Algorithms.DataStructures.Graph.DepthFirstSearch;
 using DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
 
-namespace DKey.CodeForces.Contest1805;
+namespace DKey.CodeForces.Examples.Contest1805;
 
 /// <summary>
 /// https://codeforces.com/contest/1805/problem/D 
@@ -19,7 +19,7 @@ public class Solver1805D : Solver
         //Build a Graph from edges.
         var n = (int) objects[0];
         var edges = IOHelper.Read2dList(n-1).Select(x => (x[0] - 1, x[1] - 1)).ToList();
-        var G = GraphBuilder.Unordered(edges, n);
+        var G = GraphBuilder.Undirected(edges, n);
         
         //Find the distance of each vertex from the ends of the diameter.
         var (v1, v2, length) = TreeDiameter.Get(G);
