@@ -21,7 +21,7 @@ public class Program
         {"Solver", -2},
         {"MultiSolver", -2},
     };
-    
+
     /// <summary>
     /// Builds a single .cs file with all the dependencies starting from program.cs of DKey.CodeForces.
     /// </summary>
@@ -31,7 +31,9 @@ public class Program
         var context = new DFSContext(graph, _classToIndex[Config.Root]);
         DFS.Recursive(context);
         var classIndexes = context.Used;
-        File.WriteAllText(Config.SubmissionPath, BuildSubmission(classIndexes));
+        var submission = BuildSubmission(classIndexes);
+        File.WriteAllText(Config.SubmissionPath, submission);
+        TextCopy.ClipboardService.SetText(submission);
     }
 
     private static string BuildSubmission(HashSet<int> classIndexes)
@@ -126,7 +128,7 @@ public class Program
 
         var implementation = string.Join("\n", lines.Skip(index));
         _classToImplementation[key] = implementation;
-        
+
         //Search dependencies inside a class excluding comments.
         var tokens = Tokenizer.Split(string.Join("\n", lines.Skip(index).Select(x => x.Trim()).Where(x => !x.StartsWith(@"//"))), TokenizerMode.TakeOnlyLettersOrDigit);
         foreach (var t in tokens)

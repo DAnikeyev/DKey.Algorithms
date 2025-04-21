@@ -1,3 +1,12 @@
+## 1.4.0 - 2025.04.22
+* **Added** SortedArray methods.
+* **Added** LongSum LinqExtension methods.
+* **Added** Tuple Helper.
+* **Added** Miscellaneous tests.
+* **Added** Raw codeforces submissions examples.
+* **Modified** Projects are now .NET 8.
+* **Modified** Updated codeforces templates for faster Solver editing.
+
 ## 1.3.0 - 2024.10.03
 * **Added** Red-Black Tree.
 * **Added** Dijkstra algorithm.
