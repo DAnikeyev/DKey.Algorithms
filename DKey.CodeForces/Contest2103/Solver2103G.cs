@@ -1,14 +1,14 @@
-﻿using DKey.Algorithms;
+using DKey.Algorithms;
 
-namespace DKey.CodeForces.Contest{ContestNumber};
+namespace DKey.CodeForces.Contest2103;
 
 
 /// <summary>
-/// https://codeforces.com/contest/{ContestNumber}/problem/{ProblemLetter}
+/// https://codeforces.com/contest/2103/problem/G
 /// </summary>
-public class Solver{ContestNumber}{ProblemLetter} : MultiSolver
+public class Solver2103G : MultiSolver
 {
-    public Solver{ContestNumber}{ProblemLetter}() : base( new Type[]
+    public Solver2103G() : base( new Type[]
     {
         typeof(List<int>),
         typeof(List<int>),
