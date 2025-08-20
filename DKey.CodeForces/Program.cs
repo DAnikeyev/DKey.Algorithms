@@ -1,11 +1,12 @@
 using DKey.Algorithms;
-using DKey.CodeForces.Contest2103;
+using DKey.CodeForces.Contest2117;
+using DKey.CodeForces.Sandbox;
 
 namespace DKey.CodeForces;
 
 public static class Program
 {
-    private static Solver _solver = new Solver2103D();
+    private static Solver _solver = new SandboxSolver();
     public static void Main()
     {
         _solver.Run();

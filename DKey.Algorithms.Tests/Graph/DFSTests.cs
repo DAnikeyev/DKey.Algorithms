@@ -24,6 +24,25 @@ public class DFSTests
 
         Assert.That(traversal, Is.EqualTo(new[] { 0, 1, 3, 4, 2 }));
     }
+    
+    [Test]
+    public void IterativeWithExitExtiOn_GivenGraph_ReturnsExpectedTraversal()
+    {
+        var graph = new[]
+        {
+            new List<int> { 1, 2 },
+            new List<int> { 3, 4 },
+            new List<int>(),
+            new List<int>(),
+            new List<int>(),
+        };
+        var context = new DFSContext(graph, 0);
+        var traversal = new List<int>();
+
+        DFS.IterativeWithExitAction(context, null, c => traversal.Add(c.CurrentVertex));
+
+        Assert.That(traversal, Is.EqualTo(new[] { 3, 4, 1, 2, 0 }));
+    }
 
     [Test]
     public void Recursive_GivenGraph_ReturnsExpectedTraversal()
