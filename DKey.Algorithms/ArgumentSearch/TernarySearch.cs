@@ -1,9 +1,18 @@
 ﻿namespace DKey.Algorithms.ArgumentSearch;
 
+/// <summary>
+/// Search for the minimum of a unimodal function on an integer or real interval.
+/// </summary>
 public static class TernarySearch
 {
 
-    // Argmin f(x), for unimodal function (function that has minimum and non-increasing before it and non-decreasing after it)
+    /// <summary>
+    /// Returns the index of the minimum of a unimodal function on [left, right]
+    /// (non-increasing before the minimum, non-decreasing after it).
+    /// </summary>
+    /// <param name="left">Left bound of the interval (inclusive).</param>
+    /// <param name="right">Right bound of the interval (inclusive).</param>
+    /// <param name="func">Unimodal function to minimize.</param>
     public static int GetIndex(int left, int right, Func<int, int> func)
     {
         while (right - left > 2)
@@ -35,7 +44,13 @@ public static class TernarySearch
         return minIndex;
     }
 
-    // Argmin f(x), for unimodal function (function that has minimum and non-increasing before it and non-decreasing after it)
+    /// <summary>
+    /// Returns the index of the minimum of a unimodal function on [left, right]
+    /// (non-increasing before the minimum, non-decreasing after it).
+    /// </summary>
+    /// <param name="left">Left bound of the interval (inclusive).</param>
+    /// <param name="right">Right bound of the interval (inclusive).</param>
+    /// <param name="func">Unimodal function to minimize.</param>
     public static int GetIndexLong(int left, int right, Func<int, long> func)
     {
         while (right - left > 2)
@@ -67,7 +82,13 @@ public static class TernarySearch
         return minIndex;
     }
 
-    //Argmin f(x), for unimodal function (function that has minimum and non-increasing before it and non-decrising after it)
+    /// <summary>
+    /// Returns the index of the minimum of a unimodal function on [left, right]
+    /// (non-increasing before the minimum, non-decreasing after it).
+    /// </summary>
+    /// <param name="left">Left bound of the interval (inclusive).</param>
+    /// <param name="right">Right bound of the interval (inclusive).</param>
+    /// <param name="func">Unimodal function to minimize.</param>
     public static long GetLongIndexLong(long left, long right, Func<long, long> func)
     {
         while (right - left > 2)
@@ -100,6 +121,14 @@ public static class TernarySearch
     }
 
 
+    /// <summary>
+    /// Golden-section search for the minimum of a unimodal function on a real interval.
+    /// </summary>
+    /// <param name="left">Left bound of the interval.</param>
+    /// <param name="right">Right bound of the interval.</param>
+    /// <param name="func">Unimodal function to minimize.</param>
+    /// <param name="epsilon">Stops once the interval becomes narrower than this value.</param>
+    /// <returns>The midpoint of the final interval: an approximation of argmin f(x).</returns>
     public static double GoldenSection(double left, double right, Func<double, double> func, double epsilon = 1e-8)
     {
         double phi = (1.0 + Math.Sqrt(5.0)) / 2.0; // Golden ratio

@@ -1,7 +1,15 @@
 ﻿namespace DKey.Algorithms.NumberTheory;
 
+/// <summary>
+/// Primality tests and prime factorization helpers.
+/// </summary>
 public class PrimeArithmetics
 {
+    /// <summary>
+    /// Trial-division primality test.
+    /// </summary>
+    /// <param name="n">Value to test.</param>
+    /// <returns>True when n is prime.</returns>
     public static bool IsPrime(int n)
     {
         if (n < 2)
@@ -17,6 +25,11 @@ public class PrimeArithmetics
     }
 
 
+    /// <summary>
+    /// Prime factorization by trial division.
+    /// </summary>
+    /// <param name="n">Value to factorize.</param>
+    /// <returns>List of (prime, exponent) pairs; empty for n less than 2.</returns>
     public static List<(int prime, int factor)> GetPrimeFactors(int n)
     {
         var result = new List<(int prime, int factor)>();
@@ -37,6 +50,11 @@ public class PrimeArithmetics
         return result;
     }
 
+    /// <summary>
+    /// Prime factorization of every integer in [0, n], computed with a smallest-prime-factor sieve.
+    /// </summary>
+    /// <param name="n">Upper bound of the interval (inclusive).</param>
+    /// <returns>Array of factor lists indexed from 0 to n.</returns>
     public static List<(int prime, int factor)>[] GetPrimeFactorsForInterval(int n)
     {
         var smallestPrimeFactor = new int[n + 1];
@@ -86,6 +104,10 @@ public class PrimeArithmetics
     }
 
 
+    /// <summary>
+    /// All positive divisors built from a prime factorization, sorted ascending (1 included).
+    /// </summary>
+    /// <param name="primeFactors">(prime, exponent) pairs, e.g. the output of GetPrimeFactors.</param>
     public static List<int> GetAllDividers(List<(int prime, int factors)> primeFactors)
     {
         var dividers = new List<int> { 1 };
@@ -109,6 +131,10 @@ public class PrimeArithmetics
         return dividers;
     }
 
+    /// <summary>
+    /// All positive divisors of n, sorted ascending (1 and n included).
+    /// </summary>
+    /// <param name="n">Value to get the divisors of.</param>
     public static List<int> GetAllDividers(int n)
     {
         var primeFactors = GetPrimeFactors(n);

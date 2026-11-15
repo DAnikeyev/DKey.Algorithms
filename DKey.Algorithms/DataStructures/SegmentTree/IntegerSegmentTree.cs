@@ -4,41 +4,66 @@ using DKey.Algorithms.DataStructures.Graph;
 namespace DKey.Algorithms.DataStructures.SegmentTree;
 
 /// <summary>
-///IntervalTree for addition, which supports lazy propagation, so adding value to interval is O(log n) instead of O(n).
-///Can be modified to perform any associative operation like max or bit operations.
-///Other versions currently not implemented, because I couldn't find problems, that required them, but it will be revised again later.
+/// Segment tree for addition with lazy propagation: adding a value to an interval and querying the
+/// interval sum both take O(log n). Can be adapted to any associative operation by overriding ItemOperation.
 /// </summary>
 public class IntegerSegmentTree : ImmutableBinaryTree<SegmentTreeNode>
 {
+    /// <summary>
+    /// Creates an empty tree; initialize it with InitFromIntList or InitFromLongList before use.
+    /// </summary>
     public IntegerSegmentTree()
     {
     }
 
+    /// <summary>
+    /// Builds the tree from a list of 64-bit leaves.
+    /// </summary>
+    /// <param name="data">Initial leaf values.</param>
     public void InitFromLongList(IList<long> data)
     {
         this.Init(data.Select(x => new SegmentTreeNode(x)).ToList());
     }
 
+    /// <summary>
+    /// Builds the tree from a list of 32-bit leaves.
+    /// </summary>
+    /// <param name="data">Initial leaf values.</param>
     public void InitFromIntList(IList<int> data)
     {
         this.Init(data.Select(x => new SegmentTreeNode(x)).ToList());
     }
 
+    /// <summary>
+    /// Combines two node aggregates with the tree operation.
+    /// </summary>
     protected override SegmentTreeNode Add(SegmentTreeNode a, SegmentTreeNode b)
     {
         return new SegmentTreeNode(ItemOperation(a.Value, b.Value));
     }
 
+    /// <summary>
+    /// The associative operation of the tree (addition by default); override to change the semantics.
+    /// </summary>
     protected virtual long ItemOperation(long a, long b)
     {
         return a + b;
     }
 
+    /// <summary>
+    /// Neutral element of the tree operation (0 for addition).
+    /// </summary>
     protected override SegmentTreeNode Neutral()
     {
         return new SegmentTreeNode(0);
     }
 
+    /// <summary>
+    /// Adds value to every leaf in [left, right] in O(log n).
+    /// </summary>
+    /// <param name="left">Left bound of the interval (inclusive, 0-based leaf index).</param>
+    /// <param name="right">Right bound of the interval (inclusive, 0-based leaf index).</param>
+    /// <param name="value">Value to add to every element of the interval.</param>
     public void AddToInterval(int left, int right, int value)
     {
         AddToIntervalHelper(left, right, value, 0);
@@ -118,6 +143,11 @@ public class IntegerSegmentTree : ImmutableBinaryTree<SegmentTreeNode>
         return ItemOperation(oldValue, addedValue);
     }
 
+    /// <summary>
+    /// Returns the aggregate of all leaves in [left, right]: the interval sum by default.
+    /// </summary>
+    /// <param name="left">Left bound of the interval (inclusive, 0-based leaf index).</param>
+    /// <param name="right">Right bound of the interval (inclusive, 0-based leaf index).</param>
     public override SegmentTreeNode GetCumulativeOperation(int left, int right)
     {
         return GetSumHelper(left, right, 0);
