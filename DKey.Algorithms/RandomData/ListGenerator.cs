@@ -90,11 +90,17 @@ public sealed class ListGenerator
     /// </summary>
     public List<int> RandomKElements(int n, int k)
     {
-       var result = new int[n];
-        for (int i = 0; i < k; i++)
+        var result = new int[n];
+        for (var i = 0; i < k; i++)
         {
-            int index = _random.Next(n - i);
-            (result[i], result[i + index]) = (result[i + index], result[i]);
+            result[i] = 1;
+        }
+        // Partial Fisher-Yates over the first k positions: places the k ones
+        // at a uniformly random subset of the n positions.
+        for (var i = 0; i < k; i++)
+        {
+            var j = _random.Next(i, n);
+            (result[i], result[j]) = (result[j], result[i]);
         }
         return result.ToList();
     }
