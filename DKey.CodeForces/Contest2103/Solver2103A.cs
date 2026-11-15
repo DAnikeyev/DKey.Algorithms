@@ -8,7 +8,7 @@ namespace DKey.CodeForces.Contest2103;
 /// </summary>
 public class Solver2103A : MultiSolver
 {
-    public Solver2103A() : base( new Type[]
+    public Solver2103A() : base(new Type[]
     {
         typeof(List<int>),
         typeof(List<int>),
@@ -18,9 +18,9 @@ public class Solver2103A : MultiSolver
 
     public override void Solve(object[] objects)
     {
-        var predata = (List<int>) objects[0];
+        var predata = (List<int>)objects[0];
         var n = predata[0];
-        var data = (List<int>) objects[1];
+        var data = (List<int>)objects[1];
         var res = data.Distinct().Count();
         output.AddLine(res);
     }

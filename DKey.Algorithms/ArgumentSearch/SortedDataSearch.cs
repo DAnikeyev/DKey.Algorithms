@@ -3,7 +3,7 @@
 public class SortedDataSearch
 {
     public static int GetIndexOfMaxBy<TSource, TKey>
-        ( IEnumerable<TSource> source, Func<TSource, TKey> valueSelector) where TKey : IComparable<TKey>
+        (IEnumerable<TSource> source, Func<TSource, TKey> valueSelector) where TKey : IComparable<TKey>
     {
         if (source.FirstOrDefault() == null)
             return -1;
@@ -23,14 +23,14 @@ public class SortedDataSearch
         }
         return maxindex;
     }
-    
-    
+
+
     /// <summary>
     /// Returns the index of the first element in the sorted list that is in the interval (min, max).
     /// valueSelector must be monotonic increasing in source.
     /// </summary>
     public static int GetFirstIndexInSortedListInInterval<TSource>
-        ( IList<TSource> source, int min, int max, Func<TSource, long> valueSelector)
+        (IList<TSource> source, int min, int max, Func<TSource, long> valueSelector)
     {
         var n = source.Count();
         var maxindex = BinarySearch.GetIndexLong(0, n - 1, x => valueSelector(source[x]) - max > 0 ? 1 : -1);

@@ -12,15 +12,15 @@ public class Solver1112F : MultiSolver
     public int[] logTable;
     public long[][] gcdST;
 
-    public Solver1112F() : base( new []{typeof(List<int>), typeof(List<int>)})
+    public Solver1112F() : base(new[] { typeof(List<int>), typeof(List<int>) })
     {
     }
 
 
     public override void Solve(object[] objects)
     {
-        var predata = (List<int>) objects[0];
-        var values = (List<int>) objects[1];
+        var predata = (List<int>)objects[0];
+        var values = (List<int>)objects[1];
         var n = predata[0];
         var q = predata[1];
         var diffs = new long[n - 1];

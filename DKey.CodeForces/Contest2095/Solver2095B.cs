@@ -8,7 +8,7 @@ namespace DKey.CodeForces.Contest2095;
 /// </summary>
 public class Solver2095B : Solver
 {
-    public Solver2095B() : base( new Type[]{ })
+    public Solver2095B() : base(new Type[] { })
     {
     }
 

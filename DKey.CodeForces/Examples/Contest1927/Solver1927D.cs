@@ -5,16 +5,16 @@ namespace DKey.CodeForces.Examples.Contest1927;
 
 public class Solver1927D : MultiSolver
 {
-    public Solver1927D() : base( new Type[]{typeof(int), typeof(List<long>), typeof(int)})
+    public Solver1927D() : base(new Type[] { typeof(int), typeof(List<long>), typeof(int) })
     {
     }
- 
+
     public override void Solve(object[] objects)
     {
-        var seq = (List<long>) objects[1];
-        var q = (int) objects[2];
+        var seq = (List<long>)objects[1];
+        var q = (int)objects[2];
         var dictionary = new Dictionary<long, long>();
-        for(var i = 0; i < seq.Count; i++)
+        for (var i = 0; i < seq.Count; i++)
             dictionary[i] = seq[i];
         var dictionaryMinNeutral = new Dictionary<long, long>(dictionary);
         dictionaryMinNeutral.Add(dictionaryMinNeutral.Count, long.MaxValue);
@@ -22,9 +22,9 @@ public class Solver1927D : MultiSolver
         dictionaryMaxNeutral.Add(dictionaryMaxNeutral.Count, long.MinValue);
         var minIndexOpp = new Func<Dictionary<long, long>, long, long, long>((dic, a, b) => dic[a] < dic[b] ? a : b);
         var maxIndexOpp = new Func<Dictionary<long, long>, long, long, long>((dic, a, b) => dic[a] > dic[b] ? a : b);
-        var minTree = new IntegerOperationsSegmentTree( minIndexOpp, dictionaryMinNeutral);
+        var minTree = new IntegerOperationsSegmentTree(minIndexOpp, dictionaryMinNeutral);
         minTree.InitFromIntList(Enumerable.Range(0, seq.Count).ToList());
-        var maxTree = new IntegerOperationsSegmentTree( maxIndexOpp, dictionaryMaxNeutral);
+        var maxTree = new IntegerOperationsSegmentTree(maxIndexOpp, dictionaryMaxNeutral);
         maxTree.InitFromIntList(Enumerable.Range(0, seq.Count).ToList());
         var questions = IOHelper.Read2dList(q);
         foreach (var question in questions)

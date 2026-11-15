@@ -127,7 +127,7 @@ public class RedBlackTree<T> : IOrderedDataStructureWithValues<T>
 
     public bool TryDelete(T item)
     {
-        
+
         var node = _root;
 
         var toRemove = new List<RedBlackTreeNode<T>>();
@@ -147,18 +147,18 @@ public class RedBlackTree<T> : IOrderedDataStructureWithValues<T>
                 break;
             }
         }
-        
+
         if (node == null)
         {
             return false;
         }
 
-        
+
         foreach (var n in toRemove)
         {
             n.LeftSubTreeSize--;
         }
-        
+
         var v = node;
         var u = v.Left == null || v.Right == null ? v : GetSuccessor(v);
         var child = u.Left ?? u.Right;
@@ -194,7 +194,7 @@ public class RedBlackTree<T> : IOrderedDataStructureWithValues<T>
         _count--;
         return true;
     }
-    
+
     public T Min
     {
         get
@@ -208,7 +208,7 @@ public class RedBlackTree<T> : IOrderedDataStructureWithValues<T>
             return current!.Key;
         }
     }
-    
+
     public T Max
     {
         get
@@ -356,7 +356,7 @@ public class RedBlackTree<T> : IOrderedDataStructureWithValues<T>
 
         right.Left = node;
         node.Parent = right;
-        
+
         right.LeftSubTreeSize = right.LeftSubTreeSize + node.LeftSubTreeSize + 1;
     }
 
@@ -385,7 +385,7 @@ public class RedBlackTree<T> : IOrderedDataStructureWithValues<T>
 
         left.Right = node;
         node.Parent = left;
-        
+
         node.LeftSubTreeSize = node.LeftSubTreeSize - left.LeftSubTreeSize - 1;
     }
 

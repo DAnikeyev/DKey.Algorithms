@@ -7,7 +7,7 @@ public class Dijkstra
         var result = a.Item1.CompareTo(b.Item1);
         return result == 0 ? a.Item2.CompareTo(b.Item2) : result;
     });
-    
+
     public static long[] ToAll(WeightedGraphContext context)
     {
         var graph = context.Graph;
@@ -38,10 +38,10 @@ public class Dijkstra
                 }
             }
         }
-        
+
         return distances;
     }
-    
+
     public static long[] ToAll(GraphContext context)
     {
         var graph = context.Graph;
@@ -71,7 +71,7 @@ public class Dijkstra
                 }
             }
         }
-        
+
         return distances;
     }
 }

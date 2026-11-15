@@ -10,25 +10,25 @@ namespace DKey.CodeForces.Examples.Contest1780;
 public class Solver1780G : Solver
 {
     public static int shortOpt = 20;
-    
-    public Solver1780G() : base(new []{typeof(int), typeof(string)})
+
+    public Solver1780G() : base(new[] { typeof(int), typeof(string) })
     {
     }
 
     public override void Solve(object[] args)
     {
         var txt = (string)args[1];
-        
+
         //SuffixTree<T> is ~20-30% too slow for time constraints, so we use ShortSuffixTree instead with some optimizations.
-        var tree = ShortSuffixTree.Build(txt.Select(x => x-'a'+1).ToArray(), 0);
+        var tree = ShortSuffixTree.Build(txt.Select(x => x - 'a' + 1).ToArray(), 0);
         var nodes = tree.Nodes;
-        
+
         //Let's write number of occurences of substring = number of leafs for each vertex.
         //Can use written DFS instead of sorting, but this is more memory efficient and we already use 400/512MB.
         var weights = new int[tree.NodesSize];
         foreach (var nodeIndex in Enumerable.Range(0, tree.NodesSize).OrderByDescending(x => nodes[x].Depth))
             weights[nodeIndex] = Math.Max(nodes[nodeIndex].Children.Where(x => x != 0).Sum(x => weights[x]), 1);
-        
+
         long result = 0;
         for (var i = 1; i < tree.NodesSize; i++)
         {
@@ -44,7 +44,7 @@ public class Solver1780G : Solver
             else
                 result += GetDividerOccurences(mindepth, maxdepth, occurrences);
         }
-        
+
         //SuffixTree has terminal vertex with minChar, which we must exclude.
         output.AddLine(result - 1);
     }

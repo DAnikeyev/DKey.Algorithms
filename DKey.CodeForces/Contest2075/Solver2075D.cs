@@ -8,13 +8,13 @@ namespace DKey.CodeForces.Contest2075;
 /// </summary>
 public class Solver2075D : MultiSolver
 {
-    public Solver2075D() : base( new []{typeof(List<long>)})
+    public Solver2075D() : base(new[] { typeof(List<long>) })
     {
     }
 
     public override void Solve(object[] objects)
     {
-        var seq = (List<long>) objects[0];
+        var seq = (List<long>)objects[0];
         var x = seq[0];
         var y = seq[1];
         if (x > y)
@@ -36,7 +36,7 @@ public class Solver2075D : MultiSolver
         var v1 = xbin.Length - opt;
         var v2 = ybin.Length - opt;
         var total = v1 + v2;
-        if(x == 0 || y == 0)
+        if (x == 0 || y == 0)
         {
             total = Math.Max(v1, v2);
             v2 = 0;

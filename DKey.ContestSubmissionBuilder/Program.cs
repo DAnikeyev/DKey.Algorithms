@@ -7,12 +7,12 @@ namespace CodeForcesSubmissionBuilder;
 
 public class Program
 {
-    private static Dictionary<string, string> _classToPath = new ();
-    private static Dictionary<string, int> _classToIndex = new ();
-    private static Dictionary<string, string> _classToImplementation = new ();
-    private static Dictionary<string, HashSet<string>> _classToUsings = new ();
-    private static List<string> _keys = new ();
-    private static Dictionary<string, int> _priority = new ()
+    private static Dictionary<string, string> _classToPath = new();
+    private static Dictionary<string, int> _classToIndex = new();
+    private static Dictionary<string, string> _classToImplementation = new();
+    private static Dictionary<string, HashSet<string>> _classToUsings = new();
+    private static List<string> _keys = new();
+    private static Dictionary<string, int> _priority = new()
     {
         {"Program", 2},
         {"Skip", -3},
@@ -90,7 +90,7 @@ public class Program
 
         var size = _keys.Count;
         var graph = new List<int>[size];
-        for(var i = 0; i < _keys.Count; i++)
+        for (var i = 0; i < _keys.Count; i++)
         {
             var key = _keys[i];
             graph[i] = ParseClass(key, File.ReadAllLines(_classToPath[key]));
@@ -109,11 +109,11 @@ public class Program
             var line = lines[index].Trim();
             if (line.Contains("using"))
             {
-                if(!line.Contains("DKey"))
+                if (!line.Contains("DKey"))
                     _classToUsings[key].Add(line);
                 foreach (var dependency in Config.PrimitiveExtensions.Where(x => line.Contains(x)))
                 {
-                    if(_classToIndex.TryGetValue(dependency, out var dependencyIndex))
+                    if (_classToIndex.TryGetValue(dependency, out var dependencyIndex))
                         childIndexes.Add(dependencyIndex);
                 }
             }
@@ -135,7 +135,7 @@ public class Program
         {
             if (t == key)
                 continue;
-            if(_classToIndex.TryGetValue(t, out var dependencyIndex))
+            if (_classToIndex.TryGetValue(t, out var dependencyIndex))
                 childIndexes.Add(dependencyIndex);
         }
 

@@ -17,7 +17,7 @@ public class TreeGraph
             parent = context.Parents.Peek();
             Vertices[parent].Children!.Add(context.CurrentVertex);
         }
-            
+
         Vertices[context.CurrentVertex] = new TreeVertex(parent, context.CurrentVertex, new List<int>());
     }
 

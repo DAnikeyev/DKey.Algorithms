@@ -26,7 +26,7 @@ public class PrefixSumTests
 
         Assert.AreEqual(expected, result);
     }
-    
+
     [TestCase(new int[] { }, new long[] { 0 })]
     [TestCase(new[] { 1 }, new long[] { 0, 1 })]
     [TestCase(new[] { 1, 2 }, new long[] { 0, 1, 3 })]

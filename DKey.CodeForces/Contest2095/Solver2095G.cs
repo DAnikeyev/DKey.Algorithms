@@ -35,7 +35,7 @@ public class Solver2095G : Solver
         { 8, "ton" },
     };
 
-    public Solver2095G() : base( new Type[]{ })
+    public Solver2095G() : base(new Type[] { })
     {
     }
 

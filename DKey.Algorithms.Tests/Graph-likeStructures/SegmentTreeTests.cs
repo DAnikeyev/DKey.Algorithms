@@ -5,7 +5,7 @@ namespace DKey.Algorithms.Tests.Graph_likeStructures;
 [TestFixture]
 public class SegmentTreeTests
 {
-    
+
     [Test]
     public void MultipleOperationsWithLargerList_ReturnsExpectedSum()
     {

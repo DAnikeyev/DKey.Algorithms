@@ -8,15 +8,15 @@ namespace DKey.CodeForces.Contest1112;
 /// </summary>
 public class Solver1112B : MultiSolver
 {
-    public Solver1112B() : base( new []{typeof(List<int>), typeof(List<int>)})
+    public Solver1112B() : base(new[] { typeof(List<int>), typeof(List<int>) })
     {
     }
 
     public override void Solve(object[] objects)
     {
-        var predata = (List<int>) objects[0];
-        var data = (List<int>) objects[1];
-        if(data.Count == 1)
+        var predata = (List<int>)objects[0];
+        var data = (List<int>)objects[1];
+        if (data.Count == 1)
         {
             output.AddLine("YES");
             return;
@@ -27,12 +27,12 @@ public class Solver1112B : MultiSolver
         var ecount = 0;
         for (var i = 0; i < data.Count; i += 2)
         {
-            osum+=data[i];
+            osum += data[i];
             ocount++;
         }
         for (var i = 1; i < data.Count; i += 2)
         {
-            esum+=data[i];
+            esum += data[i];
             ecount++;
         }
         var oavg = osum / ocount;

@@ -7,7 +7,7 @@ public class BFS
     /// </summary>
     public static void Traverse<TContext>(TContext context, Action<TContext>? action = default) where TContext : TraverseContext
     {
-        if(context.stopFlag)
+        if (context.stopFlag)
             return;
         var queue = new Queue<int>();
         var currentDepth = 0;

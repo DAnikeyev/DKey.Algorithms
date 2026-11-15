@@ -7,7 +7,7 @@ internal class RedBlackTreeNode<T>
     public RedBlackTreeNode<T>? Right { get; set; }
     public RedBlackTreeNode<T>? Parent { get; set; }
     public bool IsRed { get; set; }
-    
+
     public int LeftSubTreeSize { get; set; }
 
     public RedBlackTreeNode(T key)

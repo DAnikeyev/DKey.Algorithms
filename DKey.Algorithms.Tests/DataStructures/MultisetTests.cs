@@ -16,18 +16,18 @@ namespace DKey.Algorithms.Tests.DataStructures
             Assert.AreEqual(2, multiset.CountDistinct);
             Assert.AreEqual(5, multiset.Max);
             Assert.AreEqual(3, multiset.Min);
-            
+
             multiset.Add(3, 3);
             Assert.AreEqual(6, multiset.Count);
 
             Assert.IsTrue(multiset.Remove(3));
             Assert.AreEqual(5, multiset.Count);
             Assert.AreEqual(3, multiset.Min);
-            
+
             Assert.IsTrue(multiset.Remove(5, 2));
             Assert.AreEqual(3, multiset.Count);
             Assert.AreEqual(3, multiset.Max);
-            
+
             Assert.IsFalse(multiset.Remove(10));
         }
 
@@ -80,7 +80,7 @@ namespace DKey.Algorithms.Tests.DataStructures
             Assert.AreEqual(1, multiset.Min);
         }
         [Test]
-        
+
         public void T05_Remove_Tests()
         {
             var multiset = new SortedMultiset<int>();

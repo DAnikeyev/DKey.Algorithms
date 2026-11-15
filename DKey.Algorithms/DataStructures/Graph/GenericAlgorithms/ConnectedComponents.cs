@@ -9,7 +9,7 @@ public class ConnectedComponents
     /// </summary>
     public static List<List<int>> Get(List<int>[] graph)
     {
-        List<List<int>> components = new ();
+        List<List<int>> components = new();
 
         var context = new DFSContext(graph, 0);
         for (int i = 0; i < graph.Length; i++)

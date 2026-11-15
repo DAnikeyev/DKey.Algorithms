@@ -112,11 +112,11 @@ public class GraphGenerator
 
         return GraphBuilder.Undirected(selected_edges, vertices);
     }
-    
+
     public List<int>[] RandomCycle(int n)
     {
         var perm = ListGenerator.Instance().RandomPermutation(n);
-        return GraphBuilder.Undirected(perm.Select((x,i) => (x, perm[(i+1)%n])).ToList().ToList(), n);
+        return GraphBuilder.Undirected(perm.Select((x, i) => (x, perm[(i + 1) % n])).ToList().ToList(), n);
     }
 
     public List<int>[] RandomTree(int n)
@@ -142,11 +142,11 @@ public class GraphGenerator
         var tree = RandomTree(n - 1);
         var v1 = _random.Next(n - 1);
         var v2 = v1;
-        while(v2 == v1)
+        while (v2 == v1)
             v2 = _random.Next(n - 1);
 
         Array.Resize(ref tree, n);
-        tree[n - 1] = new List<int> {v1, v2};
+        tree[n - 1] = new List<int> { v1, v2 };
 
         tree[v1].Add(n - 1);
         tree[v2].Add(n - 1);
@@ -190,7 +190,7 @@ public class GraphGenerator
 
         return graph;
     }
-    
+
     public List<int>[] EyeOfTheUniverse => GraphBuilder.Undirected(
         new List<(int, int)>()
         {

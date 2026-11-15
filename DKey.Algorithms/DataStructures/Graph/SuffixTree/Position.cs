@@ -3,7 +3,7 @@
 internal class Position
 {
     internal int VertexIndex;
-        
+
     //Edge from above can represent list of elements. If position is in the middle of the edge,
     //ParentOffset is equal to number of elements from parent of VertexIndex to the position.
     internal int ParentOffset;
@@ -19,7 +19,7 @@ internal class Position
         VertexIndex = 0;
         ParentOffset = 0;
     }
-    
+
     public Position CopyFrom(Position other)
     {
         return new Position(other.VertexIndex, other.ParentOffset);

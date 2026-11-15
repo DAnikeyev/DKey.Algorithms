@@ -9,17 +9,17 @@ public static class DFS
     /// </summary>
     public static void Iterative<TContext>(TContext context, Action<TContext>? action = default, bool preallocate = false) where TContext : DFSContext
     {
-        if(context.stopFlag)
+        if (context.stopFlag)
             return;
         var stack = new Stack<int>(preallocate ? context.Graph.Length : 0);
         stack.Push(context.CurrentVertex);
         context.VertexInfo[context.CurrentVertex] = (-1, 0);
-        
+
         while (stack.Count > 0)
         {
             var currentVertex = stack.Peek();
             context.CurrentVertex = currentVertex;
-            
+
             if (!context.Used.Contains(currentVertex))
             {
                 //On entering the vertex.
@@ -28,7 +28,7 @@ public static class DFS
                 context.Parents.Push(currentVertex);
 
                 //Pushing children to the stack of vertices to visit.
-                for (int i = context.Graph[currentVertex].Count - 1; i >=0 ; i--)
+                for (int i = context.Graph[currentVertex].Count - 1; i >= 0; i--)
                 {
                     var nextAdjacent = context.Graph[currentVertex][i];
                     if (!context.Used.Contains(nextAdjacent))
@@ -42,13 +42,13 @@ public static class DFS
             else
             {
                 //On exiting the vertex. If graph is not tree, we need to check current parent, to avoid removing vertex if it already was removed, but got visited through another branch.
-                if(context.Parents.Peek() == currentVertex)
+                if (context.Parents.Peek() == currentVertex)
                     context.Parents.Pop();
                 stack.Pop();
             }
         }
     }
-    
+
     /// <summary>
     /// Iterative depth-first search with some action on the current context.
     /// Use this for big graphs to avoid stack overflow.
@@ -56,12 +56,12 @@ public static class DFS
     /// </summary>
     public static void IterativeWithExitAction<TContext>(TContext context, Action<TContext>? enterAction = default, Action<TContext>? exitAction = default, bool preallocate = false) where TContext : DFSContext
     {
-        if(context.stopFlag)
+        if (context.stopFlag)
             return;
         var stack = new Stack<int>(preallocate ? context.Graph.Length : 0);
         stack.Push(context.CurrentVertex);
         context.VertexInfo[context.CurrentVertex] = (-1, 0);
-        
+
         while (stack.Count > 0)
         {
             var currentVertex = stack.Peek();
@@ -76,7 +76,7 @@ public static class DFS
 
                 var wasPushed = false;
                 //Pushing children to the stack of vertices to visit.
-                for (int i = context.Graph[currentVertex].Count - 1; i >=0 ; i--)
+                for (int i = context.Graph[currentVertex].Count - 1; i >= 0; i--)
                 {
                     var nextAdjacent = context.Graph[currentVertex][i];
                     if (!context.Used.Contains(nextAdjacent))
@@ -92,7 +92,7 @@ public static class DFS
                     continue;
                 }
             }
-            
+
             //On exiting the vertex. If graph is not tree, we need to check current parent, to avoid removing vertex if it already was removed, but got visited through another branch.
             if (context.Parents.Peek() == currentVertex)
             {
@@ -102,7 +102,7 @@ public static class DFS
             stack.Pop();
         }
     }
-    
+
 
     /// <summary>
     /// Depth-first search with some action on current context

@@ -10,13 +10,13 @@ namespace DKey.CodeForces.Contest1112;
 /// </summary>
 public class Solver1112G : MultiSolver
 {
-    public Solver1112G() : base( new []{typeof(List<int>)})
+    public Solver1112G() : base(new[] { typeof(List<int>) })
     {
     }
 
     public override void Solve(object[] objects)
     {
-        var seq = (List<int>) objects[0];
+        var seq = (List<int>)objects[0];
         var n = seq[0];
         if (n == 2)
         {

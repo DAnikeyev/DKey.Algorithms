@@ -5,7 +5,7 @@ namespace DKey.Algorithms.Tests.Graph;
 [TestFixture]
 public class DFSTests
 {
-    
+
     [Test]
     public void Iterative_GivenGraph_ReturnsExpectedTraversal()
     {
@@ -24,7 +24,7 @@ public class DFSTests
 
         Assert.That(traversal, Is.EqualTo(new[] { 0, 1, 3, 4, 2 }));
     }
-    
+
     [Test]
     public void IterativeWithExitExtiOn_GivenGraph_ReturnsExpectedTraversal()
     {

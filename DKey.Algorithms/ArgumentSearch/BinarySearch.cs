@@ -35,7 +35,7 @@ public class BinarySearch
             right = mid;
         }
     }
-    
+
     //Min x: f(x)>0 for mono increasing function.
     public static long GetLongIndexLong(long left, long right, Func<long, long> func)
     {

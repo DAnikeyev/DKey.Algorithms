@@ -9,7 +9,7 @@ namespace DKey.CodeForces.Examples.Contest1992;
 public class Solver1992F2 : Solver
 {
 
-    public Solver1992F2() : base( new Type[]{typeof(List<int>)})
+    public Solver1992F2() : base(new Type[] { typeof(List<int>) })
     {
     }
 
@@ -17,18 +17,18 @@ public class Solver1992F2 : Solver
     {
         var maxVal = 57000;
         var mod = 998244353;
-        var fibonacci = new List<int> {1, 1};
-        for(var i = 2; i <= 25; i++)
+        var fibonacci = new List<int> { 1, 1 };
+        for (var i = 2; i <= 25; i++)
             fibonacci.Add(fibonacci[i - 1] + fibonacci[i - 2]);
         var optim = Enumerable.Range(0, maxVal).Select(x => OptimalBitsCount(x, fibonacci)).ToList();
-        var seq = (List<int>) objects[0];
+        var seq = (List<int>)objects[0];
         var n = seq[0];
         var x = seq[1];
         var m = seq[2];
         var arithmetic = new ModularArithmetics(mod, true, true);
         var dpArray = new int[n + 1, maxVal];
         dpArray[0, 0] = 1;
-        for(var i = 0; i < x; i++)
+        for (var i = 0; i < x; i++)
         {
             for (var j = 0; j < n; j++)
             {
@@ -47,7 +47,7 @@ public class Solver1992F2 : Solver
         {
             if (OptimalBitsCount(i, fibonacci) == m)
             {
-                answer+=dpArray[n, i];
+                answer += dpArray[n, i];
                 if (answer >= mod)
                     answer -= mod;
             }
@@ -59,10 +59,10 @@ public class Solver1992F2 : Solver
     private int OptimalBitsCount(int val, List<int> fibbonachi)
     {
         var result = 0;
-        for(var i = 25; i >= 0; i--)
+        for (var i = 25; i >= 0; i--)
             if (fibbonachi[i] <= val)
             {
-                val-=fibbonachi[i];
+                val -= fibbonachi[i];
                 result++;
             }
         return result;

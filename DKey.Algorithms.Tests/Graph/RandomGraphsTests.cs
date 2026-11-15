@@ -23,7 +23,7 @@ public class RandomGraphsTests
 
     [Explicit("Too long to run on CI")]
     [Test]
-    public void RandomBigGraphs_GraphMethods_ThrowNoExceptions([Values(3, 5, 10, 25, 100, 1000, 5000)]int value)
+    public void RandomBigGraphs_GraphMethods_ThrowNoExceptions([Values(3, 5, 10, 25, 100, 1000, 5000)] int value)
     {
         var graphGenerator = GraphGenerator.Instance(42);
         var graphs = graphGenerator.GetVariousGraphes(value);

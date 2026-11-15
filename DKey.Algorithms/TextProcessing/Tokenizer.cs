@@ -10,7 +10,7 @@ public class Tokenizer
         {TokenizerMode.TakeOnlyLettersOrDigit, @"\b[a-zA-Z0-9]+\b"},
         {TokenizerMode.WhiteSpaces, @"\S+"},
     };
-    
+
     public static List<string> Split(string text, TokenizerMode mode)
     {
         List<string> result = new List<string>();
