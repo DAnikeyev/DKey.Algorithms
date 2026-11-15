@@ -32,7 +32,7 @@ public class TernarySearchTests
 
         Assert.AreEqual(9, result);
     }
-    
+
     [Test]
     public void FlatLine_FoundMinimumWithPrecision()
     {

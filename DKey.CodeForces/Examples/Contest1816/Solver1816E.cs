@@ -9,26 +9,26 @@ namespace DKey.CodeForces.Examples.Contest1816;
 /// </summary>
 public class Solver1816E : MultiSolver
 {
-    public Solver1816E() : base( new Type[]{typeof(List<int>)})
+    public Solver1816E() : base(new Type[] { typeof(List<int>) })
     {
     }
 
     public override void Solve(object[] objects)
     {
-        var seq = (List<int>) objects[0];
+        var seq = (List<int>)objects[0];
         var n = seq[0];
         var m = seq[1];
         var edges = IOHelper.Read2dList(m).Select(x => (x[0] - 1, x[1] - 1)).ToList();
         var (forwardGraph, backwardGraph) = GraphBuilder.Directed(edges, n);
         var context = new TraverseContext(backwardGraph, 0);
         var depth = new int[n];
-        
+
         //BFS depth defines how many times sequence can have this number (proved by induction).
         //It's true for 1, and if child has more then d occurencies, its parent has to have at least d-1.
-        BFS.Traverse(context, ctx =>depth[ctx.CurrentVertex] = ctx.Depth + 1);
-        
+        BFS.Traverse(context, ctx => depth[ctx.CurrentVertex] = ctx.Depth + 1);
+
         //if no path from 1 to x, then sequence 1 x x x x x x ... is valid.
-        if(depth.Any(x => x == 0))
+        if (depth.Any(x => x == 0))
             output.AddLine("INFINITE");
         else
         {
@@ -57,7 +57,7 @@ public class Solver1816E : MultiSolver
                 result.Add(new List<int>(vertexByDepth[i]));
             }
             result.Reverse();
-            var answer = result.SelectMany(x => x).Select(x => x+1).ToList();
+            var answer = result.SelectMany(x => x).Select(x => x + 1).ToList();
             output.AddLine(answer.Count);
             output.AddListLine(answer);
 

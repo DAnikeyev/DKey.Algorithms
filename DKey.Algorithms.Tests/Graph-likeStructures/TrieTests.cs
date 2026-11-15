@@ -16,7 +16,7 @@ public class TrieTests
     [Test]
     public void SearchPrefix_GivenNonexistentPrefix_ReturnsFalse()
     {
-            
+
         var words = new List<string> { "hello", "world", "foo", "bar" };
         _trie.Build(words);
         var result = _trie.SearchPrefix("baz");

@@ -14,7 +14,7 @@ public class IntArithmetics
 
         return a | b;
     }
-    
+
     public static long GCD(long a, long b)
     {
         while (a != 0 && b != 0)

@@ -12,7 +12,7 @@ public class RedBlackTreeTests
         var rbt = new RBTInt();
         Assert.AreEqual(0, rbt.Count);
     }
-    
+
     [Test]
     public void OneElement_ReturnsExpectedCount()
     {
@@ -21,7 +21,7 @@ public class RedBlackTreeTests
         Assert.AreEqual(1, rbt.Count);
         Assert.IsTrue(added);
     }
-    
+
     [Test]
     public void TryAdd_ExpectedKeys()
     {
@@ -38,7 +38,7 @@ public class RedBlackTreeTests
         Assert.AreEqual(9, rbt.Count);
         CollectionAssert.AreEqual(rbt.Keys, new[] { 1, 2, 3, 4, 5, 7, 8, 9, 10 });
     }
-    
+
     [Test]
     public void TryDelete_ExpectKeys()
     {
@@ -58,9 +58,9 @@ public class RedBlackTreeTests
         rbt.TryDelete(1);
         rbt.TryDelete(10);
         Assert.AreEqual(6, rbt.Count);
-        CollectionAssert.AreEqual(rbt.Keys, new [] { 2, 3, 4, 5, 7, 9 });
+        CollectionAssert.AreEqual(rbt.Keys, new[] { 2, 3, 4, 5, 7, 9 });
     }
-    
+
     [Test]
     public void Search_ExpectedKeyAndIndex()
     {
@@ -79,7 +79,7 @@ public class RedBlackTreeTests
         Assert.IsTrue(found);
         Assert.AreEqual(6, index);
     }
-    
+
     [Test]
     public void SearchNotAddedElement_ElementIsNotFound()
     {
@@ -98,7 +98,7 @@ public class RedBlackTreeTests
         rbt.Search(11, out var found);
         Assert.IsFalse(found);
     }
-    
+
     [Test]
     public void Search_EmptyTree_ElementIsNotFound()
     {
@@ -129,13 +129,13 @@ public class RedBlackTreeTests
         rbt.TryDelete(10);
         rbt.Search(8, out var found2);
         Assert.IsFalse(found2);
-        
+
         var (index3, item3) = rbt.Search(4, out var found3);
         Assert.IsTrue(found3);
         Assert.AreEqual(2, index3);
         Assert.AreEqual(4, item3);
     }
-    
+
     [Test]
     public void LoadTest_NoExceptionThrown()
     {

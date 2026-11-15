@@ -9,22 +9,22 @@ namespace DKey.CodeForces.Contest2063;
 /// </summary>
 public class Solver2063C : MultiSolver
 {
-    public Solver2063C() : base( new []{typeof(List<int>)})
+    public Solver2063C() : base(new[] { typeof(List<int>) })
     {
     }
 
     public override void Solve(object[] objects)
     {
-        var seq = (List<int>) objects[0];
+        var seq = (List<int>)objects[0];
         var n = seq[0];
         var edges = IOHelper.Read2dList(n - 1);
-        if(n == 2)
+        if (n == 2)
         {
             output.AddLine(0);
             return;
         }
         var graph = GraphBuilder.Undirected(edges.Select(x => (x[0], x[1])).ToList(), n, false);
-        var hash = new HashSet<(int,int)>();
+        var hash = new HashSet<(int, int)>();
         foreach (var l in edges)
         {
             hash.Add((l[0] - 1, l[1] - 1));
@@ -55,7 +55,7 @@ public class Solver2063C : MultiSolver
                     }
 
                 }
-                if(bingo == 1)
+                if (bingo == 1)
                     break;
             }
         }

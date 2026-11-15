@@ -13,16 +13,16 @@ namespace DKey.Algorithms.DataStructures.Graph.ShortSuffixTree;
 /// </summary>
 public class ShortSuffixTree
 {
-    #pragma warning disable CS8618
+#pragma warning disable CS8618
     public int[] Data;
     public int NodesSize;
     public ShortSuffixNode[] Nodes;
-    
+
     public ShortSuffixNode Root;
 
     //Current longest suffix that is not leaf. Needed for efficient tree building.
     private Position CurrentLongestNonLeafSuffix;
-    
+
 #pragma warning restore CS8618
     /// <summary>
     /// Build Suffix Tree from the list of T.
@@ -70,7 +70,7 @@ public class ShortSuffixTree
                     Nodes[prevIndex].SuffixLink = Nodes[current.VertexIndex].ParentIndex;
                 break;
             }
- 
+
             Split(current, element, index);
             if (prevIndex != -1 && Nodes[prevIndex].SuffixLink == -1)
                 Nodes[prevIndex].SuffixLink = current.VertexIndex;
@@ -97,20 +97,20 @@ public class ShortSuffixTree
         }
         var depth = Nodes[position.VertexIndex].Depth;
         var edgeLength = Data.Length - dataIndex;
-        Nodes[NodesSize] = new ShortSuffixNode(dataIndex - depth, depth+edgeLength, edgeLength, position.VertexIndex);
+        Nodes[NodesSize] = new ShortSuffixNode(dataIndex - depth, depth + edgeLength, edgeLength, position.VertexIndex);
         Nodes[position.VertexIndex].Children[element] = NodesSize;
         NodesSize++;
         return;
     }
-    
+
     private bool IsVertex(Position position) => Nodes[position.VertexIndex].ParentEdgeLength == position.ParentOffset;
-    
+
     private void EdgeSplit(Position position, int dataOffset)
     {
         var currentVertex = Nodes[position.VertexIndex];
         var parent = Nodes[currentVertex.ParentIndex];
-        
-        var newNode = new ShortSuffixNode(dataOffset - position.ParentOffset - parent.Depth, parent.Depth+position.ParentOffset, position.ParentOffset, currentVertex.ParentIndex);
+
+        var newNode = new ShortSuffixNode(dataOffset - position.ParentOffset - parent.Depth, parent.Depth + position.ParentOffset, position.ParentOffset, currentVertex.ParentIndex);
         Nodes[NodesSize] = newNode;
         var parentNextDataIndex = currentVertex.ParentNextDataIndex;
         var prevNextElement = Data[parentNextDataIndex + position.ParentOffset];
@@ -145,7 +145,7 @@ public class ShortSuffixTree
         return true;
 
     }
-    
+
     /// <summary>
     /// Supports getting suffix link from edges.
     /// </summary>
@@ -169,7 +169,7 @@ public class ShortSuffixTree
         {
             nextDataOffset += 1;
             shift -= 1;
-            if(shift <= 0)
+            if (shift <= 0)
             {
                 position.Clear();
                 return;
@@ -179,13 +179,13 @@ public class ShortSuffixTree
         var currentVertex = Nodes[parent.SuffixLink];
         while (true)
         {
-            
+
             var child = currentVertex.Children[Data[nextDataOffset]];
-             if (child != 0)
+            if (child != 0)
             {
                 currentVertex = Nodes[child];
                 var edgeLength = currentVertex.ParentEdgeLength;
-                if ( edgeLength >= shift)
+                if (edgeLength >= shift)
                 {
                     position.Update(child, shift);
                     return;
@@ -199,7 +199,7 @@ public class ShortSuffixTree
             throw new Exception("Should be unreachable");
         }
     }
-    
+
     /// <summary>
     /// Get a suffix link for vertex.
     /// </summary>
@@ -221,7 +221,7 @@ public class ShortSuffixTree
     /// </summary>
     public bool Contains(IEnumerable<int> data)
     {
-        var position = new Position(0,0);
+        var position = new Position(0, 0);
         foreach (var element in data)
         {
             if (!TryGoDown(position, element))
@@ -229,7 +229,7 @@ public class ShortSuffixTree
         }
         return true;
     }
-    
+
     /// <summary>
     /// Returns the longest common substring between srcdata and data.
     /// </summary>
@@ -238,7 +238,7 @@ public class ShortSuffixTree
         var currentLength = 0;
         var currentIndex = -1;
         (int bestSrcOffset, int docOffset, int length) best = new();
-        var position = new Position(0,0);
+        var position = new Position(0, 0);
         foreach (int element in data)
         {
             currentIndex++;
@@ -247,11 +247,11 @@ public class ShortSuffixTree
                 GoAnySuffixLink(position);
                 currentLength--;
             }
-            if(position.VertexIndex == 0)
+            if (position.VertexIndex == 0)
                 continue;
 
             currentLength++;
-            if(currentLength>best.length)
+            if (currentLength > best.length)
                 best = (Nodes[position.VertexIndex].Offset, currentIndex - currentLength + 1, currentLength);
         }
         return best;

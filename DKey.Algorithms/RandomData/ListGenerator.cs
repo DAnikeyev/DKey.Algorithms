@@ -8,7 +8,7 @@ public sealed class ListGenerator
 
     private ListGenerator(int? seed)
     {
-        _random = (seed is null) ?  new Random() : new Random(seed.Value);
+        _random = (seed is null) ? new Random() : new Random(seed.Value);
     }
 
     public static ListGenerator Instance(int? seed = null)
@@ -36,7 +36,7 @@ public sealed class ListGenerator
         }
         return list;
     }
-    
+
     /// <summary>
     /// Random list of length n with elements from minValue to maxValue.
     /// </summary>
@@ -50,7 +50,7 @@ public sealed class ListGenerator
         return list;
     }
 
-    
+
     /// <summary>
     /// Random permutation of {0,...,n-1};
     /// </summary>

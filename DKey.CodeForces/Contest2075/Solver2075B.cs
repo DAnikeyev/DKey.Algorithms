@@ -8,14 +8,14 @@ namespace DKey.CodeForces.Contest2075;
 /// </summary>
 public class Solver2075B : MultiSolver
 {
-    public Solver2075B() : base( new []{typeof(List<int>), typeof(List<int>)})
+    public Solver2075B() : base(new[] { typeof(List<int>), typeof(List<int>) })
     {
     }
 
     public override void Solve(object[] objects)
     {
-        var predata = (List<int>) objects[0];
-        var data = (List<int>) objects[1];
+        var predata = (List<int>)objects[0];
+        var data = (List<int>)objects[1];
         var n = predata[0];
         var k = predata[1];
         if (k > 1)
@@ -24,7 +24,7 @@ public class Solver2075B : MultiSolver
             var ans = 0l;
             foreach (var item in data.Take(k + 1))
             {
-                ans+=item;
+                ans += item;
             }
             output.AddLine(ans);
         }

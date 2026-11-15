@@ -17,7 +17,7 @@ public class Cycle
                 context.CurrentVertex = i;
                 var component = new List<int>();
                 DFS.Iterative(context, x => component.Add(x.CurrentVertex));
-                if(component.Sum(x => graph[x].Count)!= component.Count*2 - 2)
+                if (component.Sum(x => graph[x].Count) != component.Count * 2 - 2)
                     return true;
             }
         }
@@ -39,13 +39,13 @@ public class Cycle
 
     private static void ProcessVertex(DFSContext context, int start, ref List<int>? answer)
     {
-        if(answer != null)
+        if (answer != null)
             return;
         var doubleVisited = context.Graph[context.CurrentVertex].FirstOrDefault(x => context.Used.Contains(x) && x != context.TraverseParent, -1);
         if (doubleVisited != -1)
-        {   
+        {
             context.stopFlag = true;
-            answer = new List<int>(){context.CurrentVertex};
+            answer = new List<int>() { context.CurrentVertex };
             var v = context.CurrentVertex;
             while (v != doubleVisited)
             {

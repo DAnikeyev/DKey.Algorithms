@@ -11,7 +11,7 @@ public abstract class Solver
     {
         ArgTypes = types;
     }
-    
+
     public object[] Parse()
     {
         return ArgTypes.Select(x => IOHelper.ReadArg(x)).ToArray();

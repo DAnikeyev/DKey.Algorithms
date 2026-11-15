@@ -8,7 +8,7 @@ namespace DKey.CodeForces.Contest2103;
 /// </summary>
 public class Solver2103D : MultiSolver
 {
-    public Solver2103D() : base( new Type[]
+    public Solver2103D() : base(new Type[]
     {
         typeof(List<int>),
         typeof(List<int>),
@@ -18,20 +18,20 @@ public class Solver2103D : MultiSolver
 
     public override void Solve(object[] objects)
     {
-        var predata = (List<int>) objects[0];
+        var predata = (List<int>)objects[0];
         var n = predata[0];
-        var data = (List<int>) objects[1];
+        var data = (List<int>)objects[1];
         var dict = new Dictionary<int, List<int>>();
         var max = 0;
         for (var i = 0; i < data.Count; i++)
         {
-            if(dict.TryGetValue(data[i], out var list))
+            if (dict.TryGetValue(data[i], out var list))
             {
                 list.Add(i);
             }
             else
             {
-                dict[data[i]] = new List<int> {i};
+                dict[data[i]] = new List<int> { i };
             }
             if (data[i] > max)
             {
@@ -50,18 +50,18 @@ public class Solver2103D : MultiSolver
             {
                 if (stageIsNotMin)
                 {
-                    answer[element] = curmax+1;
+                    answer[element] = curmax + 1;
                     curmax++;
                 }
                 else
                 {
-                    answer[element] = curmin-1;
+                    answer[element] = curmin - 1;
                     curmin--;
                 }
             }
         }
 
         var delta = answer.Min();
-        output.AddListLine(answer.Select(x =>x - delta + 1));
+        output.AddListLine(answer.Select(x => x - delta + 1));
     }
 }

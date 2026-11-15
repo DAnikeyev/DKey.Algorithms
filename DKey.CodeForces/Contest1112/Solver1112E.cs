@@ -9,7 +9,7 @@ namespace DKey.CodeForces.Contest1112;
 /// </summary>
 public class Solver1112E : MultiSolver
 {
-    public Solver1112E() : base( new Type []{})
+    public Solver1112E() : base(new Type[] { })
     {
     }
 
@@ -25,18 +25,18 @@ public class Solver1112E : MultiSolver
     private int FitMistakes(char[] a, char[] b, char[] c)
     {
         var dp = new int[a.Length + 1, b.Length + 1];
-        for(var i = 0;  i <= a.Length; i++)
+        for (var i = 0; i <= a.Length; i++)
         {
-            for(var j = 0; j <= b.Length; j++)
+            for (var j = 0; j <= b.Length; j++)
             {
                 if (i == 0 && j == 0)
                     continue;
                 var left = int.MaxValue / 2;
                 var bot = int.MaxValue / 2;
-                if(i > 0)
-                    left = dp[i - 1, j] + Delta(a[i - 1], c[i+j - 1]);
-                if(j > 0)
-                    bot = dp[i, j - 1] + Delta(b[j - 1], c[i+j - 1]);
+                if (i > 0)
+                    left = dp[i - 1, j] + Delta(a[i - 1], c[i + j - 1]);
+                if (j > 0)
+                    bot = dp[i, j - 1] + Delta(b[j - 1], c[i + j - 1]);
                 dp[i, j] = Math.Min(left, bot);
             }
         }

@@ -36,7 +36,7 @@ public class PrimeArithmetics
 
         return result;
     }
-    
+
     public static List<(int prime, int factor)>[] GetPrimeFactorsForInterval(int n)
     {
         var smallestPrimeFactor = new int[n + 1];
@@ -84,8 +84,8 @@ public class PrimeArithmetics
 
         return result;
     }
-    
-    
+
+
     public static List<int> GetAllDividers(List<(int prime, int factors)> primeFactors)
     {
         var dividers = new List<int> { 1 };
@@ -108,7 +108,7 @@ public class PrimeArithmetics
         dividers.Sort();
         return dividers;
     }
-    
+
     public static List<int> GetAllDividers(int n)
     {
         var primeFactors = GetPrimeFactors(n);

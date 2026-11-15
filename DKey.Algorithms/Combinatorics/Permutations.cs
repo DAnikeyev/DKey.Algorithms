@@ -2,8 +2,8 @@
 
 public class Permutations
 {
-    
-    public static int[] Inverse( IList<int> permutation)
+
+    public static int[] Inverse(IList<int> permutation)
     {
         var n = permutation.Count;
         var res = new int[n];
@@ -12,8 +12,8 @@ public class Permutations
 
         return res;
     }
-    
-    public static int[] Multiply( IList<int> permutation1, IList<int> permutation2)
+
+    public static int[] Multiply(IList<int> permutation1, IList<int> permutation2)
     {
         var n = permutation1.Count;
         var res = new int[n];

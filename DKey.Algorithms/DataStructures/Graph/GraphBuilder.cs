@@ -42,7 +42,7 @@ public static class GraphBuilder
     /// <summary>
     /// Build forwards and backwards graph.
     /// </summary>
-    public static (List<int>[]G, List<int>[] GRev) Directed(List<(int, int)> edges, int n,
+    public static (List<int>[] G, List<int>[] GRev) Directed(List<(int, int)> edges, int n,
         bool isSameRepresentation = true)
     {
         var res = new List<int>[n];

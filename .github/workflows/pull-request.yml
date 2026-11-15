@@ -19,5 +19,8 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
+    - name: Verify formatting
+      run: dotnet format DKey.Algorithms.sln --verify-no-changes
+
     - name: Execute unit tests
       run: dotnet test

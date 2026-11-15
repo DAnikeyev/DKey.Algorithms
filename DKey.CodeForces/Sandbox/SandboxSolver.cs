@@ -6,14 +6,14 @@ namespace DKey.CodeForces.Sandbox;
 
 public class SandboxSolver : Solver
 {
-    public SandboxSolver() : base( new []{typeof(int)})
+    public SandboxSolver() : base(new[] { typeof(int) })
     {
     }
 
     public override void Solve(object[] objects)
     {
         var roots = new HashSet<int>();
-        var n = (int) objects[0];
+        var n = (int)objects[0];
         var edges = new List<(int, int)>();
         for (var i = 0; i < n; i++)
         {

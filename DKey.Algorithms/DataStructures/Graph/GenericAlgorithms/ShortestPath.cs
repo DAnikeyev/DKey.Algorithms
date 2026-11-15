@@ -14,8 +14,8 @@ public class ShortestPath
         BFS.Traverse(context, bfsContext => ShortestPathProcess(bfsContext, u));
         if (!context.stopFlag)
             return null;
-        var path = new List<int>(){u};
-        while(path.Last()!= v)
+        var path = new List<int>() { u };
+        while (path.Last() != v)
             path.Add(context.VertexInfo[path.Last()].parent);
         return path;
     }

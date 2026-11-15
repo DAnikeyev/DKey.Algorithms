@@ -18,7 +18,7 @@ public class IntegerSegmentTree : ImmutableBinaryTree<SegmentTreeNode>
     {
         this.Init(data.Select(x => new SegmentTreeNode(x)).ToList());
     }
-    
+
     public void InitFromIntList(IList<int> data)
     {
         this.Init(data.Select(x => new SegmentTreeNode(x)).ToList());
@@ -63,7 +63,7 @@ public class IntegerSegmentTree : ImmutableBinaryTree<SegmentTreeNode>
         TreeModel[current].LazyValue = 0;
         TreeModel[current].Pending = false;
     }
-    
+
     private void AddToIntervalHelper(int left, int right, int value, int current)
     {
         var (rangeLeft, rangeRight) = LeafRanges[current];
@@ -112,7 +112,7 @@ public class IntegerSegmentTree : ImmutableBinaryTree<SegmentTreeNode>
     {
         return oldValue + (update + LazyValue) * (right - left + 1);
     }
-    
+
     private long UpdateLazyValue(long oldValue, long addedValue)
     {
         return ItemOperation(oldValue, addedValue);
@@ -122,7 +122,7 @@ public class IntegerSegmentTree : ImmutableBinaryTree<SegmentTreeNode>
     {
         return GetSumHelper(left, right, 0);
     }
-    
+
     private SegmentTreeNode GetSumHelper(int left, int right, int current)
     {
         var (rangeLeft, rangeRight) = LeafRanges[current];

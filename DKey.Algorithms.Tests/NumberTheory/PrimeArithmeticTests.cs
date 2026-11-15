@@ -19,7 +19,7 @@ public class PrimeArithmeticsTests
     [Test]
     public void GetPrimeFactors_ReturnsExpectedValue()
     {
-        var expectedResult = new List<(int prime, int factor)> {(2, 2), (5, 1)};
+        var expectedResult = new List<(int prime, int factor)> { (2, 2), (5, 1) };
         CollectionAssert.AreEqual(expectedResult, PrimeArithmetics.GetPrimeFactors(20));
     }
 
@@ -46,7 +46,7 @@ public class PrimeArithmeticsTests
     [Test]
     public void GetAllDividersTest_ReturnsExpectedValue()
     {
-        var expectedResult = new List<int> {1, 2, 4, 5, 10, 20};
+        var expectedResult = new List<int> { 1, 2, 4, 5, 10, 20 };
         CollectionAssert.AreEqual(expectedResult, PrimeArithmetics.GetAllDividers(20));
     }
 

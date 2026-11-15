@@ -2,7 +2,7 @@
 
 public static class TernarySearch
 {
- 
+
     // Argmin f(x), for unimodal function (function that has minimum and non-increasing before it and non-decreasing after it)
     public static int GetIndex(int left, int right, Func<int, int> func)
     {
@@ -10,7 +10,7 @@ public static class TernarySearch
         {
             var mid1 = left + (right - left) / 3;
             var mid2 = right - (right - left) / 3;
-    
+
             if (func(mid1) > func(mid2))
             {
                 left = mid1;
@@ -20,7 +20,7 @@ public static class TernarySearch
                 right = mid2;
             }
         }
-    
+
         var minIndex = left;
         var minValue = func(left);
         for (var i = left + 1; i <= right; i++)
@@ -34,7 +34,7 @@ public static class TernarySearch
         }
         return minIndex;
     }
-    
+
     // Argmin f(x), for unimodal function (function that has minimum and non-increasing before it and non-decreasing after it)
     public static int GetIndexLong(int left, int right, Func<int, long> func)
     {
@@ -42,7 +42,7 @@ public static class TernarySearch
         {
             var mid1 = left + (right - left) / 3;
             var mid2 = right - (right - left) / 3;
-    
+
             if (func(mid1) > func(mid2))
             {
                 left = mid1;
@@ -52,7 +52,7 @@ public static class TernarySearch
                 right = mid2;
             }
         }
-    
+
         var minIndex = left;
         var minValue = func(left);
         for (var i = left + 1; i <= right; i++)
@@ -66,7 +66,7 @@ public static class TernarySearch
         }
         return minIndex;
     }
-    
+
     //Argmin f(x), for unimodal function (function that has minimum and non-increasing before it and non-decrising after it)
     public static long GetLongIndexLong(long left, long right, Func<long, long> func)
     {

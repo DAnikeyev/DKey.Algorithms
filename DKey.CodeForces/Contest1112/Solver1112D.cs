@@ -8,7 +8,7 @@ namespace DKey.CodeForces.Contest1112;
 /// </summary>
 public class Solver1112D : MultiSolver
 {
-    public Solver1112D() : base( new Type[]{})
+    public Solver1112D() : base(new Type[] { })
     {
     }
 
@@ -16,10 +16,10 @@ public class Solver1112D : MultiSolver
     {
         var st = Console.ReadLine();
         var digits = ConvertStringToListOfDigits(st);
-        for(var i = 0; i < digits.Count; i++)
+        for (var i = 0; i < digits.Count; i++)
         {
             var pos = FindBestFit(digits, i);
-            for(var j = pos; j > i; j--)
+            for (var j = pos; j > i; j--)
             {
                 (digits[j], digits[j - 1]) = (digits[j - 1], digits[j] - 1);
             }
@@ -34,14 +34,14 @@ public class Solver1112D : MultiSolver
 
     private int FindBestFit(List<int> digits, int i)
     {
-        var curpos = i+1;
+        var curpos = i + 1;
         var bestpos = i;
         var delta = 0;
         var bestdelta = digits[bestpos];
         while (curpos < digits.Count)
         {
             delta++;
-            if(delta > 9)
+            if (delta > 9)
                 break;
             if (digits[curpos] - delta > bestdelta)
             {

@@ -15,7 +15,7 @@ internal static class IOHelper
         { typeof(List<long>), () => ReadLongLine() },
         { typeof(List<string>), () => Console.ReadLine()!.Split(' ').ToList() }
     };
-    
+
     public static List<T> ReadLine<T>(Func<string, T> f) =>
         Console.ReadLine()!.Split(' ').Select(x => f(x)).ToList();
 
@@ -25,19 +25,19 @@ internal static class IOHelper
     public static long ReadLong() => ReadLongLine()[0];
     public static List<ulong> ReadUlongLine() => ReadLine(x => ulong.Parse(x));
     public static List<int> ReadintLine() => ReadLine(x => int.Parse(x));
-    
+
     public static void AddLine(this StringBuilder sb, object obj)
     {
         sb.Append(obj.ToString());
         sb.Append("\n");
     }
-    
+
     public static void AddAnswer(this StringBuilder sb, bool ans, bool camel = true)
     {
-        sb.Append(ans? (camel? "Yes" : "YES") : (camel? "No" : "NO"));
+        sb.Append(ans ? (camel ? "Yes" : "YES") : (camel ? "No" : "NO"));
         sb.Append("\n");
     }
-    
+
     public static void AddListLine<T>(this StringBuilder sb, IEnumerable<T> data)
     {
         sb.Append(string.Join(" ", data.Select(x => x?.ToString())));
@@ -54,7 +54,7 @@ internal static class IOHelper
     {
         if (type == typeof(List<List<int>>))
             return Read2dList(dim1);
-        
+
         if (typeReaderMap.TryGetValue(type, out var reader))
         {
             return reader();

@@ -8,7 +8,7 @@ namespace DKey.CodeForces.Contest1112;
 /// </summary>
 public class Solver1112C : MultiSolver
 {
-    public Solver1112C() : base( new Type[]{})
+    public Solver1112C() : base(new Type[] { })
     {
     }
 
@@ -32,9 +32,9 @@ public class Solver1112C : MultiSolver
         var flag = option == 0;
         for (var i = 0; i <= Math.Min(9, twos); i++)
         {
-            for(var j = 0; j <= Math.Min(9, threes); j++)
+            for (var j = 0; j <= Math.Min(9, threes); j++)
             {
-                if((option + 2 * i + 6 * j) % 9 == 0)
+                if ((option + 2 * i + 6 * j) % 9 == 0)
                 {
                     flag = true;
                     break;

@@ -21,15 +21,15 @@ public class BinaryArithmetics
         var arr = new BitArray(BitConverter.GetBytes(value));
         for (var i = arr.Count - 1; i >= 0; i--)
         {
-            if(arr[i])
+            if (arr[i])
                 f = true;
-            if(f)
+            if (f)
                 res.Add(arr[i] ? 1 : 0);
         }
 
         return res;
     }
-    
+
     /// <summary>
     /// Count non-zero bits in positive int.
     /// </summary>
@@ -37,7 +37,7 @@ public class BinaryArithmetics
     {
         return ConvertToBoolArray(value).Count(x => x);
     }
-    
+
     /// <summary>
     /// Convert binary to int.
     /// </summary>
@@ -48,7 +48,7 @@ public class BinaryArithmetics
             throw new ArgumentException("{data is too long");
         return data.Select((x, i) => (x == 1) ? 1 << (reverse ? data.Count - 1 - i : i) : 0).Sum();
     }
-    
+
     /// <summary>
     /// Convert binary to int.
     /// </summary>
@@ -56,7 +56,7 @@ public class BinaryArithmetics
     {
         if (data.Count > 32)
             throw new ArgumentException("data is too long");
-        return data.Select((x, i) => x ? 1 << (reverse ? data.Count - 1 -i : i) : 0).Sum();
+        return data.Select((x, i) => x ? 1 << (reverse ? data.Count - 1 - i : i) : 0).Sum();
     }
 
     public static int GetCeilingLog(int value)
@@ -72,19 +72,19 @@ public class BinaryArithmetics
 
         return i;
     }
-    
+
     public static string IntToString(long value, char[] baseChars)
     {
         var result = string.Empty;
         var targetBase = baseChars.Length;
- 
+
         do
         {
             result = baseChars[value % targetBase] + result;
             value = value / targetBase;
-        } 
+        }
         while (value > 0);
- 
+
         return result;
     }
 }

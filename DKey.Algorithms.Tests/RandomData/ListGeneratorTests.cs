@@ -12,8 +12,8 @@ public class ListGeneratorTests
         var second = ListGenerator.Instance();
         var third = ListGenerator.Instance();
 
-        Assert.AreSame(first, second);
-        Assert.AreSame(second, third);
+        Assert.That(first, Is.SameAs(second));
+        Assert.That(second, Is.SameAs(third));
     }
 
     [Test]
@@ -22,7 +22,7 @@ public class ListGeneratorTests
         var original = ListGenerator.Instance(321);
         var reseeded = ListGenerator.Instance(654);
 
-        Assert.AreNotSame(original, reseeded);
+        Assert.That(original, Is.Not.SameAs(reseeded));
     }
 
     [Test]

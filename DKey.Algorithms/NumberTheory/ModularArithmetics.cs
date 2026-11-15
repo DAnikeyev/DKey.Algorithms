@@ -1,21 +1,21 @@
 ﻿using System.Numerics;
 namespace DKey.Algorithms.NumberTheory;
 
- 
+
 public class ModularArithmetics
 {
     public readonly int Module;
     private List<int>? _factorialCache;
     private Dictionary<int, int>? _inverseCache;
-    
- 
+
+
     /// <summary>
     /// Create a modular arithmetic fot some PRIME module.
     /// </summary>
     public ModularArithmetics(int module = 1000000007, bool cacheFactorials = true, bool inverseCache = true)
     {
         if (cacheFactorials)
-            _factorialCache = new() {1, 1, 2};
+            _factorialCache = new() { 1, 1, 2 };
         if (inverseCache)
             _inverseCache = new();
         Module = module;
@@ -42,7 +42,7 @@ public class ModularArithmetics
     }
 
     public int Add(int a, int b) => ((a + b) % Module);
-    
+
     public void FastAdd(ref int a, int b)
     {
         a += b;
@@ -52,12 +52,12 @@ public class ModularArithmetics
     public int Multiply(int a, int b) => (int)((a * (long)b) % Module);
     public int Divide(int a, int b) => (int)(((long)a * Inverse(b)) % Module);
     public int ToNonNegative(int a) => (a % Module + Module) % Module;
- 
+
     public int Factorial(int n)
     {
         if (_factorialCache != null)
         {
-            for(var i = _factorialCache.Count; i <= n; i++)
+            for (var i = _factorialCache.Count; i <= n; i++)
                 _factorialCache.Add(Multiply(_factorialCache[i - 1], i));
             return _factorialCache[n];
         }
@@ -66,10 +66,10 @@ public class ModularArithmetics
         {
             ans = Multiply(ans, i);
         }
- 
+
         return ans;
     }
- 
+
     /// <summary>
     /// n choose k.
     /// </summary>

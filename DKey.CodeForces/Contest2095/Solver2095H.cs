@@ -8,7 +8,7 @@ namespace DKey.CodeForces.Contest2095;
 /// </summary>
 public class Solver2095H : MultiSolver
 {
-    public Solver2095H() : base( new Type[]
+    public Solver2095H() : base(new Type[]
     {
         typeof(List<int>),
     })
@@ -17,9 +17,9 @@ public class Solver2095H : MultiSolver
 
     public override void Solve(object[] objects)
     {
-        var seq = (List<int>) objects[0];
+        var seq = (List<int>)objects[0];
         var a = seq[0];
         var b = seq[1];
-        output.AddLine(a+b);
+        output.AddLine(a + b);
     }
 }

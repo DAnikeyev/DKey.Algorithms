@@ -47,7 +47,7 @@ public class Trie
 
         return true;
     }
-    
+
     public string SearchLongestPrefix(string input)
     {
         var current = _root;

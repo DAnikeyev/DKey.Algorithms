@@ -11,7 +11,7 @@ public class GetIndexOfMaxByTests
         var input = new List<int> { 1, 3, -7, -2, 5, 0 };
         var expectedResult = 2;
 
-        var actualResult = SortedDataSearch.GetIndexOfMaxBy(input, x => x*x);
+        var actualResult = SortedDataSearch.GetIndexOfMaxBy(input, x => x * x);
 
         Assert.AreEqual(expectedResult, actualResult);
     }

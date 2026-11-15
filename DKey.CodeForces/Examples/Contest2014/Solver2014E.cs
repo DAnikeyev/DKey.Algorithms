@@ -9,13 +9,13 @@ namespace DKey.CodeForces.Examples.Contest2014;
 /// </summary>
 public class Solver2014E : MultiSolver
 {
-    public Solver2014E() : base( new []{typeof(List<int>), typeof(List<int>)})
+    public Solver2014E() : base(new[] { typeof(List<int>), typeof(List<int>) })
     {
     }
 
     public override void Solve(object[] objects)
     {
-        var predata = (List<int>) objects[0];
+        var predata = (List<int>)objects[0];
         var n = predata[0];
         var m = predata[1];
 
@@ -33,10 +33,10 @@ public class Solver2014E : MultiSolver
         var graph = GraphBuilder.Undirected(edges, n);
         var graphContext0 = new WeightedGraphContext(graph, 0, weights);
         var graphContextn = new WeightedGraphContext(graph, n - 1, weights);
-        
+
         var result0 = DijkstraWithHorses(graphContext0, horses);
         var resultn = DijkstraWithHorses(graphContextn, horses);
-        
+
         var opt = long.MaxValue;
         for (var i = 0; i < n; i++)
         {
@@ -89,7 +89,7 @@ public class Solver2014E : MultiSolver
 
             foreach (var neighbor in graph[vertex])
             {
-                var newDistance = currentDistance + weights[(vertex, neighbor)] * (2 - raid)/2;
+                var newDistance = currentDistance + weights[(vertex, neighbor)] * (2 - raid) / 2;
                 if (raid == 0 && newDistance < distances[neighbor])
                 {
                     distances[neighbor] = newDistance;

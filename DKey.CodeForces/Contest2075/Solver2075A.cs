@@ -8,13 +8,13 @@ namespace DKey.CodeForces.Contest2075;
 /// </summary>
 public class Solver2075A : MultiSolver
 {
-    public Solver2075A() : base( new []{typeof(List<int>)})
+    public Solver2075A() : base(new[] { typeof(List<int>) })
     {
     }
 
     public override void Solve(object[] objects)
     {
-        var seq = (List<int>) objects[0];
+        var seq = (List<int>)objects[0];
         var n = seq[0];
         var k = seq[1];
         var op = 1;

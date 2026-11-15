@@ -8,14 +8,14 @@ namespace DKey.CodeForces.Examples.Contest1992;
 /// </summary>
 public class Solver1992F : MultiSolver
 {
-    
-    public Solver1992F() : base( new []{typeof(List<int>), typeof(List<int>)})
+
+    public Solver1992F() : base(new[] { typeof(List<int>), typeof(List<int>) })
     {
     }
 
     public override void Solve(object[] objects)
     {
-        var seq = (List<int>) objects[0];
+        var seq = (List<int>)objects[0];
         var n = seq[0];
         var x = seq[1];
         var data = (List<int>)objects[1];
@@ -24,15 +24,15 @@ public class Solver1992F : MultiSolver
         var answer = 1;
         dict[1] = true;
         var flag = false;
-        for(var i = 0; i < n; i++)
+        for (var i = 0; i < n; i++)
         {
             if (!dividers.Contains(data[i]))
                 continue;
             foreach (var div in dict.Where(v => v.Value).Select(v => v.Key * data[i]).ToList())
             {
-                if(dividers.Contains(div))
+                if (dividers.Contains(div))
                     dict[div] = true;
-                if(div == x)
+                if (div == x)
                     flag = true;
             }
             if (flag)

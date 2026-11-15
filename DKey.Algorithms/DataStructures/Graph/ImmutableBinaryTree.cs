@@ -14,7 +14,7 @@ public abstract class ImmutableBinaryTree<T>
     public int Start;
     public T[] TreeModel;
     public (int left, int right)[] LeafRanges;
-    
+
     public void Init(IList<T> data)
     {
         Size = data.Count;
@@ -30,8 +30,8 @@ public abstract class ImmutableBinaryTree<T>
 
         for (var i = data.Count; i < boxSize; i++)
         {
-            TreeModel[Start +i] = Neutral();
-            LeafRanges[Start +i] = (i, i);
+            TreeModel[Start + i] = Neutral();
+            LeafRanges[Start + i] = (i, i);
         }
 
         for (var i = Start - 1; i >= 0; i--)
@@ -40,7 +40,7 @@ public abstract class ImmutableBinaryTree<T>
             LeafRanges[i] = (LeafRanges[LeftChild(i)].left, LeafRanges[RightChild(i)].right);
         }
     }
-    
+
     public void Set(int index, T value)
     {
         index += Start;
@@ -76,7 +76,7 @@ public abstract class ImmutableBinaryTree<T>
 
         return Add(leftSum, rightSum);
     }
-    
+
     public int LeftChild(int i) => i * 2 + 1;
     public int RightChild(int i) => i * 2 + 2;
     public int Parent(int i) => (i - 1) / 2;

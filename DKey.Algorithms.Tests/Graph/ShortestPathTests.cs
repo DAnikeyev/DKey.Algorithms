@@ -5,7 +5,7 @@ namespace DKey.Algorithms.Tests.Graph;
 [TestFixture]
 public class ShortestPathTests
 {
-    
+
     [Test]
     public void ShortestPath_UnweightedGraph_ReturnsCorrectPath()
     {

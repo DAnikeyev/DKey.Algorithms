@@ -6,7 +6,7 @@ namespace DKey.Algorithms.Tests.Graph;
 [TestFixture]
 public class CycleTests
 {
-    
+
     [Test]
     public void FindACycle_NoCycle()
     {
@@ -24,7 +24,7 @@ public class CycleTests
 
         Assert.IsNull(result);
     }
-    
+
     [Test]
     public void FindACycle_CycleExists()
     {
@@ -40,9 +40,9 @@ public class CycleTests
         var result = Cycle.Find(graph);
 
         Assert.IsNotNull(result);
-        CollectionAssert.AreEqual(new List<int> { 4, 3, 2, 1}, result);
+        CollectionAssert.AreEqual(new List<int> { 4, 3, 2, 1 }, result);
     }
-    
+
     [Test]
     public void FindARandomCycle_CycleExists()
     {

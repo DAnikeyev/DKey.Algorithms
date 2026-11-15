@@ -25,7 +25,7 @@ public class ConnectedComponentsTests
 
         var result = ConnectedComponents.Get(graph);
         Assert.AreEqual(expectedComponents.Count, result.Count);
-        
+
         for (var i = 0; i < expectedComponents.Count; i++)
         {
             CollectionAssert.AreEquivalent(expectedComponents[i], result[i]);

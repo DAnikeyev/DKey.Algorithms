@@ -8,13 +8,13 @@ namespace DKey.CodeForces.Examples.Contest1984;
 /// </summary>
 public class Solver1984D : MultiSolver
 {
-    public Solver1984D() : base( new Type[]{typeof(string)})
+    public Solver1984D() : base(new Type[] { typeof(string) })
     {
     }
 
     public override void Solve(object[] objects)
     {
-        var data = (string) objects[0];
+        var data = (string)objects[0];
         var noaindex = new List<int>();
         for (var i = 0; i < data.Length; i++)
         {
@@ -25,7 +25,7 @@ public class Solver1984D : MultiSolver
         }
 
         var length = noaindex.Count;
-        if (length == 0) 
+        if (length == 0)
         {
             output.AddLine(data.Length - 1);
             return;
@@ -68,14 +68,14 @@ public class Solver1984D : MultiSolver
 
             if (inside && insideDepth != candidate.Length)
             {
-                if(data[i]!= candidate[insideDepth])
+                if (data[i] != candidate[insideDepth])
                     return 0;
                 insideDepth++;
             }
         }
         spaces.Add(currentSpace);
         long c = long.MaxValue;
-        for(var i = 1; i < spaces.Count - 1; i++)
+        for (var i = 1; i < spaces.Count - 1; i++)
         {
             c = Math.Min(c, spaces[i]);
         }
@@ -84,6 +84,6 @@ public class Solver1984D : MultiSolver
         long b = Math.Min(c, spaces[^1]);
         c = Math.Min(a + b, c);
         long delta = a + b - c;
-        return (a+1) * (b+1) - ((delta)*(delta+1))/2;
+        return (a + 1) * (b + 1) - ((delta) * (delta + 1)) / 2;
     }
 }
