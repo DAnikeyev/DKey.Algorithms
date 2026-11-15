@@ -7,3 +7,6 @@ bin
 obj
 packages
 *.v2
+
+# BenchmarkDotNet results
+BenchmarkDotNet.Artifacts/
