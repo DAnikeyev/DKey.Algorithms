@@ -51,4 +51,5 @@ jobs:
 
     - name: Skip NuGet publish (version already published)
       if: steps.version_gate.outputs.should_publish == 'false'
-      run: echo "NuGet publish skipped: package version is already on nuget.org."
+      run: |
+        echo "NuGet publish skipped: package version is already on nuget.org."
