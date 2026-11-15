@@ -1,7 +1,15 @@
 ﻿namespace DKey.Algorithms.Search;
 
+/// <summary>
+/// Search helpers over sorted and unsorted data.
+/// </summary>
 public class SortedDataSearch
 {
+    /// <summary>
+    /// Returns the index of the element with the maximal selected value; the first occurrence wins on ties.
+    /// </summary>
+    /// <param name="source">Input sequence.</param>
+    /// <param name="valueSelector">Selects the comparable value to maximize.</param>
     public static int GetIndexOfMaxBy<TSource, TKey>
         (IEnumerable<TSource> source, Func<TSource, TKey> valueSelector) where TKey : IComparable<TKey>
     {
@@ -29,6 +37,11 @@ public class SortedDataSearch
     /// Returns the index of the first element in the sorted list that is in the interval (min, max).
     /// valueSelector must be monotonic increasing in source.
     /// </summary>
+    /// <param name="source">Sorted input list.</param>
+    /// <param name="min">Exclusive lower bound of the interval.</param>
+    /// <param name="max">Exclusive upper bound of the interval.</param>
+    /// <param name="valueSelector">Monotonically increasing value selector.</param>
+    /// <returns>Index of the first element with value in (min, max), or -1 when there is none.</returns>
     public static int GetFirstIndexInSortedListInInterval<TSource>
         (IList<TSource> source, int min, int max, Func<TSource, long> valueSelector)
     {

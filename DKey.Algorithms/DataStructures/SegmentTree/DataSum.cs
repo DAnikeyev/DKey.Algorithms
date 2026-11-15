@@ -1,7 +1,16 @@
 ﻿namespace DKey.Algorithms.DataStructures.IntervalTree;
 
+/// <summary>
+/// Prefix and suffix sums of integer lists.
+/// </summary>
 public class DataSum
 {
+    /// <summary>
+    /// Prefix sums of the data: result has data.Count + 1 entries,
+    /// where result[i] = data[0] + ... + data[i - 1] and result[0] = 0.
+    /// </summary>
+    /// <param name="data">Input list.</param>
+    /// <returns>Prefix sums, result[data.Count] being the total sum.</returns>
     public static long[] PrefixSum(IList<int> data)
     {
         var res = new long[data.Count + 1];
@@ -11,6 +20,12 @@ public class DataSum
         return res;
     }
 
+    /// <summary>
+    /// Suffix sums of the data: result has data.Count + 1 entries,
+    /// where result[i] = data[i] + ... + data[data.Count - 1] and result[data.Count] = 0.
+    /// </summary>
+    /// <param name="data">Input list.</param>
+    /// <returns>Suffix sums, result[0] being the total sum.</returns>
     public static long[] SuffixSum(IList<int> data)
     {
         var res = new long[data.Count + 1];
