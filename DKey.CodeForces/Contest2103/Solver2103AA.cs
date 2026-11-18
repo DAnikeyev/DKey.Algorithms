@@ -25,7 +25,7 @@ public class Solver2103AA : MultiSolver
         var k = predata[1];
         var l = (List<int>)objects[1];
         var r = (List<int>)objects[2];
-        var gloves = l.Zip(r).Select(x => TupleHelpler.SelectMax(x)).OrderByDescending(x => x.Second).ToList();
+        var gloves = l.Zip(r).Select(x => TupleHelper.SelectMax(x)).OrderByDescending(x => x.Second).ToList();
         var add = gloves.Take(k - 1).Select(x => x.Second).LongSum();
         var init = gloves.Select(x => x.First).LongSum();
         output.AddLine(init + add + 1);

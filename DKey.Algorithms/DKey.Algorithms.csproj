@@ -4,7 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <PackageId>DKey.Algorithms</PackageId>
-        <Version>1.4.0</Version>
+        <Version>1.5.0</Version>
         <Authors>DAnikeyev</Authors>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>

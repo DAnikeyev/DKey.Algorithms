@@ -3,7 +3,7 @@
 namespace DKey.Algorithms.Tests.DataStructures
 {
     [TestFixture]
-    public class PairPointsConvererTests
+    public class PairPointsCovererTests
     {
         [Test]
         public void OneInterval_ReturnsExpectedCover()
