@@ -1,3 +1,8 @@
+## 1.5.0 - 2026.11.17
+* **Added** `TupleHelper` as the canonical (and documented) name for the tuple helpers; the misspelled `TupleHelpler` remains as an `[Obsolete]` forwarding bridge (removal planned for a future major).
+* **Fixed** Typos in test namespaces/files: `SufixTree` → `SuffixTree`, `PairPointsConvererTests` → `PairPointsCovererTests` (library API unchanged).
+* **Fixed** A stray misspelled reference in the Contest2103 solver template.
+
 ## 1.4.0 - 2025.04.22
 * **Added** SortedArray methods.
 * **Added** LongSum LinqExtension methods.
