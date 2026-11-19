@@ -1,11 +1,16 @@
-﻿using DKey.Algorithms.DataStructures.Graph.DepthFirstSearch;
+using DKey.Algorithms.DataStructures.Graph.DepthFirstSearch;
 
 namespace DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
 
+/// <summary>
+/// Cycle detection and extraction for undirected graphs.
+/// </summary>
 public class Cycle
 {
     /// <summary>
-    /// Detects if there is a cycle in an undirected graph
+    /// Detects if there is a cycle in an undirected graph. Per component, a
+    /// tree on k vertices has exactly 2(k−1) adjacency entries; any deviation
+    /// means a cycle. Complexity: O(V + E).
     /// </summary>
     public static bool Exists(List<int>[] graph, int start = 0)
     {
@@ -24,8 +29,8 @@ public class Cycle
         return false;
     }
     /// <summary>
-    /// Find any cycle in DFS starting from start.
-    /// Returns null if there is no cycle.
+    /// Find any cycle reachable in DFS starting from start, returned as the
+    /// list of its vertices. Returns null if there is no cycle.
     /// </summary>
     public static List<int>? Find(List<int>[] Graph, int start = 0)
     {

@@ -1,5 +1,10 @@
-﻿namespace DKey.Algorithms.DataStructures.Graph.DepthFirstSearch;
+namespace DKey.Algorithms.DataStructures.Graph.DepthFirstSearch;
 
+/// <summary>
+/// Depth-first search variants over the adjacency list in the DFS context:
+/// iterative (enter action), iterative with separate enter/exit actions, and
+/// recursive. All fill the context's parent stack and vertex bookkeeping.
+/// </summary>
 public static class DFS
 {
     /// <summary>

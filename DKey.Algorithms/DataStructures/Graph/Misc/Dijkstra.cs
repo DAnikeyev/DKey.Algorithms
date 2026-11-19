@@ -1,5 +1,9 @@
 namespace DKey.Algorithms.DataStructures.Graph.Misc;
 
+/// <summary>
+/// Shortest paths from a single source over non-negative weights, via a
+/// sorted set acting as the priority queue.
+/// </summary>
 public class Dijkstra
 {
     private static readonly Comparer<(long, int)> comparer = Comparer<(long, int)>.Create((a, b) =>
@@ -8,6 +12,11 @@ public class Dijkstra
         return result == 0 ? a.Item2.CompareTo(b.Item2) : result;
     });
 
+    /// <summary>
+    /// Shortest distances from the context's start vertex to every vertex,
+    /// reading edge weights from the context's weight table.
+    /// Complexity: O((V + E) log V). Unreachable vertices keep long.MaxValue.
+    /// </summary>
     public static long[] ToAll(WeightedGraphContext context)
     {
         var graph = context.Graph;
@@ -42,6 +51,11 @@ public class Dijkstra
         return distances;
     }
 
+    /// <summary>
+    /// Shortest distances from the context's start vertex to every vertex in
+    /// an unweighted graph (every edge costs 1). Complexity: O((V + E) log V)
+    /// with the same priority-queue shape as the weighted overload.
+    /// </summary>
     public static long[] ToAll(GraphContext context)
     {
         var graph = context.Graph;
