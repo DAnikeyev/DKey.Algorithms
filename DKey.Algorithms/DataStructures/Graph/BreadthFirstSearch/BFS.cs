@@ -1,9 +1,16 @@
-﻿namespace DKey.Algorithms.DataStructures.Graph.BreadthFirstSearch;
+namespace DKey.Algorithms.DataStructures.Graph.BreadthFirstSearch;
 
+/// <summary>
+/// Breadth-first search over the adjacency list in the traversal context:
+/// visits vertices by increasing depth, filling the context's parent/depth
+/// bookkeeping.
+/// </summary>
 public class BFS
 {
     /// <summary>
-    /// Breadth-first search with some action on the current context.
+    /// Breadth-first search with some action on the current context. Stops
+    /// early when the context's stop flag is already set, or when the action
+    /// sets it. Complexity: O(V + E).
     /// </summary>
     public static void Traverse<TContext>(TContext context, Action<TContext>? action = default) where TContext : TraverseContext
     {

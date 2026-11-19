@@ -1,4 +1,4 @@
-﻿namespace DKey.Algorithms.DataStructures.Graph.SuffixTree;
+namespace DKey.Algorithms.DataStructures.Graph.SuffixTree;
 
 /// <summary>
 /// Tree of suffixes for compact search of substrings.
@@ -8,10 +8,14 @@ public class SuffixTree<T> where T : IComparable<T>
 {
 
 #pragma warning disable CS8618
+    /// <summary>The source data the tree was built from, with the terminator element appended.</summary>
     public T[] Data;
+    /// <summary>Number of nodes currently in <see cref="Nodes"/>.</summary>
     public int NodesSize;
+    /// <summary>Node storage, indexed by node index.</summary>
     public SuffixNode<T>[] Nodes;
 
+    /// <summary>The root node (index 0).</summary>
     public SuffixNode<T> Root;
 
     //Current longest suffix that is not leaf. Needed for efficient tree building.
@@ -120,6 +124,11 @@ public class SuffixTree<T> where T : IComparable<T>
     /// Get updated position after reading an item.
     /// If no valid position exists, returns false.
     /// </summary>
+    /// <summary>
+    /// Advances the position by one element: matches inside the current edge
+    /// or descends into a child. Returns false when the element cannot be
+    /// consumed from this position.
+    /// </summary>
     internal bool TryGoDown(Position position, T element)
     {
         var vertex = Nodes[position.VertexIndex];
@@ -141,6 +150,12 @@ public class SuffixTree<T> where T : IComparable<T>
 
     /// <summary>
     /// Supports getting suffix link from edges.
+    /// </summary>
+    /// <summary>
+    /// Moves the position to the next shorter suffix: via the node's suffix
+    /// link when the position is at a node, otherwise across the parent edge
+    /// (with the root's one-character shift). Used by construction and by
+    /// longest-common-substring scans.
     /// </summary>
     internal void GoAnySuffixLink(Position position)
     {
@@ -193,6 +208,10 @@ public class SuffixTree<T> where T : IComparable<T>
 
     /// <summary>
     /// Get a suffix link for vertex.
+    /// </summary>
+    /// <summary>
+    /// Follows the node's suffix link when the position sits exactly at the
+    /// node. Returns false when the position is mid-edge or the link is unset.
     /// </summary>
     internal bool TryGoVertexSuffixLink(Position position)
     {

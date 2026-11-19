@@ -1,4 +1,4 @@
-﻿namespace DKey.Algorithms.DataStructures.Graph.PrefixTrie;
+namespace DKey.Algorithms.DataStructures.Graph.PrefixTrie;
 
 /// <summary>
 /// Prefic trie implementation. Useful for searching for longest prefix in a list of words.
@@ -13,12 +13,14 @@ public class Trie
         _root = new TrieNode();
     }
 
+    /// <summary>Inserts every word into the trie. Complexity: O(total length).</summary>
     public void Build(List<string> words)
     {
         foreach (var word in words)
             Insert(word);
     }
 
+    /// <summary>Inserts one word, creating missing nodes along its path.</summary>
     private void Insert(string word)
     {
         TrieNode current = _root;
@@ -34,6 +36,8 @@ public class Trie
         current.IsEndOfWord = true;
     }
 
+    /// <summary>True when any inserted word starts with <paramref name="prefix"/>.
+    /// Complexity: O(prefix length).</summary>
     public bool SearchPrefix(string prefix)
     {
         TrieNode current = _root;
@@ -48,6 +52,9 @@ public class Trie
         return true;
     }
 
+    /// <summary>Returns the longest inserted word that is a prefix of
+    /// <paramref name="input"/>; an empty string when none matches.
+    /// Complexity: O(input length).</summary>
     public string SearchLongestPrefix(string input)
     {
         var current = _root;

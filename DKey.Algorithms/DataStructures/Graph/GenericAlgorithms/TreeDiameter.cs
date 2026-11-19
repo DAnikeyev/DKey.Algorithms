@@ -1,11 +1,16 @@
-﻿using DKey.Algorithms.DataStructures.Graph.DepthFirstSearch;
+using DKey.Algorithms.DataStructures.Graph.DepthFirstSearch;
 
 namespace DKey.Algorithms.DataStructures.Graph.GenericAlgorithms;
 
+/// <summary>
+/// The diameter (longest path) of a tree, via the classic double-BFS/DFS
+/// argument: the farthest vertex from any start is an end of the diameter.
+/// </summary>
 public class TreeDiameter
 {
     /// <summary>
-    /// Find the diameter of the tree
+    /// Find the diameter of the tree: its two end vertices and the edge count
+    /// of the path between them. Complexity: O(V + E).
     /// </summary>
     public static (int v1, int v2, int diameterLength) Get(List<int>[] Graph)
     {
