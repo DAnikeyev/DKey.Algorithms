@@ -2,6 +2,12 @@
 
 namespace DKey.Algorithms.RandomData;
 
+/// <summary>
+/// Seeded random graph generator (Gilbert, Erdős–Rényi, trees, cycles,
+/// unicyclic graphs, partition graphs) producing adjacency-list graphs.
+/// Thread-safe via the singleton accessor; re-seed by passing a seed to
+/// <see cref="Instance"/>.
+/// </summary>
 public class GraphGenerator
 {
 
@@ -14,6 +20,9 @@ public class GraphGenerator
         _random = (seed is null) ? new Random() : new Random(seed.Value);
     }
 
+    /// <summary>Returns the singleton instance, creating it with the given seed
+    /// on first use — or re-creating it (re-seeding) whenever a non-null seed is
+    /// passed.</summary>
     public static GraphGenerator Instance(int? seed = null)
     {
         lock (Padlock)
@@ -113,12 +122,16 @@ public class GraphGenerator
         return GraphBuilder.Undirected(selected_edges, vertices);
     }
 
+    /// <summary>Random Hamiltonian cycle on n vertices (a random permutation
+    /// connected tail-to-head). Complexity: O(n).</summary>
     public List<int>[] RandomCycle(int n)
     {
         var perm = ListGenerator.Instance().RandomPermutation(n);
         return GraphBuilder.Undirected(perm.Select((x, i) => (x, perm[(i + 1) % n])).ToList().ToList(), n);
     }
 
+    /// <summary>Random tree on n vertices: every vertex &gt; 0 attaches to a
+    /// uniformly random earlier vertex. Complexity: O(n).</summary>
     public List<int>[] RandomTree(int n)
     {
         List<int>[] graph = new List<int>[n];
@@ -137,6 +150,9 @@ public class GraphGenerator
         return graph;
     }
 
+    /// <summary>Random unicyclic graph: a random tree on n−1 vertices plus one
+    /// extra vertex connected to two of its vertices, creating exactly one
+    /// cycle. Complexity: O(n).</summary>
     public List<int>[] RandomUnicyclic(int n)
     {
         var tree = RandomTree(n - 1);
@@ -154,6 +170,10 @@ public class GraphGenerator
         return tree;
     }
 
+    /// <summary>Random graph split into <paramref name="parts"/> clusters of
+    /// near-equal size; edges appear inside clusters with
+    /// <paramref name="probability"/> and never across clusters.
+    /// Complexity: O(n² / parts + n).</summary>
     public List<int>[] RandomPartitionGraph(int n, int parts, double probability)
     {
         var graph = new List<int>[n];
@@ -191,6 +211,7 @@ public class GraphGenerator
         return graph;
     }
 
+    /// <summary>A fixed hand-crafted sparse graph (the repo's smoke-test picture).</summary>
     public List<int>[] EyeOfTheUniverse => GraphBuilder.Undirected(
         new List<(int, int)>()
         {

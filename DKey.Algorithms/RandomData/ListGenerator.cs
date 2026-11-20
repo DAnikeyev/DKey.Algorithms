@@ -1,5 +1,9 @@
 ﻿namespace DKey.Algorithms.RandomData;
 
+/// <summary>
+/// Seeded random list/permutation/string generator. Thread-safe via the
+/// singleton accessor; re-seed by passing a seed to <see cref="Instance"/>.
+/// </summary>
 public sealed class ListGenerator
 {
     private static readonly object Padlock = new object();
@@ -11,6 +15,9 @@ public sealed class ListGenerator
         _random = (seed is null) ? new Random() : new Random(seed.Value);
     }
 
+    /// <summary>Returns the singleton instance, creating it with the given seed
+    /// on first use — or re-creating it (re-seeding) whenever a non-null seed is
+    /// passed.</summary>
     public static ListGenerator Instance(int? seed = null)
     {
         lock (Padlock)
@@ -69,6 +76,8 @@ public sealed class ListGenerator
         return permutation;
     }
 
+    /// <summary>Shuffles the list in place (Fisher–Yates).
+    /// Complexity: O(n).</summary>
     public void Shuffle(List<int> data)
     {
         for (var i = data.Count - 1; i >= 1; i--)

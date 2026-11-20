@@ -1,12 +1,22 @@
 namespace DKey.Algorithms.DataStructures.Ordered;
 
+/// <summary>
+/// Red-black tree of distinct keys: ordered set with O(log n)
+/// add/delete/search and in-order key iteration. The Search rank (via the
+/// per-node left-subtree sizes) is exact while only insertions and
+/// leaf/simple deletions have happened; after a deletion from a node with
+/// two children the rank counters can go stale (a known limitation — fixing
+/// the size maintenance is a logic change, out of scope for docs).
+/// </summary>
 public class RedBlackTree<T> : IOrderedDataStructureWithValues<T>
 {
     private RedBlackTreeNode<T>? _root;
     private int _count;
     private IComparer<T> _comparer;
+    /// <inheritdoc cref="IOrderedDataStructureWithValues{T}.Keys"/>
     public IEnumerable<T> Keys => GetKeys();
 
+    /// <summary>Creates an empty tree with a custom key comparer.</summary>
     public RedBlackTree(IComparer<T> comparer)
     {
         _count = 0;
@@ -33,6 +43,7 @@ public class RedBlackTree<T> : IOrderedDataStructureWithValues<T>
         }
     }
 
+    /// <inheritdoc cref="IOrderedDataStructureWithValues{T}.Contains(T)"/>
     public bool Contains(T item)
     {
         bool found;
@@ -40,8 +51,11 @@ public class RedBlackTree<T> : IOrderedDataStructureWithValues<T>
         return found;
     }
 
+    /// <inheritdoc cref="IOrderedDataStructureWithValues{T}.Count"/>
     public int Count => _count;
 
+    /// <summary>Adds the key and rebalances; false on duplicates.
+    /// Complexity: O(log n).</summary>
     public bool TryAdd(T item)
     {
         var newNode = new RedBlackTreeNode<T>(item);
@@ -95,6 +109,13 @@ public class RedBlackTree<T> : IOrderedDataStructureWithValues<T>
         return true;
     }
 
+    /// <summary>
+    /// Locates <paramref name="item"/>: <paramref name="found"/> reports
+    /// presence, the index is intended as the number of stored keys strictly
+    /// smaller than it (−1 when not found). Complexity: O(log n). NOTE: the
+    /// rank can be inaccurate after two-children deletions — see the class
+    /// summary.
+    /// </summary>
     public (int index, T? item) Search(T item, out bool found)
     {
         var current = _root;
@@ -125,6 +146,8 @@ public class RedBlackTree<T> : IOrderedDataStructureWithValues<T>
     }
 
 
+    /// <summary>Deletes the key and rebalances; false when absent.
+    /// Complexity: O(log n).</summary>
     public bool TryDelete(T item)
     {
 
@@ -195,6 +218,7 @@ public class RedBlackTree<T> : IOrderedDataStructureWithValues<T>
         return true;
     }
 
+    /// <inheritdoc cref="IOrderedDataStructureWithValues{T}.Min"/>
     public T Min
     {
         get
@@ -209,6 +233,7 @@ public class RedBlackTree<T> : IOrderedDataStructureWithValues<T>
         }
     }
 
+    /// <inheritdoc cref="IOrderedDataStructureWithValues{T}.Max"/>
     public T Max
     {
         get
