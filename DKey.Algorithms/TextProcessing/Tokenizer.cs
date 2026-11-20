@@ -2,6 +2,9 @@
 
 namespace DKey.Algorithms.TextProcessing;
 
+/// <summary>
+/// Regex-based text splitter driven by <see cref="TokenizerMode"/>.
+/// </summary>
 public class Tokenizer
 {
     private static Dictionary<TokenizerMode, string> Patterns = new Dictionary<TokenizerMode, string>()
@@ -11,6 +14,8 @@ public class Tokenizer
         {TokenizerMode.WhiteSpaces, @"\S+"},
     };
 
+    /// <summary>Splits <paramref name="text"/> into tokens per the mode's pattern,
+    /// in match order. Complexity: O(text length).</summary>
     public static List<string> Split(string text, TokenizerMode mode)
     {
         List<string> result = new List<string>();

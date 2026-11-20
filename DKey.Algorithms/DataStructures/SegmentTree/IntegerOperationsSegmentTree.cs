@@ -30,6 +30,7 @@ public class IntegerOperationsSegmentTree : IntegerSegmentTree
         _neutral = new SegmentTreeNode(map.Count - 1);
     }
 
+    /// <summary>The neutral node, pre-built from the map's current size.</summary>
     protected override SegmentTreeNode Neutral()
     {
         return _neutral;

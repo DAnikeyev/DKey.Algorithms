@@ -8,6 +8,7 @@ public class Trie
 {
     private readonly TrieNode _root;
 
+    /// <summary>Creates an empty trie with just the root node.</summary>
     public Trie()
     {
         _root = new TrieNode();
