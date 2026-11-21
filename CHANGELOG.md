@@ -1,3 +1,6 @@
+## 1.6.0 - unreleased
+* **Added** `UnionFind` (disjoint-set union with union by rank + path compression) in `DataStructures/DisjointSet`.
+
 ## 1.5.0 - 2026.11.17
 * **Added** `TupleHelper` as the canonical (and documented) name for the tuple helpers; the misspelled `TupleHelpler` remains as an `[Obsolete]` forwarding bridge (removal planned for a future major).
 * **Fixed** Typos in test namespaces/files: `SufixTree` → `SuffixTree`, `PairPointsConvererTests` → `PairPointsCovererTests` (library API unchanged).
