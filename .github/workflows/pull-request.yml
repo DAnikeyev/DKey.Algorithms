@@ -23,4 +23,22 @@ jobs:
       run: dotnet format DKey.Algorithms.sln --verify-no-changes
 
     - name: Execute unit tests
-      run: dotnet test
+      run: dotnet test --collect:"XPlat Code Coverage"
+
+    - name: Coverage summary
+      shell: pwsh
+      run: |
+        $files = Get-ChildItem -Recurse -Filter 'coverage.cobertura.xml' | Where-Object { $_.FullName -notmatch '[\\/](obj|bin)[\\/]' }
+        if (-not $files) { throw 'No cobertura coverage output found.' }
+        foreach ($file in $files) {
+          [xml]$report = Get-Content -Path $file.FullName -Raw
+          $project = (($file.FullName -split '[\\/]TestResults[\\/]', 2)[0] -replace '.*[\\/]', '')
+          Write-Host ""
+          Write-Host "Coverage - test run under $project (from $($file.Directory.Name)):"
+          Write-Host ("{0,-40} {1,10} {2,10}" -f 'Assembly', 'Line %', 'Branch %')
+          foreach ($package in $report.coverage.packages.package) {
+            $linePct = 100 * [double]$package.'line-rate'
+            $branchPct = 100 * [double]$package.'branch-rate'
+            Write-Host ("{0,-40} {1,9:N1} {2,9:N1}" -f $package.name, $linePct, $branchPct)
+          }
+        }
