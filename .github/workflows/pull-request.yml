@@ -32,7 +32,7 @@ jobs:
         if (-not $files) { throw 'No cobertura coverage output found.' }
         foreach ($file in $files) {
           [xml]$report = Get-Content -Path $file.FullName -Raw
-          $project = (($file.FullName -split '[\\/]TestResults[\\/]', 2)[0] -replace '.*[\\/]', '')
+          $project = $file.Directory.Parent.Parent.Name
           Write-Host ""
           Write-Host "Coverage - test run under $project (from $($file.Directory.Name)):"
           Write-Host ("{0,-40} {1,10} {2,10}" -f 'Assembly', 'Line %', 'Branch %')
