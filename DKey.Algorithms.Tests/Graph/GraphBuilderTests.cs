@@ -18,8 +18,8 @@ public class GraphBuilderTests
             (1,5),
         };
         var G = GraphBuilder.Undirected(edges, V, false);
-        Assert.IsTrue(G[0].Count == 3);
-        Assert.IsTrue(G[0].Contains(4)); ;
-        Assert.IsTrue(!G[0].Contains(2));
+        ClassicAssert.IsTrue(G[0].Count == 3);
+        ClassicAssert.IsTrue(G[0].Contains(4)); ;
+        ClassicAssert.IsTrue(!G[0].Contains(2));
     }
 }

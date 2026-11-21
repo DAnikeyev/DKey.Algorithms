@@ -12,7 +12,7 @@ public class ShortSuffixTreeTests
         var data = new List<int> { 1, 2 };
         var tree = ShortSuffixTree.Build(data);
 
-        Assert.IsTrue(tree.Contains(new List<int> { 2 }));
+        ClassicAssert.IsTrue(tree.Contains(new List<int> { 2 }));
     }
 
     [Test]
@@ -21,10 +21,10 @@ public class ShortSuffixTreeTests
         var data = new List<int> { 1, 2, 3, 1, 2, 3 };
         var tree = ShortSuffixTree.Build(data);
 
-        Assert.IsTrue(tree.Contains(new List<int> { 1, 2, 3 }));
-        Assert.IsTrue(tree.Contains(new List<int> { 2, 3, 1 }));
-        Assert.IsTrue(tree.Contains(new List<int> { 3, 1, 2 }));
-        Assert.IsTrue(tree.Contains(new List<int> { 1, 2 }));
+        ClassicAssert.IsTrue(tree.Contains(new List<int> { 1, 2, 3 }));
+        ClassicAssert.IsTrue(tree.Contains(new List<int> { 2, 3, 1 }));
+        ClassicAssert.IsTrue(tree.Contains(new List<int> { 3, 1, 2 }));
+        ClassicAssert.IsTrue(tree.Contains(new List<int> { 1, 2 }));
     }
 
     [Test]
@@ -33,10 +33,10 @@ public class ShortSuffixTreeTests
         var data = new List<int> { 1, 2, 3, 1, 2, 3 };
         var tree = ShortSuffixTree.Build(data);
 
-        Assert.IsFalse(tree.Contains(new List<int> { 1, 2, 4 }));
-        Assert.IsFalse(tree.Contains(new List<int> { 2, 3, 3 }));
-        Assert.IsFalse(tree.Contains(new List<int> { 3, 1, 1 }));
-        Assert.IsFalse(tree.Contains(new List<int> { 4, 2 }));
+        ClassicAssert.IsFalse(tree.Contains(new List<int> { 1, 2, 4 }));
+        ClassicAssert.IsFalse(tree.Contains(new List<int> { 2, 3, 3 }));
+        ClassicAssert.IsFalse(tree.Contains(new List<int> { 3, 1, 1 }));
+        ClassicAssert.IsFalse(tree.Contains(new List<int> { 4, 2 }));
     }
 
 
@@ -46,7 +46,7 @@ public class ShortSuffixTreeTests
         var data = new List<int> { 1, 2, 2, 3 };
         var tree = ShortSuffixTree.Build(data);
 
-        Assert.IsFalse(tree.Contains(new List<int> { 1, 2, 4 }));
+        ClassicAssert.IsFalse(tree.Contains(new List<int> { 1, 2, 4 }));
     }
 
     [Test]
@@ -55,7 +55,7 @@ public class ShortSuffixTreeTests
         var data = ListGenerator.Instance(42).RandomList(value, 1, 5);
         var tree = ShortSuffixTree.Build(data);
         var ok = tree.Contains(new List<int> { 2, 4 });
-        Assert.IsTrue(ok || value < 9999);
+        ClassicAssert.IsTrue(ok || value < 9999);
     }
 
     [Test]
@@ -66,7 +66,7 @@ public class ShortSuffixTreeTests
         var data = ListGenerator.Instance(42).RandomList(value, 1, 6);
         var tree = ShortSuffixTree.Build(data);
         var ok = tree.Contains(new List<int> { 1, 2, 4 });
-        Assert.IsTrue(ok || value < 9999);
+        ClassicAssert.IsTrue(ok || value < 9999);
     }
 
     [Test]
@@ -76,7 +76,7 @@ public class ShortSuffixTreeTests
         var s2 = "awsbwjevbasajdvabevbaweebviwbrviberb";
         var tree = ShortSuffixTree.Build(s1.Select(x => (int)(x - 'a' + 1)).ToList());
         var lcs = tree.LongestCommonSubstring(s2.Select(x => (int)(x - 'a' + 1)));
-        Assert.AreEqual((0, 0, s1.Length), lcs);
+        ClassicAssert.AreEqual((0, 0, s1.Length), lcs);
     }
 
     [Test]
@@ -86,7 +86,7 @@ public class ShortSuffixTreeTests
         var s2 = "bababaaaaaaaaaaa";
         var tree = ShortSuffixTree.Build(s1.Select(x => (int)(x - 'a' + 1)).ToList());
         var lcs = tree.LongestCommonSubstring(s2.Select(x => (int)(x - 'a' + 1)));
-        Assert.AreEqual((9, 5, s2.Length - 5), lcs);
+        ClassicAssert.AreEqual((9, 5, s2.Length - 5), lcs);
     }
 
     [Test]
@@ -96,8 +96,8 @@ public class ShortSuffixTreeTests
         var s2 = "owowowowowowo";
         var tree = ShortSuffixTree.Build(s1.Select(x => (int)(x - 'a' + 1)).ToList());
         var lcs = tree.LongestCommonSubstring(s2.Select(x => (int)(x - 'a' + 1)));
-        Assert.AreEqual(s1.Substring(lcs.srcOffset, lcs.length), s2.Substring(lcs.docOffset, lcs.length));
-        Assert.AreEqual("wowowow", s1.Substring(lcs.srcOffset, lcs.length));
+        ClassicAssert.AreEqual(s1.Substring(lcs.srcOffset, lcs.length), s2.Substring(lcs.docOffset, lcs.length));
+        ClassicAssert.AreEqual("wowowow", s1.Substring(lcs.srcOffset, lcs.length));
     }
 
     [Test]
@@ -107,6 +107,6 @@ public class ShortSuffixTreeTests
         var s2 = ListGenerator.Instance(42).RandomString(10000, 5);
         var tree = ShortSuffixTree.Build(s1.Select(x => (int)(x - 'a' + 1)).ToList());
         var lcs = tree.LongestCommonSubstring(s2.Select(x => (int)(x - 'a' + 1)));
-        Assert.IsTrue(lcs.length > 4);
+        ClassicAssert.IsTrue(lcs.length > 4);
     }
 }

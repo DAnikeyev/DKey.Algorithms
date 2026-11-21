@@ -13,7 +13,7 @@ public class GetIndexOfMaxByTests
 
         var actualResult = SortedDataSearch.GetIndexOfMaxBy(input, x => x * x);
 
-        Assert.AreEqual(expectedResult, actualResult);
+        ClassicAssert.AreEqual(expectedResult, actualResult);
     }
 
     [Test]
@@ -29,6 +29,6 @@ public class GetIndexOfMaxByTests
 
         var actualResult = SortedDataSearch.GetIndexOfMaxBy(input, person => person.Age);
 
-        Assert.AreEqual(expectedResult, actualResult);
+        ClassicAssert.AreEqual(expectedResult, actualResult);
     }
 }

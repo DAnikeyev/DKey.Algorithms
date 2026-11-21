@@ -24,8 +24,8 @@ public class ShortestPathTests
 
         var path = ShortestPath.Get(graph, startVertex, endVertex);
 
-        Assert.IsNotNull(path);
-        Assert.AreEqual(expectedPath, path);
+        ClassicAssert.IsNotNull(path);
+        ClassicAssert.AreEqual(expectedPath, path);
     }
 
     [Test]
@@ -45,7 +45,7 @@ public class ShortestPathTests
 
         var path = ShortestPath.Get(graph, startVertex, endVertex);
 
-        Assert.IsNull(path);
+        ClassicAssert.IsNull(path);
     }
 
     [Test]
@@ -62,7 +62,7 @@ public class ShortestPathTests
 
         var path = ShortestPath.Get(graph, startVertex, endVertex);
 
-        Assert.IsNotNull(path);
-        Assert.AreEqual(expectedPath, path);
+        ClassicAssert.IsNotNull(path);
+        ClassicAssert.AreEqual(expectedPath, path);
     }
 }

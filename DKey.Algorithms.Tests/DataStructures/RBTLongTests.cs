@@ -9,7 +9,7 @@ public class RBTLongTests
     public void EmptyTree_ReturnsExpectedCount()
     {
         var rbt = new RBTLong();
-        Assert.AreEqual(0, rbt.Count);
+        ClassicAssert.AreEqual(0, rbt.Count);
     }
 
     [Test]
@@ -17,8 +17,8 @@ public class RBTLongTests
     {
         var rbt = new RBTLong();
         var added = rbt.TryAdd(1L);
-        Assert.AreEqual(1, rbt.Count);
-        Assert.IsTrue(added);
+        ClassicAssert.AreEqual(1, rbt.Count);
+        ClassicAssert.IsTrue(added);
     }
 
     [Test]
@@ -34,8 +34,8 @@ public class RBTLongTests
         rbt.TryAdd(4L);
         rbt.TryAdd(5L);
         rbt.TryAdd(10L);
-        Assert.AreEqual(9, rbt.Count);
-        CollectionAssert.AreEqual(
+        ClassicAssert.AreEqual(9, rbt.Count);
+        ClassicAssert.AreEqual(
             rbt.Keys,
             new long[] { long.MinValue, 2, 3, 4, 5, 7, 9, 10, long.MaxValue });
     }
@@ -46,8 +46,8 @@ public class RBTLongTests
         var rbt = new RBTLong();
         rbt.TryAdd(7L);
         var secondAdd = rbt.TryAdd(7L);
-        Assert.IsFalse(secondAdd);
-        Assert.AreEqual(1, rbt.Count);
+        ClassicAssert.IsFalse(secondAdd);
+        ClassicAssert.AreEqual(1, rbt.Count);
     }
 
     [Test]
@@ -66,8 +66,8 @@ public class RBTLongTests
         rbt.TryDelete(8L);
         rbt.TryDelete(1L);
         rbt.TryDelete(10L);
-        Assert.AreEqual(6, rbt.Count);
-        CollectionAssert.AreEqual(rbt.Keys, new long[] { 2, 3, 4, 5, 7, 9 });
+        ClassicAssert.AreEqual(6, rbt.Count);
+        ClassicAssert.AreEqual(rbt.Keys, new long[] { 2, 3, 4, 5, 7, 9 });
     }
 
     [Test]
@@ -84,9 +84,9 @@ public class RBTLongTests
         rbt.TryAdd(5L);
         rbt.TryAdd(10L);
         var (index, item) = rbt.Search(8L, out var found);
-        Assert.AreEqual(8L, item);
-        Assert.IsTrue(found);
-        Assert.AreEqual(6, index);
+        ClassicAssert.AreEqual(8L, item);
+        ClassicAssert.IsTrue(found);
+        ClassicAssert.AreEqual(6, index);
     }
 
     [Test]
@@ -97,7 +97,7 @@ public class RBTLongTests
         rbt.TryAdd(2L);
         rbt.TryAdd(3L);
         rbt.Search(11L, out var found);
-        Assert.IsFalse(found);
+        ClassicAssert.IsFalse(found);
     }
 
     [Test]
@@ -105,7 +105,7 @@ public class RBTLongTests
     {
         var rbt = new RBTLong();
         rbt.Search(11L, out var found);
-        Assert.IsFalse(found);
+        ClassicAssert.IsFalse(found);
     }
 
     [Test]
@@ -122,19 +122,19 @@ public class RBTLongTests
         rbt.TryAdd(5L);
         rbt.TryAdd(10L);
         var (index1, item1) = rbt.Search(8L, out var found1);
-        Assert.IsTrue(found1);
-        Assert.AreEqual(6, index1);
-        Assert.AreEqual(8L, item1);
+        ClassicAssert.IsTrue(found1);
+        ClassicAssert.AreEqual(6, index1);
+        ClassicAssert.AreEqual(8L, item1);
         rbt.TryDelete(8L);
         rbt.TryDelete(1L);
         rbt.TryDelete(10L);
         rbt.Search(8L, out var found2);
-        Assert.IsFalse(found2);
+        ClassicAssert.IsFalse(found2);
 
         var (index3, item3) = rbt.Search(4L, out var found3);
-        Assert.IsTrue(found3);
-        Assert.AreEqual(2, index3);
-        Assert.AreEqual(4L, item3);
+        ClassicAssert.IsTrue(found3);
+        ClassicAssert.AreEqual(2, index3);
+        ClassicAssert.AreEqual(4L, item3);
     }
 
     [Test]
@@ -145,12 +145,12 @@ public class RBTLongTests
         {
             rbt.TryAdd(i);
         }
-        Assert.AreEqual(100000, rbt.Count);
+        ClassicAssert.AreEqual(100000, rbt.Count);
         for (var i = 0L; i < 100000L; i++)
         {
             rbt.TryDelete(i);
         }
-        Assert.AreEqual(0, rbt.Count);
+        ClassicAssert.AreEqual(0, rbt.Count);
     }
 
     [Test]
@@ -160,10 +160,10 @@ public class RBTLongTests
         rbt.TryAdd(5L);
         rbt.TryAdd(15L);
         rbt.TryAdd(25L);
-        Assert.IsTrue(rbt.Contains(15L));
+        ClassicAssert.IsTrue(rbt.Contains(15L));
         rbt.TryDelete(15L);
-        Assert.IsFalse(rbt.Contains(15L));
-        Assert.IsTrue(rbt.Contains(5L));
-        Assert.IsTrue(rbt.Contains(25L));
+        ClassicAssert.IsFalse(rbt.Contains(15L));
+        ClassicAssert.IsTrue(rbt.Contains(5L));
+        ClassicAssert.IsTrue(rbt.Contains(25L));
     }
 }

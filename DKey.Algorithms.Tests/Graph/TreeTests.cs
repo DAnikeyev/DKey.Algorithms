@@ -18,7 +18,7 @@ public class TreeTests
         };
         var G = GraphBuilder.Undirected(edges, V, false);
         var tree = TreeGraph.Build(G, 5, 1);
-        CollectionAssert.AreEqual(new List<int>() { 2, 1, 0, 1, 0 }, tree.Vertices.Select(x => x.Children!.Count).ToList());
+        ClassicAssert.AreEqual(new List<int>() { 2, 1, 0, 1, 0 }, tree.Vertices.Select(x => x.Children!.Count).ToList());
     }
 
     [Test]

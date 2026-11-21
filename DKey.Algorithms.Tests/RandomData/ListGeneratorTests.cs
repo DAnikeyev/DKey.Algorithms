@@ -32,8 +32,8 @@ public class ListGeneratorTests
 
         var list = generator.RandomList(500, -3, 7);
 
-        Assert.AreEqual(500, list.Count);
-        Assert.IsTrue(list.All(x => x >= -3 && x <= 7));
+        ClassicAssert.AreEqual(500, list.Count);
+        ClassicAssert.IsTrue(list.All(x => x >= -3 && x <= 7));
     }
 
     [Test]
@@ -43,9 +43,9 @@ public class ListGeneratorTests
 
         var list = generator.RandomList(500, -5L, 5L);
 
-        Assert.AreEqual(500, list.Count);
-        Assert.IsInstanceOf<List<long>>(list);
-        Assert.IsTrue(list.All(x => x >= -5L && x <= 5L));
+        ClassicAssert.AreEqual(500, list.Count);
+        ClassicAssert.IsInstanceOf<List<long>>(list);
+        ClassicAssert.IsTrue(list.All(x => x >= -5L && x <= 5L));
     }
 
     [Test]
@@ -54,7 +54,7 @@ public class ListGeneratorTests
         var first = ListGenerator.Instance(99).RandomList(100, 0, 1000);
         var second = ListGenerator.Instance(99).RandomList(100, 0, 1000);
 
-        CollectionAssert.AreEqual(first, second);
+        ClassicAssert.AreEqual(first, second);
     }
 
     [Test]
@@ -64,8 +64,8 @@ public class ListGeneratorTests
 
         var permutation = generator.RandomPermutation(100);
 
-        Assert.AreEqual(100, permutation.Count);
-        CollectionAssert.AreEquivalent(Enumerable.Range(0, 100).ToList(), permutation);
+        ClassicAssert.AreEqual(100, permutation.Count);
+        Assert.That(permutation, Is.EquivalentTo(Enumerable.Range(0, 100)));
     }
 
     [Test]
@@ -76,8 +76,8 @@ public class ListGeneratorTests
 
         generator.Shuffle(data);
 
-        Assert.AreEqual(100, data.Count);
-        CollectionAssert.AreEquivalent(Enumerable.Range(0, 100).ToList(), data);
+        ClassicAssert.AreEqual(100, data.Count);
+        Assert.That(data, Is.EquivalentTo(Enumerable.Range(0, 100)));
     }
 
     [Test]
@@ -87,8 +87,8 @@ public class ListGeneratorTests
 
         var value = generator.RandomString(200, 3);
 
-        Assert.AreEqual(200, value.Length);
-        Assert.IsTrue(value.All(c => c >= 'a' && c <= 'c'));
+        ClassicAssert.AreEqual(200, value.Length);
+        ClassicAssert.IsTrue(value.All(c => c >= 'a' && c <= 'c'));
     }
 
     [Test]
@@ -98,7 +98,7 @@ public class ListGeneratorTests
 
         var sequence = generator.RandomKElements(100, 30);
 
-        Assert.AreEqual(100, sequence.Count);
-        Assert.AreEqual(30, sequence.Sum());
+        ClassicAssert.AreEqual(100, sequence.Count);
+        ClassicAssert.AreEqual(30, sequence.Sum());
     }
 }

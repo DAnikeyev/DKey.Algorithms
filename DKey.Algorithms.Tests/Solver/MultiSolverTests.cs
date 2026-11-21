@@ -49,8 +49,8 @@ public class MultiSolverTests
 
         solver.Run();
 
-        Assert.IsTrue(solver.Initialized);
-        Assert.AreEqual("3\n7\n", stringWriter.ToString());
+        ClassicAssert.IsTrue(solver.Initialized);
+        ClassicAssert.AreEqual("3\n7\n", stringWriter.ToString());
     }
 
     [Test]
@@ -63,7 +63,7 @@ public class MultiSolverTests
 
         solver.Run();
 
-        Assert.IsTrue(solver.Initialized);
-        Assert.AreEqual(string.Empty, stringWriter.ToString());
+        ClassicAssert.IsTrue(solver.Initialized);
+        ClassicAssert.AreEqual(string.Empty, stringWriter.ToString());
     }
 }

@@ -22,7 +22,7 @@ public class CycleTests
 
         var result = Cycle.Find(graph);
 
-        Assert.IsNull(result);
+        ClassicAssert.IsNull(result);
     }
 
     [Test]
@@ -39,8 +39,8 @@ public class CycleTests
 
         var result = Cycle.Find(graph);
 
-        Assert.IsNotNull(result);
-        CollectionAssert.AreEqual(new List<int> { 4, 3, 2, 1 }, result);
+        ClassicAssert.IsNotNull(result);
+        ClassicAssert.AreEqual(new List<int> { 4, 3, 2, 1 }, result);
     }
 
     [Test]
@@ -48,6 +48,6 @@ public class CycleTests
     {
         var graph = GraphGenerator.Instance(42).RandomUnicyclic(10);
         var result = Cycle.Find(graph);
-        Assert.IsNotNull(result);
+        ClassicAssert.IsNotNull(result);
     }
 }

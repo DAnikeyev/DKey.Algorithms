@@ -13,7 +13,7 @@ public class PrefixSumTests
 
         var result = DataSum.PrefixSum(data);
 
-        Assert.AreEqual(expected, result);
+        ClassicAssert.AreEqual(expected, result);
     }
 
     [Test]
@@ -24,7 +24,7 @@ public class PrefixSumTests
 
         var result = DataSum.SuffixSum(data);
 
-        Assert.AreEqual(expected, result);
+        ClassicAssert.AreEqual(expected, result);
     }
 
     [TestCase(new int[] { }, new long[] { 0 })]
@@ -35,7 +35,7 @@ public class PrefixSumTests
     {
         var result = DataSum.PrefixSum(data);
 
-        Assert.AreEqual(expected, result);
+        ClassicAssert.AreEqual(expected, result);
     }
 
     [TestCase(new int[] { }, new long[] { 0 })]
@@ -46,6 +46,6 @@ public class PrefixSumTests
     {
         var result = DataSum.SuffixSum(data);
 
-        Assert.AreEqual(expected, result);
+        ClassicAssert.AreEqual(expected, result);
     }
 }

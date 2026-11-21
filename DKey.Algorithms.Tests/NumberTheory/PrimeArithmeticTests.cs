@@ -13,14 +13,14 @@ public class PrimeArithmeticsTests
     [TestCase(20, false)]
     public void IsPrime_ReturnsExpectedValue(int n, bool expectedResult)
     {
-        Assert.AreEqual(expectedResult, PrimeArithmetics.IsPrime(n));
+        ClassicAssert.AreEqual(expectedResult, PrimeArithmetics.IsPrime(n));
     }
 
     [Test]
     public void GetPrimeFactors_ReturnsExpectedValue()
     {
         var expectedResult = new List<(int prime, int factor)> { (2, 2), (5, 1) };
-        CollectionAssert.AreEqual(expectedResult, PrimeArithmetics.GetPrimeFactors(20));
+        ClassicAssert.AreEqual(expectedResult, PrimeArithmetics.GetPrimeFactors(20));
     }
 
     [Test]
@@ -39,7 +39,7 @@ public class PrimeArithmeticsTests
         var result = PrimeArithmetics.GetPrimeFactorsForInterval(6);
         for (int i = 0; i <= 6; i++)
         {
-            CollectionAssert.AreEqual(expectedResult[i], result[i]);
+            ClassicAssert.AreEqual(expectedResult[i], result[i]);
         }
     }
 
@@ -47,7 +47,7 @@ public class PrimeArithmeticsTests
     public void GetAllDividersTest_ReturnsExpectedValue()
     {
         var expectedResult = new List<int> { 1, 2, 4, 5, 10, 20 };
-        CollectionAssert.AreEqual(expectedResult, PrimeArithmetics.GetAllDividers(20));
+        ClassicAssert.AreEqual(expectedResult, PrimeArithmetics.GetAllDividers(20));
     }
 
     [Test]

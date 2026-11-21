@@ -12,7 +12,7 @@ public class PermutationsTests
         var expected = new[] { 1, 2, 0 };
         var actual = Permutations.Inverse(permutation);
 
-        Assert.AreEqual(expected, actual);
+        ClassicAssert.AreEqual(expected, actual);
     }
 
     [Test]
@@ -23,7 +23,7 @@ public class PermutationsTests
 
         var actual = Permutations.Inverse(permutation);
 
-        Assert.AreEqual(expected, actual);
+        ClassicAssert.AreEqual(expected, actual);
     }
 
     [Test]
@@ -35,7 +35,7 @@ public class PermutationsTests
 
         var actual = Permutations.Multiply(permutation1, permutation2);
 
-        Assert.AreEqual(expected, actual);
+        ClassicAssert.AreEqual(expected, actual);
     }
 
     [Test]
@@ -47,6 +47,6 @@ public class PermutationsTests
 
         var actual = Permutations.Multiply(permutation1, permutation2);
 
-        Assert.AreEqual(expected, actual);
+        ClassicAssert.AreEqual(expected, actual);
     }
 }

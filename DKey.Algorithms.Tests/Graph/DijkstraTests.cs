@@ -38,7 +38,7 @@ internal class DijkstraTests
 
         var distances = Dijkstra.ToAll(context);
 
-        CollectionAssert.AreEqual(expectedAnswers, distances);
+        ClassicAssert.AreEqual(expectedAnswers, distances);
 
     }
 

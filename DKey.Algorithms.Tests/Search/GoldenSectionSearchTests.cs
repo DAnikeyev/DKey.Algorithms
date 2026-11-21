@@ -18,7 +18,7 @@ public class GoldenSectionSearchTests
 
         var result = TernarySearch.GoldenSection(left, right, QuadraticFunction);
 
-        Assert.AreEqual(3.0, result, Tolerance);
+        ClassicAssert.AreEqual(3.0, result, Tolerance);
     }
 
     [Test]
@@ -32,6 +32,6 @@ public class GoldenSectionSearchTests
 
         var result = TernarySearch.GoldenSection(left, right, CubicFunction);
 
-        Assert.AreEqual(2.0, result, Tolerance);
+        ClassicAssert.AreEqual(2.0, result, Tolerance);
     }
 }

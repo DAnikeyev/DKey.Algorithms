@@ -24,6 +24,6 @@ public class SegmentTreeTests
         var questions = new (int l, int r)[] { (1, 4), (2, 5), (3, 4), (0, 7) };
 
         var processed = questions.Select(q => minTree.GetCumulativeOperation(q.l, q.r).Value).ToArray();
-        Assert.AreEqual(new long[] { 1, 2, 4, 1 }, processed.Select(x => dictionary[x]).ToArray());
+        ClassicAssert.AreEqual(new long[] { 1, 2, 4, 1 }, processed.Select(x => dictionary[x]).ToArray());
     }
 }

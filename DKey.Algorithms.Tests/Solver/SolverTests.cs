@@ -70,7 +70,7 @@ public class SolverTests
 
         solver.Run();
 
-        Assert.AreEqual("7\n", stringWriter.ToString());
+        ClassicAssert.AreEqual("7\n", stringWriter.ToString());
     }
 
     [Test]
@@ -83,7 +83,7 @@ public class SolverTests
 
         solver.Run();
 
-        Assert.AreEqual("12\n", stringWriter.ToString());
+        ClassicAssert.AreEqual("12\n", stringWriter.ToString());
     }
 
     [Test]
@@ -96,8 +96,8 @@ public class SolverTests
         solver.RunWithArgs(new object[] { 5, 7 });
 
         // Nothing hits the console, but the answer is captured in the builder.
-        Assert.AreEqual(string.Empty, stringWriter.ToString());
-        Assert.AreEqual("12\n", solver.output.ToString());
+        ClassicAssert.AreEqual(string.Empty, stringWriter.ToString());
+        ClassicAssert.AreEqual("12\n", solver.output.ToString());
     }
 
     [Test]
@@ -109,7 +109,7 @@ public class SolverTests
 
         solver.RunWithArgs(new object[] { 5, 7 }, print: true);
 
-        Assert.AreEqual("12\n", stringWriter.ToString());
+        ClassicAssert.AreEqual("12\n", stringWriter.ToString());
     }
 
     [Test]
@@ -120,13 +120,13 @@ public class SolverTests
 
         var args = solver.Parse();
 
-        Assert.AreEqual(4, args.Length);
-        Assert.AreEqual("ignored line", args[0]);
-        Assert.IsInstanceOf<int>(args[1]);
-        Assert.AreEqual(5, args[1]);
-        Assert.IsInstanceOf<long>(args[2]);
-        Assert.AreEqual(7L, args[2]);
-        Assert.IsInstanceOf<List<int>>(args[3]);
-        CollectionAssert.AreEqual(new[] { 1, 2, 3 }, (List<int>)args[3]);
+        ClassicAssert.AreEqual(4, args.Length);
+        ClassicAssert.AreEqual("ignored line", args[0]);
+        ClassicAssert.IsInstanceOf<int>(args[1]);
+        ClassicAssert.AreEqual(5, args[1]);
+        ClassicAssert.IsInstanceOf<long>(args[2]);
+        ClassicAssert.AreEqual(7L, args[2]);
+        ClassicAssert.IsInstanceOf<List<int>>(args[3]);
+        ClassicAssert.AreEqual(new[] { 1, 2, 3 }, (List<int>)args[3]);
     }
 }

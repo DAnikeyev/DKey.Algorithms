@@ -11,7 +11,7 @@ namespace DKey.Algorithms.Tests.DataStructures
             var intervals = new List<(long left, long right)> { (1, 4) };
             var pairPointsCoverer = new PairPointsCoverer(intervals);
             var smallestCover = pairPointsCoverer.GetSmallestCover();
-            Assert.AreEqual((1, 1), smallestCover);
+            ClassicAssert.AreEqual((1, 1), smallestCover);
         }
 
         [Test]
@@ -20,7 +20,7 @@ namespace DKey.Algorithms.Tests.DataStructures
             var intervals = new List<(long left, long right)> { (1, 4), (2, 5) };
             var pairPointsCoverer = new PairPointsCoverer(intervals);
             var smallestCover = pairPointsCoverer.GetSmallestCover();
-            Assert.AreEqual((1, 2), smallestCover);
+            ClassicAssert.AreEqual((1, 2), smallestCover);
         }
 
         [Test]
@@ -29,7 +29,7 @@ namespace DKey.Algorithms.Tests.DataStructures
             var intervals = new List<(long left, long right)> { (1, 4), (2, 5), (3, 6) };
             var pairPointsCoverer = new PairPointsCoverer(intervals);
             var smallestCover = pairPointsCoverer.GetSmallestCover();
-            Assert.AreEqual((1, 3), smallestCover);
+            ClassicAssert.AreEqual((1, 3), smallestCover);
         }
 
         [Test]
@@ -38,7 +38,7 @@ namespace DKey.Algorithms.Tests.DataStructures
             var intervals = new List<(long left, long right)> { (1, 4), (2, 5), (3, 6), (2, 7) };
             var pairPointsCoverer = new PairPointsCoverer(intervals);
             var smallestCover = pairPointsCoverer.GetSmallestCover();
-            Assert.AreEqual((1, 3), smallestCover);
+            ClassicAssert.AreEqual((1, 3), smallestCover);
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace DKey.Algorithms.Tests.DataStructures
             var intervals = new List<(long left, long right)> { (1, 7), (2, 6), (3, 3), (3, 4), (2, 9) };
             var pairPointsCoverer = new PairPointsCoverer(intervals);
             var smallestCover = pairPointsCoverer.GetSmallestCover();
-            Assert.AreEqual((1, 3), smallestCover);
+            ClassicAssert.AreEqual((1, 3), smallestCover);
         }
 
         [Test]
@@ -56,7 +56,7 @@ namespace DKey.Algorithms.Tests.DataStructures
             var intervals = new List<(long left, long right)> { (0, 0), (3, 100) };
             var pairPointsCoverer = new PairPointsCoverer(intervals);
             var smallestCover = pairPointsCoverer.GetSmallestCover();
-            Assert.AreEqual((0, 3), smallestCover);
+            ClassicAssert.AreEqual((0, 3), smallestCover);
         }
     }
 }

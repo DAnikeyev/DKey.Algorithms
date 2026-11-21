@@ -8,8 +8,8 @@ public class TupleHelperTests
     {
         var result = TupleHelper.Swap((1, 2));
 
-        Assert.AreEqual(2, result.First);
-        Assert.AreEqual(1, result.Second);
+        ClassicAssert.AreEqual(2, result.First);
+        ClassicAssert.AreEqual(1, result.Second);
     }
 
     [Test]
@@ -17,8 +17,8 @@ public class TupleHelperTests
     {
         var result = TupleHelper.Swap((5, 5));
 
-        Assert.AreEqual(5, result.First);
-        Assert.AreEqual(5, result.Second);
+        ClassicAssert.AreEqual(5, result.First);
+        ClassicAssert.AreEqual(5, result.Second);
     }
 
     [Test]
@@ -28,7 +28,7 @@ public class TupleHelperTests
 
         var result = TupleHelper.Swap(TupleHelper.Swap(original));
 
-        Assert.AreEqual(original, result);
+        ClassicAssert.AreEqual(original, result);
     }
 
     [Test]
@@ -36,8 +36,8 @@ public class TupleHelperTests
     {
         var result = TupleHelper.SelectMax((9, 2));
 
-        Assert.AreEqual(9, result.First);
-        Assert.AreEqual(2, result.Second);
+        ClassicAssert.AreEqual(9, result.First);
+        ClassicAssert.AreEqual(2, result.Second);
     }
 
     [Test]
@@ -45,8 +45,8 @@ public class TupleHelperTests
     {
         var result = TupleHelper.SelectMax((2, 9));
 
-        Assert.AreEqual(9, result.First);
-        Assert.AreEqual(2, result.Second);
+        ClassicAssert.AreEqual(9, result.First);
+        ClassicAssert.AreEqual(2, result.Second);
     }
 
     [Test]
@@ -54,8 +54,8 @@ public class TupleHelperTests
     {
         var result = TupleHelper.SelectMax((4, 4));
 
-        Assert.AreEqual(4, result.First);
-        Assert.AreEqual(4, result.Second);
+        ClassicAssert.AreEqual(4, result.First);
+        ClassicAssert.AreEqual(4, result.Second);
     }
 
     [Test]
@@ -63,8 +63,8 @@ public class TupleHelperTests
     {
         var result = TupleHelper.SelectMax(("apple", "banana"));
 
-        Assert.AreEqual("banana", result.First);
-        Assert.AreEqual("apple", result.Second);
+        ClassicAssert.AreEqual("banana", result.First);
+        ClassicAssert.AreEqual("apple", result.Second);
     }
 
     [Test]
