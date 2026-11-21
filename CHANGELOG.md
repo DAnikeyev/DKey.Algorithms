@@ -1,6 +1,7 @@
 ## 1.6.0 - unreleased
 * **Added** `UnionFind` (disjoint-set union with union by rank + path compression) in `DataStructures/DisjointSet`.
 * **Added** `TopologicalSort` (Kahn's algorithm) in `DataStructures/Graph/GenericAlgorithms` — returns null on cyclic input.
+* **Added** `KmpSearch` in the new `Strings` area: prefix function + first/all (overlapping) substring search, generic over element type, O(n + m).
 
 ## 1.5.0 - 2026.11.17
 * **Added** `TupleHelper` as the canonical (and documented) name for the tuple helpers; the misspelled `TupleHelpler` remains as an `[Obsolete]` forwarding bridge (removal planned for a future major).
