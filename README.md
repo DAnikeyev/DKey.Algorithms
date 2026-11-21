@@ -46,6 +46,16 @@ DKey.Codeforces contains favorite examples of solutions for [Codeforces Problems
 
 ContestTemplateBuilder can be used to create contest templates to work in this project.
 
+## Release process
+
+Releases are CHANGELOG-driven and automated from `main`:
+
+1. Add a `## X.Y.Z - YYYY.MM.DD` section to [CHANGELOG.md](CHANGELOG.md) describing the changes.
+2. Bump `<Version>X.Y.Z</Version>` in `DKey.Algorithms/DKey.Algorithms.csproj` to the same version.
+3. Merge to `main`. CI publishes the package to NuGet (when the version is new), then creates the `vX.Y.Z` git tag and a GitHub Release whose notes are the CHANGELOG section for that version. Both steps are idempotent — re-runs skip what already exists, and a missing release is created by the next green `main` run.
+
+A version already on `main` but missing its release can also be released manually: `gh release create vX.Y.Z --target <sha> --notes "<CHANGELOG section>"`.
+
 ## Utils
 ### DKey.ContestSubmissionBuilder
 DKey.ContestSubmissionBuilder is a console application to build a single file submission for Codeforces problems.  

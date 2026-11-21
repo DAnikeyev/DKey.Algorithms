@@ -11,6 +11,10 @@ jobs:
 
     runs-on: windows-latest
 
+    outputs:
+      version: ${{ steps.version_gate.outputs.version }}
+      should_publish: ${{ steps.version_gate.outputs.should_publish }}
+
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -38,6 +42,7 @@ jobs:
         $alreadyPublished = $response.versions -contains $version
         Write-Host "Version $version already published on NuGet: $alreadyPublished"
         $shouldPublish = (-not $alreadyPublished).ToString().ToLowerInvariant()
+        "version=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
         "should_publish=$shouldPublish" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
 
     - name: Publish NuGet
@@ -53,3 +58,48 @@ jobs:
       if: steps.version_gate.outputs.should_publish == 'false'
       run: |
         echo "NuGet publish skipped: package version is already on nuget.org."
+
+  release:
+
+    needs: build
+    if: needs.build.result == 'success'
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Create git tag and GitHub Release from CHANGELOG
+      shell: pwsh
+      env:
+        GH_TOKEN: ${{ github.token }}
+        VERSION: ${{ needs.build.outputs.version }}
+      run: |
+        $tag = "v$env:VERSION"
+        gh release view $tag --repo "$env:GITHUB_REPOSITORY" *> $null
+        if ($LASTEXITCODE -eq 0) {
+          Write-Host "Release $tag already exists - skipping release creation."
+          exit 0
+        }
+        $lines = Get-Content -Path CHANGELOG.md
+        $headerPattern = "^##\s+$([regex]::Escape($env:VERSION))\s"
+        $start = -1
+        for ($i = 0; $i -lt $lines.Count; $i++) {
+          if ($lines[$i] -match $headerPattern) { $start = $i; break }
+        }
+        if ($start -lt 0) { throw "CHANGELOG.md has no section for version $env:VERSION" }
+        $section = New-Object System.Collections.Generic.List[string]
+        for ($i = $start + 1; $i -lt $lines.Count; $i++) {
+          if ($lines[$i] -match '^##\s') { break }
+          $section.Add($lines[$i])
+        }
+        $notes = ($section -join "`n").Trim()
+        if ([string]::IsNullOrWhiteSpace($notes)) { throw "CHANGELOG.md section for version $env:VERSION is empty" }
+        $notesPath = Join-Path $env:RUNNER_TEMP "release-notes-$env:VERSION.md"
+        Set-Content -Path $notesPath -Value $notes -NoNewline -Encoding utf8
+        Write-Host "Creating release $tag at $env:GITHUB_SHA with CHANGELOG notes."
+        gh release create $tag --repo "$env:GITHUB_REPOSITORY" --target "$env:GITHUB_SHA" --title $tag --notes-file $notesPath
