@@ -1,0 +1,33 @@
+﻿using DKey.Algorithms.DataStructures.Graph;
+
+namespace DKey.Algorithms.Tests.DataStructures.Graph;
+
+public class IntegerSumBinaryTree : ImmutableBinaryTree<int>
+{
+    protected override int Add(int a, int b)
+    {
+        return a + b;
+    }
+
+    protected override int Neutral()
+    {
+        return 0;
+    }
+}
+
+[TestFixture]
+public class BinaryTreeTests
+{
+    [Test]
+    public void GetSum_ReturnsExpectedValues()
+    {
+        var data = new List<int> { 1, 2, 3, 4, 5 };
+        var tree = new IntegerSumBinaryTree();
+        tree.Init(data);
+
+        ClassicAssert.AreEqual(15, tree.GetCumulativeOperation(0, 4));
+        ClassicAssert.AreEqual(6, tree.GetCumulativeOperation(0, 2));
+        ClassicAssert.AreEqual(7, tree.GetCumulativeOperation(2, 3));
+        ClassicAssert.AreEqual(9, tree.GetCumulativeOperation(3, 4));
+    }
+}
