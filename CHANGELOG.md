@@ -3,6 +3,7 @@
 * **Added** `TopologicalSort` (Kahn's algorithm) in `DataStructures/Graph/GenericAlgorithms` — returns null on cyclic input.
 * **Added** `KmpSearch` in the new `Strings` area: prefix function + first/all (overlapping) substring search, generic over element type, O(n + m).
 * **Added** `ZAlgorithm` in `Strings`: Z-array (z[0] = n convention) and overlapping-match search without sentinel concatenation, O(n + m).
+* **Added** `LongestIncreasingSubsequence` in the new `DynamicProgramming` area: O(n log n) length + reconstruction, strict/non-strict semantics, comparer-based.
 
 ## 1.5.0 - 2026.11.17
 * **Added** `TupleHelper` as the canonical (and documented) name for the tuple helpers; the misspelled `TupleHelpler` remains as an `[Obsolete]` forwarding bridge (removal planned for a future major).
