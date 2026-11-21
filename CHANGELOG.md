@@ -8,6 +8,7 @@
 * **Added** `BinaryHeap` in `DataStructures/Heap`: handle-tracked min-heap with O(log n) `TryDecreaseKey` + `GetValue` (the DecreaseKey the BCL `PriorityQueue` lacks); duplicates are independent entries.
 * **Added** `MinimumSpanningTree` (Kruskal via `UnionFind`, Prim via `BinaryHeap`) in `DataStructures/Graph/GenericAlgorithms` — MST weight + edges, null on disconnected input; parallel-edge and self-loop behavior documented.
 * **Added** `BellmanFord` (negative weights, reachable-negative-cycle → null) and `FloydWarshall` (all-pairs matrix, O(n²) memory — small n; negative cycles visible on the diagonal) in `DataStructures/Graph/Misc`.
+* **Added** `Dinic` max-flow in `DataStructures/Graph/Misc`: flow value + per-edge flows, parallel edges as separate slots, O(V²E); super-source/sink construction documented for multi-source/sink.
 
 ## 1.5.0 - 2026.11.17
 * **Added** `TupleHelper` as the canonical (and documented) name for the tuple helpers; the misspelled `TupleHelpler` remains as an `[Obsolete]` forwarding bridge (removal planned for a future major).
