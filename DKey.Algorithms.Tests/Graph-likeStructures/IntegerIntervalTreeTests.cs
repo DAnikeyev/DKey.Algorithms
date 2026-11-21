@@ -14,6 +14,6 @@ public class IntegerIntervalTreeTests
 
         tree.AddToInterval(1, 3, 2);
         SegmentTreeNode sum = tree.GetCumulativeOperation(1, 4);
-        Assert.AreEqual(20, sum.Value);
+        ClassicAssert.AreEqual(20, sum.Value);
     }
 }

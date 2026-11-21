@@ -15,7 +15,7 @@ public class GetFirstIndexInSortedListInIntervalTests
 
         var actualResult = SortedDataSearch.GetFirstIndexInSortedListInInterval(input, min, max, x => x * x);
 
-        Assert.AreEqual(expectedResult, actualResult);
+        ClassicAssert.AreEqual(expectedResult, actualResult);
     }
 
     public void GetFirstIndexInSortedListInInterval_TestWithCustomObject_ReturnsCorrectIndex()
@@ -34,7 +34,7 @@ public class GetFirstIndexInSortedListInIntervalTests
 
         var actualResult = SortedDataSearch.GetFirstIndexInSortedListInInterval(input, min, max, person => person.Age);
 
-        Assert.AreEqual(expectedResult, actualResult);
+        ClassicAssert.AreEqual(expectedResult, actualResult);
     }
 
 }

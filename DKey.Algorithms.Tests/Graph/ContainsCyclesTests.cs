@@ -15,7 +15,7 @@ public class ContainsCyclesTests
             new List<int> {2}
         };
 
-        Assert.IsTrue(Cycle.Exists(graph));
+        ClassicAssert.IsTrue(Cycle.Exists(graph));
     }
 
     [Test]
@@ -30,6 +30,6 @@ public class ContainsCyclesTests
             new List<int> {3}
         };
 
-        Assert.IsFalse(Cycle.Exists(graph));
+        ClassicAssert.IsFalse(Cycle.Exists(graph));
     }
 }

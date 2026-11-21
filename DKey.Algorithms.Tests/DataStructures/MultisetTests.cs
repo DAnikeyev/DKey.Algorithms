@@ -12,23 +12,23 @@ namespace DKey.Algorithms.Tests.DataStructures
             multiset.Add(3);
             multiset.Add(5);
 
-            Assert.AreEqual(3, multiset.Count);
-            Assert.AreEqual(2, multiset.CountDistinct);
-            Assert.AreEqual(5, multiset.Max);
-            Assert.AreEqual(3, multiset.Min);
+            ClassicAssert.AreEqual(3, multiset.Count);
+            ClassicAssert.AreEqual(2, multiset.CountDistinct);
+            ClassicAssert.AreEqual(5, multiset.Max);
+            ClassicAssert.AreEqual(3, multiset.Min);
 
             multiset.Add(3, 3);
-            Assert.AreEqual(6, multiset.Count);
+            ClassicAssert.AreEqual(6, multiset.Count);
 
-            Assert.IsTrue(multiset.Remove(3));
-            Assert.AreEqual(5, multiset.Count);
-            Assert.AreEqual(3, multiset.Min);
+            ClassicAssert.IsTrue(multiset.Remove(3));
+            ClassicAssert.AreEqual(5, multiset.Count);
+            ClassicAssert.AreEqual(3, multiset.Min);
 
-            Assert.IsTrue(multiset.Remove(5, 2));
-            Assert.AreEqual(3, multiset.Count);
-            Assert.AreEqual(3, multiset.Max);
+            ClassicAssert.IsTrue(multiset.Remove(5, 2));
+            ClassicAssert.AreEqual(3, multiset.Count);
+            ClassicAssert.AreEqual(3, multiset.Max);
 
-            Assert.IsFalse(multiset.Remove(10));
+            ClassicAssert.IsFalse(multiset.Remove(10));
         }
 
         [Test]
@@ -39,14 +39,14 @@ namespace DKey.Algorithms.Tests.DataStructures
             multiset.Add(3);
             multiset.Add(5);
 
-            Assert.IsTrue(multiset.TryGetValue(5, out long count));
-            Assert.AreEqual(2, count);
+            ClassicAssert.IsTrue(multiset.TryGetValue(5, out long count));
+            ClassicAssert.AreEqual(2, count);
 
-            Assert.IsTrue(multiset.TryGetValue(3, out count));
-            Assert.AreEqual(1, count);
+            ClassicAssert.IsTrue(multiset.TryGetValue(3, out count));
+            ClassicAssert.AreEqual(1, count);
 
-            Assert.IsFalse(multiset.TryGetValue(10, out count));
-            Assert.AreEqual(0, count);
+            ClassicAssert.IsFalse(multiset.TryGetValue(10, out count));
+            ClassicAssert.AreEqual(0, count);
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace DKey.Algorithms.Tests.DataStructures
 
             var distinctItems = multiset.GetDistinctItems();
             var expected = new List<int> { 3, 5 };
-            CollectionAssert.AreEqual(expected, distinctItems);
+            ClassicAssert.AreEqual(expected, distinctItems);
         }
 
         [Test]
@@ -74,10 +74,10 @@ namespace DKey.Algorithms.Tests.DataStructures
 
             var multiset = new SortedMultiset<int>(countDictionary);
 
-            Assert.AreEqual(6, multiset.Count);
-            Assert.AreEqual(3, multiset.CountDistinct);
-            Assert.AreEqual(3, multiset.Max);
-            Assert.AreEqual(1, multiset.Min);
+            ClassicAssert.AreEqual(6, multiset.Count);
+            ClassicAssert.AreEqual(3, multiset.CountDistinct);
+            ClassicAssert.AreEqual(3, multiset.Max);
+            ClassicAssert.AreEqual(1, multiset.Min);
         }
         [Test]
 
@@ -89,21 +89,21 @@ namespace DKey.Algorithms.Tests.DataStructures
             multiset.Add(5);
             multiset.Add(7);
 
-            Assert.IsFalse(multiset.Remove(10));
-            Assert.AreEqual(4, multiset.Count);
+            ClassicAssert.IsFalse(multiset.Remove(10));
+            ClassicAssert.AreEqual(4, multiset.Count);
 
-            Assert.IsTrue(multiset.Remove(3));
-            Assert.AreEqual(3, multiset.Count);
-            Assert.IsFalse(multiset.TryGetValue(3, out _));
+            ClassicAssert.IsTrue(multiset.Remove(3));
+            ClassicAssert.AreEqual(3, multiset.Count);
+            ClassicAssert.IsFalse(multiset.TryGetValue(3, out _));
 
-            Assert.IsTrue(multiset.Remove(5));
-            Assert.AreEqual(2, multiset.Count);
-            Assert.IsTrue(multiset.TryGetValue(5, out var count));
-            Assert.AreEqual(1, count);
+            ClassicAssert.IsTrue(multiset.Remove(5));
+            ClassicAssert.AreEqual(2, multiset.Count);
+            ClassicAssert.IsTrue(multiset.TryGetValue(5, out var count));
+            ClassicAssert.AreEqual(1, count);
 
-            Assert.IsFalse(multiset.Remove(7, 2));
-            Assert.AreEqual(1, multiset.Count);
-            Assert.IsFalse(multiset.TryGetValue(7, out _));
+            ClassicAssert.IsFalse(multiset.Remove(7, 2));
+            ClassicAssert.AreEqual(1, multiset.Count);
+            ClassicAssert.IsFalse(multiset.TryGetValue(7, out _));
         }
     }
 }

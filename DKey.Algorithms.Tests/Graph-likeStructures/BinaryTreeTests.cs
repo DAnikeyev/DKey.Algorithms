@@ -25,9 +25,9 @@ public class BinaryTreeTests
         var tree = new IntegerSumBinaryTree();
         tree.Init(data);
 
-        Assert.AreEqual(15, tree.GetCumulativeOperation(0, 4));
-        Assert.AreEqual(6, tree.GetCumulativeOperation(0, 2));
-        Assert.AreEqual(7, tree.GetCumulativeOperation(2, 3));
-        Assert.AreEqual(9, tree.GetCumulativeOperation(3, 4));
+        ClassicAssert.AreEqual(15, tree.GetCumulativeOperation(0, 4));
+        ClassicAssert.AreEqual(6, tree.GetCumulativeOperation(0, 2));
+        ClassicAssert.AreEqual(7, tree.GetCumulativeOperation(2, 3));
+        ClassicAssert.AreEqual(9, tree.GetCumulativeOperation(3, 4));
     }
 }

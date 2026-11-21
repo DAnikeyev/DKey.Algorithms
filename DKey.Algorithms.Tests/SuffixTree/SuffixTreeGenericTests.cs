@@ -11,10 +11,10 @@ public class SuffixTreeGenericTests
         var data = new List<MyValue> { new MyValue(1), new MyValue(2), new MyValue(3), new MyValue(6), new MyValue(7), new MyValue(3) };
         var tree = SuffixTree<MyValue>.Build(data, new MyValue(int.MinValue));
 
-        Assert.IsTrue(tree.Contains(new List<MyValue> { new MyValue(1), new MyValue(2), new MyValue(3) }));
-        Assert.IsTrue(tree.Contains(new List<MyValue> { new MyValue(2), new MyValue(3), new MyValue(1) }));
-        Assert.IsTrue(tree.Contains(new List<MyValue> { new MyValue(3), new MyValue(1), new MyValue(2) }));
-        Assert.IsTrue(tree.Contains(new List<MyValue> { new MyValue(1), new MyValue(2) }));
+        ClassicAssert.IsTrue(tree.Contains(new List<MyValue> { new MyValue(1), new MyValue(2), new MyValue(3) }));
+        ClassicAssert.IsTrue(tree.Contains(new List<MyValue> { new MyValue(2), new MyValue(3), new MyValue(1) }));
+        ClassicAssert.IsTrue(tree.Contains(new List<MyValue> { new MyValue(3), new MyValue(1), new MyValue(2) }));
+        ClassicAssert.IsTrue(tree.Contains(new List<MyValue> { new MyValue(1), new MyValue(2) }));
     }
 
     [Test]
@@ -23,9 +23,9 @@ public class SuffixTreeGenericTests
         var data = new List<MyValue> { new MyValue(1), new MyValue(2), new MyValue(3), new MyValue(6), new MyValue(7), new MyValue(3) };
         var tree = SuffixTree<MyValue>.Build(data, new MyValue(0));
 
-        Assert.IsFalse(tree.Contains(new List<MyValue> { new MyValue(1), new MyValue(2), new MyValue(4) }));
-        Assert.IsFalse(tree.Contains(new List<MyValue> { new MyValue(2), new MyValue(3), new MyValue(3) }));
-        Assert.IsFalse(tree.Contains(new List<MyValue> { new MyValue(3), new MyValue(1), new MyValue(1) }));
-        Assert.IsFalse(tree.Contains(new List<MyValue> { new MyValue(4), new MyValue(2) }));
+        ClassicAssert.IsFalse(tree.Contains(new List<MyValue> { new MyValue(1), new MyValue(2), new MyValue(4) }));
+        ClassicAssert.IsFalse(tree.Contains(new List<MyValue> { new MyValue(2), new MyValue(3), new MyValue(3) }));
+        ClassicAssert.IsFalse(tree.Contains(new List<MyValue> { new MyValue(3), new MyValue(1), new MyValue(1) }));
+        ClassicAssert.IsFalse(tree.Contains(new List<MyValue> { new MyValue(4), new MyValue(2) }));
     }
 }

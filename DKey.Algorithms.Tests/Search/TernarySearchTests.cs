@@ -16,7 +16,7 @@ public class TernarySearchTests
 
         var result = TernarySearch.GetIndex(left, right, QuadraticFunction);
 
-        Assert.AreEqual(3, result);
+        ClassicAssert.AreEqual(3, result);
     }
 
     [Test]
@@ -30,7 +30,7 @@ public class TernarySearchTests
 
         var result = TernarySearch.GetIndexLong(left, right, ReverseLinearFunction);
 
-        Assert.AreEqual(9, result);
+        ClassicAssert.AreEqual(9, result);
     }
 
     [Test]
@@ -44,6 +44,6 @@ public class TernarySearchTests
 
         var result = TernarySearch.GetIndex(left, right, ReverseLinearFunction);
 
-        Assert.AreEqual(1, result);
+        ClassicAssert.AreEqual(1, result);
     }
 }

@@ -16,7 +16,7 @@ public class TokenizerTests
         var result = Tokenizer.Split(inputText, TokenizerMode.TakeOnlyLetters);
 
         // Assert
-        CollectionAssert.AreEqual(expectedResult, result);
+        ClassicAssert.AreEqual(expectedResult, result);
     }
 
     [Test]
@@ -30,7 +30,7 @@ public class TokenizerTests
         var result = Tokenizer.Split(inputText, TokenizerMode.WhiteSpaces);
 
         // Assert
-        CollectionAssert.AreEqual(expectedResult, result);
+        ClassicAssert.AreEqual(expectedResult, result);
     }
 
     [Test]
@@ -44,6 +44,6 @@ public class TokenizerTests
         var result = Tokenizer.Split(inputText, TokenizerMode.TakeOnlyLettersOrDigit);
 
         // Assert
-        CollectionAssert.AreEqual(expectedResult, result);
+        ClassicAssert.AreEqual(expectedResult, result);
     }
 }

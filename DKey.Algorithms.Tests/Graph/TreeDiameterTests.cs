@@ -20,7 +20,7 @@ public class TreeDiameterTests
 
         var diameter = TreeDiameter.Get(graph);
 
-        Assert.AreEqual(expectedDiameter, diameter);
+        ClassicAssert.AreEqual(expectedDiameter, diameter);
     }
 
     [Test]
@@ -38,7 +38,7 @@ public class TreeDiameterTests
 
         var diameter = TreeDiameter.Get(graph);
 
-        Assert.AreEqual(expectedDiameter, diameter);
+        ClassicAssert.AreEqual(expectedDiameter, diameter);
     }
 
     [Test]
@@ -60,6 +60,6 @@ public class TreeDiameterTests
 
         var diameter = TreeDiameter.Get(graph);
 
-        Assert.AreEqual(expectedDiameter, diameter);
+        ClassicAssert.AreEqual(expectedDiameter, diameter);
     }
 }
